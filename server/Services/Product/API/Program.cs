@@ -1,3 +1,4 @@
+using API.Extensions;
 using API.Middleware;
 using API.SignalR;
 using Core.Entities;
@@ -6,9 +7,9 @@ using Infrastructure;
 using Infrastructure.Data;
 using Infrastructure.Services;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using StackExchange.Redis;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -41,6 +42,11 @@ builder.Services.AddIdentityApiEndpoints<AppUser>()
 builder.Services.AddScoped<IPaymentService, PaymentService>();
 builder.Services.AddScoped<ICouponService, CouponService>();
 builder.Services.AddSignalR();
+
+builder.Services.AddControllers().AddJsonOptions(x =>
+                            x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
+
+builder.Services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
 
 var app = builder.Build();
 

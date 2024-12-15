@@ -2,6 +2,7 @@
 using Core.Entities;
 using Core.Interfaces;
 using Core.Specifications;
+using Core.Specifications.Params;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,7 +13,7 @@ public class ProductsController(IUnitOfWork unit) : BaseApiController
     [Cache(600)]
     [HttpGet]
     public async Task<ActionResult<IReadOnlyList<Product>>> GetProducts(
-        [FromQuery]ProductSpecParams specParams)
+        [FromQuery] ProductSpecParams specParams)
     {
         var spec = new ProductSpecification(specParams);
 

@@ -1,4 +1,4 @@
-﻿namespace Core.Specifications;
+﻿namespace Core.Specifications.Params;
 
 public class ProductSpecParams : PagingParams
 {
@@ -32,6 +32,6 @@ public class ProductSpecParams : PagingParams
         get => _search ?? "";
         set => _search = value.ToLower();
     }
-    
+
 
 }
