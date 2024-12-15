@@ -20,8 +20,12 @@ public class CategoryController(IUnitOfWork unit, IMapper _mapper) : BaseApiCont
     {
         var spec = new CategorySpecification(specParams);
 
-        return await CreatePagedResult<Category, CategoryDto>(unit.Repository<Category>(), spec, specParams.PageIndex,
-            specParams.PageSize, _mapper);
+        return await CreatePagedResult<Category, CategoryDto>(
+            unit.Repository<Category>(),
+            spec,
+            specParams.PageIndex,
+            specParams.PageSize, _mapper
+        );
     }
 
     [Cache(600)]
@@ -34,7 +38,10 @@ public class CategoryController(IUnitOfWork unit, IMapper _mapper) : BaseApiCont
 
         if (category == null) return NotFound();
 
-        return APISuccessResponse(_mapper.Map<CategoryDto>(category), "Category retrieved successfully");
+        return APISuccessResponse(
+            _mapper.Map<CategoryDto>(category),
+            "Category retrieved successfully"
+        );
     }
 
     [InvalidateCache("api/categories|")]
@@ -56,7 +63,12 @@ public class CategoryController(IUnitOfWork unit, IMapper _mapper) : BaseApiCont
             });
         }
 
-        return APIErrorResponse(Guid.NewGuid(), HttpStatusCode.BadRequest, "Problem creating category", new List<string> { "Failed to save the category to the database." });
+        return APIErrorResponse(
+            Guid.NewGuid(),
+            HttpStatusCode.BadRequest,
+            "Problem creating category",
+            new List<string> { "Failed to save the category to the database." }
+        );
     }
 
     [InvalidateCache("api/categories|")]
@@ -65,7 +77,11 @@ public class CategoryController(IUnitOfWork unit, IMapper _mapper) : BaseApiCont
     public async Task<ActionResult> UpdateCategory(int id, UpdateCategoryDto updateCategory)
     {
         if (updateCategory.Id != id || !CategoryExists(id))
-            return APIErrorResponse(Guid.NewGuid(), HttpStatusCode.BadRequest, "Cannot update this category", new List<string> { "Invalid category ID." });
+            return APIErrorResponse(
+                Guid.NewGuid(),
+                HttpStatusCode.BadRequest,
+                "Cannot update this category",
+                new List<string> { "Invalid category ID." });
 
         var category = _mapper.Map<Category>(updateCategory);
 
@@ -76,7 +92,10 @@ public class CategoryController(IUnitOfWork unit, IMapper _mapper) : BaseApiCont
             return APISuccessResponse(_mapper.Map<CategoryDto>(category), "Category updated successfully");
         }
 
-        return BadRequest("Problem updating the category");
+        return APIErrorResponse(Guid.NewGuid(),
+            HttpStatusCode.BadRequest,
+            "Problem deleting the category",
+            new List<string> { "Failed to delete the category." });
     }
 
     [InvalidateCache("api/categories|")]
@@ -87,7 +106,11 @@ public class CategoryController(IUnitOfWork unit, IMapper _mapper) : BaseApiCont
         var category = await unit.Repository<Category>().GetByIdAsync(id);
 
         if (category == null)
-            return APIErrorResponse(Guid.NewGuid(), HttpStatusCode.NotFound, "Category not found", new List<string> { "The specified category does not exist." });
+            return APIErrorResponse(
+                Guid.NewGuid(),
+                HttpStatusCode.NotFound,
+                "Category not found",
+                new List<string> { "The specified category does not exist." });
 
         unit.Repository<Category>().Remove(category);
 
@@ -96,7 +119,10 @@ public class CategoryController(IUnitOfWork unit, IMapper _mapper) : BaseApiCont
             return APISuccessResponse(id, "Category deleted successfully");
         }
 
-        return APIErrorResponse(Guid.NewGuid(), HttpStatusCode.BadRequest, "Problem deleting the category", new List<string> { "Failed to delete the category." });
+        return APIErrorResponse(Guid.NewGuid(),
+            HttpStatusCode.BadRequest,
+            "Problem deleting the category",
+            new List<string> { "Failed to delete the category." });
     }
 
     private bool CategoryExists(int id)
