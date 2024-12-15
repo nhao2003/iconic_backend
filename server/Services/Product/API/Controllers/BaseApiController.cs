@@ -1,8 +1,10 @@
-﻿using API.RequestHelpers;
+﻿using API.DTOs;
+using API.RequestHelpers;
 using AutoMapper;
 using Core.Entities;
 using Core.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace API.Controllers;
 
@@ -18,7 +20,7 @@ public class BaseApiController : ControllerBase
 
         var pagination = new Pagination<T>(pageIndex, pageSize, count, items);
 
-        return Ok(pagination);
+        return APISuccessResponse(pagination, "Data retrieved successfully");
     }
 
     protected async Task<ActionResult> CreatePagedResult<T, TDto>(IGenericRepository<T> repo,
@@ -32,7 +34,7 @@ public class BaseApiController : ControllerBase
 
         var pagination = new Pagination<TDto>(pageIndex, pageSize, count, dtoItems);
 
-        return Ok(pagination);
+        return APISuccessResponse(pagination, "Data retrieved successfully");
     }
 
     protected async Task<ActionResult> CreatePagedResult<T, TDto>(
@@ -50,6 +52,26 @@ public class BaseApiController : ControllerBase
 
         var pagination = new Pagination<TDto>(pageIndex, pageSize, count, dtoItems);
 
-        return Ok(pagination);
+        return APISuccessResponse(pagination, "Data retrieved successfully");
+    }
+
+    protected ActionResult APISuccessResponse<T>(T data, string message = "Success")
+    {
+        return Ok(new APISucessResponse()
+        {
+            StatusCode = HttpStatusCode.OK,
+            Message = message,
+            Data = data
+        });
+    }
+
+    protected ActionResult APIErrorResponse(Guid id, HttpStatusCode statusCode, string message, List<string> errors)
+    {
+        return StatusCode((int)statusCode, new APIErrorResponse
+        {
+            StatusCode = statusCode,
+            Message = message,
+            Errors = errors
+        });
     }
 }
