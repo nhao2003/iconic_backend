@@ -25,29 +25,45 @@ public class StoreContextSeed
 
         if (!context.Products.Any())
         {
-            var productsData = await File
-                .ReadAllTextAsync(path + @"/Data/SeedData/products.json");
-
+            var productsData = await File.ReadAllTextAsync(path + @"/Data/SeedData/products.json");
             var products = JsonSerializer.Deserialize<List<Product>>(productsData);
 
             if (products == null) return;
 
             context.Products.AddRange(products);
-
             await context.SaveChangesAsync();
         }
 
-        if (!context.DeliveryMethods.Any())
+        if (!context.Categories.Any())
         {
-            var dmData = await File
-                .ReadAllTextAsync(path + @"/Data/SeedData/delivery.json");
+            var categoriesData = await File.ReadAllTextAsync(path + @"/Data/SeedData/categories.json");
+            var categories = JsonSerializer.Deserialize<List<Category>>(categoriesData);
 
-            var methods = JsonSerializer.Deserialize<List<DeliveryMethod>>(dmData);
+            if (categories == null) return;
 
-            if (methods == null) return;
+            context.Categories.AddRange(categories);
+            await context.SaveChangesAsync();
+        }
 
-            context.DeliveryMethods.AddRange(methods);
+        if (!context.ProductAttributes.Any())
+        {
+            var attributesData = await File.ReadAllTextAsync(path + @"/Data/SeedData/attributes.json");
+            var attributes = JsonSerializer.Deserialize<List<ProductAttribute>>(attributesData);
 
+            if (attributes == null) return;
+
+            context.ProductAttributes.AddRange(attributes);
+            await context.SaveChangesAsync();
+        }
+
+        if (!context.Variants.Any())
+        {
+            var variantsData = await File.ReadAllTextAsync(path + @"/Data/SeedData/variants.json");
+            var variants = JsonSerializer.Deserialize<List<Variant>>(variantsData);
+
+            if (variants == null) return;
+
+            context.Variants.AddRange(variants);
             await context.SaveChangesAsync();
         }
     }

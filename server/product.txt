@@ -1,0 +1,2 @@
+dotnet ef migrations add name -s API -p Infrastructure
+dotnet ef database update -s API -p Infrastructure

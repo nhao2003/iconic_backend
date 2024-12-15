@@ -1,0 +1,48 @@
+[
+  {
+    "AttributeCode": "color",
+    "AttributeName": "Color",
+    "Type": "string",
+    "IsRequired": true,
+    "DisplayOnFrontend": true,
+    "SortOrder": 1,
+    "IsFilterable": true,
+    "AttributeOptions": [
+      {
+        "AttributeCode": "color",
+        "OptionText": "Red"
+      },
+      {
+        "AttributeCode": "color",
+        "OptionText": "Blue"
+      },
+      {
+        "AttributeCode": "color",
+        "OptionText": "Green"
+      }
+    ]
+  },
+  {
+    "AttributeCode": "size",
+    "AttributeName": "Size",
+    "Type": "string",
+    "IsRequired": false,
+    "DisplayOnFrontend": true,
+    "SortOrder": 2,
+    "IsFilterable": true,
+    "AttributeOptions": [
+      {
+        "AttributeCode": "size",
+        "OptionText": "Small"
+      },
+      {
+        "AttributeCode": "size",
+        "OptionText": "Medium"
+      },
+      {
+        "AttributeCode": "size",
+        "OptionText": "Large"
+      }
+    ]
+  }
+]

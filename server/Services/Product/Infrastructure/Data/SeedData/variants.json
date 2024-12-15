@@ -1,0 +1,34 @@
+[
+  {
+    "ProductId": 1,
+    "Sku": "ANG-2000-V1",
+    "Price": 220,
+    "ImageUrl": "/images/variants/ang-2000-v1.png",
+    "AttributeValues": [
+      {
+        "AttributeId": 1,
+        "OptionText": "Red"
+      },
+      {
+        "AttributeId": 2,
+        "OptionText": "Small"
+      }
+    ]
+  },
+  {
+    "ProductId": 2,
+    "Sku": "ANG-3000-V1",
+    "Price": 250,
+    "ImageUrl": "/images/variants/ang-3000-v1.png",
+    "AttributeValues": [
+      {
+        "AttributeId": 1,
+        "OptionText": "Blue"
+      },
+      {
+        "AttributeId": 2,
+        "OptionText": "Large"
+      }
+    ]
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "Slug": "boards",
+    "Status": true,
+    "IncludeInNav": true,
+    "Position": 1,
+    "CategoryDescriptions": [
+      {
+        "Name": "Boards",
+        "ShortDescription": "All kinds of boards",
+        "Description": "A wide range of boards for all purposes.",
+        "Image": "/images/categories/boards.png",
+        "UrlKey": "boards"
+      }
+    ]
+  },
+  {
+    "Slug": "accessories",
+    "Status": true,
+    "IncludeInNav": true,
+    "Position": 2,
+    "CategoryDescriptions": [
+      {
+        "Name": "Accessories",
+        "ShortDescription": "High-quality accessories",
+        "Description": "Accessories to complement your products.",
+        "Image": "/images/categories/accessories.png",
+        "UrlKey": "accessories"
+      }
+    ]
+  }
+]
