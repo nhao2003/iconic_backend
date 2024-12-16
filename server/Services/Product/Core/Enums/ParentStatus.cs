@@ -1,9 +1,8 @@
-﻿namespace Core.Enums
+﻿namespace Core.Enums;
+
+public enum ParentStatus
 {
-    public enum ParentStatus
-    {
-        Published,
-        Inactive,
-        Scheduled
-    }
+    Published,
+    Inactive,
+    Scheduled
 }

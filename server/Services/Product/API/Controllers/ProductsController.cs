@@ -40,7 +40,7 @@ public class ProductsController(IUnitOfWork unit, IMapper _mapper) : BaseApiCont
     }
 
     [InvalidateCache("api/products|")]
-    //[Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
     [HttpPost]
     public async Task<ActionResult<Product>> CreateProduct(CreateProductDto createProduct)
     {
@@ -218,10 +218,21 @@ public class ProductsController(IUnitOfWork unit, IMapper _mapper) : BaseApiCont
 
         if (await unit.Complete())
         {
-            return NoContent();
+            return CreatedAtAction("DeleteProduct", new { id = product.Id },
+            new APISuccessResponse
+            {
+                StatusCode = HttpStatusCode.OK,
+                Message = "Product Deleted successfully",
+                Data = _mapper.Map<ProductDto>(product)
+            });
         }
 
-        return BadRequest("Problem deleting the product");
+        return APIErrorResponse(
+            Guid.NewGuid(),
+            HttpStatusCode.BadRequest,
+            "Problem deleting the product",
+            new List<string> { "Failed to delete the product from the database." }
+        );
     }
 
     [Cache(10000)]

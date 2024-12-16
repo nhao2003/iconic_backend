@@ -23,17 +23,6 @@ public class StoreContextSeed
 
         var path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
-        if (!context.Products.Any())
-        {
-            var productsData = await File.ReadAllTextAsync(path + @"/Data/SeedData/products.json");
-            var products = JsonSerializer.Deserialize<List<Product>>(productsData);
-
-            if (products == null) return;
-
-            context.Products.AddRange(products);
-            await context.SaveChangesAsync();
-        }
-
         if (!context.Categories.Any())
         {
             var categoriesData = await File.ReadAllTextAsync(path + @"/Data/SeedData/categories.json");
@@ -56,14 +45,39 @@ public class StoreContextSeed
             await context.SaveChangesAsync();
         }
 
-        if (!context.Variants.Any())
+        //if (!context.Products.Any())
+        //{
+        //    var productsData = await File.ReadAllTextAsync(path + @"/Data/SeedData/products.json");
+        //    var products = JsonSerializer.Deserialize<List<Product>>(productsData);
+
+        //    if (products == null) return;
+
+        //    context.Products.AddRange(products);
+        //    await context.SaveChangesAsync();
+        //}
+
+        //if (!context.Variants.Any())
+        //{
+        //    var variantsData = await File.ReadAllTextAsync(path + @"/Data/SeedData/variants.json");
+        //    var variants = JsonSerializer.Deserialize<List<Variant>>(variantsData);
+
+        //    if (variants == null) return;
+
+        //    context.Variants.AddRange(variants);
+        //    await context.SaveChangesAsync();
+        //}
+
+        if (!context.DeliveryMethods.Any())
         {
-            var variantsData = await File.ReadAllTextAsync(path + @"/Data/SeedData/variants.json");
-            var variants = JsonSerializer.Deserialize<List<Variant>>(variantsData);
+            var dmData = await File
+                .ReadAllTextAsync(path + @"/Data/SeedData/delivery.json");
 
-            if (variants == null) return;
+            var methods = JsonSerializer.Deserialize<List<DeliveryMethod>>(dmData);
 
-            context.Variants.AddRange(variants);
+            if (methods == null) return;
+
+            context.DeliveryMethods.AddRange(methods);
+
             await context.SaveChangesAsync();
         }
     }

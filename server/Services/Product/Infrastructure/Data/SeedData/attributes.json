@@ -2,7 +2,7 @@
   {
     "AttributeCode": "color",
     "AttributeName": "Color",
-    "Type": "string",
+    "Type": "Select",
     "IsRequired": true,
     "DisplayOnFrontend": true,
     "SortOrder": 1,
@@ -25,8 +25,8 @@
   {
     "AttributeCode": "size",
     "AttributeName": "Size",
-    "Type": "string",
-    "IsRequired": false,
+    "Type": "Select",
+    "IsRequired": true,
     "DisplayOnFrontend": true,
     "SortOrder": 2,
     "IsFilterable": true,
@@ -42,6 +42,29 @@
       {
         "AttributeCode": "size",
         "OptionText": "Large"
+      }
+    ]
+  },
+  {
+    "AttributeCode": "material",
+    "AttributeName": "Material",
+    "Type": "Select",
+    "IsRequired": true,
+    "DisplayOnFrontend": true,
+    "SortOrder": 3,
+    "IsFilterable": true,
+    "AttributeOptions": [
+      {
+        "AttributeCode": "material",
+        "OptionText": "Iron"
+      },
+      {
+        "AttributeCode": "material",
+        "OptionText": "Inox"
+      },
+      {
+        "AttributeCode": "material",
+        "OptionText": "Wood"
       }
     ]
   }

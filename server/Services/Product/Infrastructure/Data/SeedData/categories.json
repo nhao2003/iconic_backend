@@ -28,5 +28,35 @@
         "UrlKey": "accessories"
       }
     ]
+  },
+  {
+    "Slug": "electronics",
+    "Status": true,
+    "IncludeInNav": true,
+    "Position": 1,
+    "CategoryDescriptions": [
+      {
+        "Name": "Electronics",
+        "ShortDescription": "Latest gadgets and devices",
+        "Description": "A wide selection of electronics including smartphones, laptops, and more.",
+        "Image": "/images/categories/electronics.png",
+        "UrlKey": "electronics"
+      }
+    ]
+  },
+  {
+    "Slug": "fashion",
+    "Status": true,
+    "IncludeInNav": true,
+    "Position": 2,
+    "CategoryDescriptions": [
+      {
+        "Name": "Fashion",
+        "ShortDescription": "Stylish and trendy",
+        "Description": "Explore the latest fashion trends for men and women.",
+        "Image": "/images/categories/fashion.png",
+        "UrlKey": "fashion"
+      }
+    ]
   }
 ]

@@ -2,18 +2,22 @@ import { Component, inject } from '@angular/core';
 import { ShopService } from '../../core/services/shop.service';
 import { Product } from '../../shared/models/product';
 import { MatCard } from '@angular/material/card';
-import { ProductItemComponent } from "./product-item/product-item.component";
+import { ProductItemComponent } from './product-item/product-item.component';
 import { MatDialog } from '@angular/material/dialog';
 import { FiltersDialogComponent } from './filters-dialog/filters-dialog.component';
 import { MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { MatMenu, MatMenuTrigger } from '@angular/material/menu';
-import { MatListOption, MatSelectionList, MatSelectionListChange } from '@angular/material/list';
+import {
+  MatListOption,
+  MatSelectionList,
+  MatSelectionListChange,
+} from '@angular/material/list';
 import { ShopParams } from '../../shared/models/shopParams';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { Pagination } from '../../shared/models/pagination';
 import { FormsModule } from '@angular/forms';
-import { EmptyStateComponent } from "../../shared/components/empty-state/empty-state.component";
+import { EmptyStateComponent } from '../../shared/components/empty-state/empty-state.component';
 
 @Component({
   selector: 'app-shop',
@@ -29,27 +33,27 @@ import { EmptyStateComponent } from "../../shared/components/empty-state/empty-s
     MatMenuTrigger,
     MatPaginator,
     FormsModule,
-    EmptyStateComponent
-],
+    EmptyStateComponent,
+  ],
   templateUrl: './shop.component.html',
-  styleUrl: './shop.component.scss'
+  styleUrl: './shop.component.scss',
 })
 export class ShopComponent {
   private shopService = inject(ShopService);
   private dialogService = inject(MatDialog);
   products?: Pagination<Product>;
   sortOptions = [
-    {name: 'Alphabetical', value: 'name'},
-    {name: 'Price: Low-High', value: 'priceAsc'},
-    {name: 'Price: High-Low', value: 'priceDesc'},
-  ]
+    { name: 'Alphabetical', value: 'name' },
+    { name: 'Price: Low-High', value: 'priceAsc' },
+    { name: 'Price: High-Low', value: 'priceDesc' },
+  ];
   shopParams = new ShopParams();
-  pageSizeOptions = [5,10,15,20]
+  pageSizeOptions = [5, 10, 15, 20];
 
   ngOnInit() {
     this.initialiseShop();
   }
-  
+
   initialiseShop() {
     this.shopService.getTypes();
     this.shopService.getBrands();
@@ -63,9 +67,19 @@ export class ShopComponent {
 
   getProducts() {
     this.shopService.getProducts(this.shopParams).subscribe({
-      next: response => this.products = response,
-      error: error => console.error(error)
-    })
+      next: (response) => {
+        this.products = response;
+
+        console.log('Count:' + this.products.count);
+        console.log('Data' + response.data);
+        console.log('Products: ' + this.products);
+        console.log('Products Data: ' + this.products.data.length);
+        console.log(
+          'Check: ' + (this.products && this.products.data.length > 0)
+        );
+      },
+      error: (error) => console.error(error),
+    });
   }
 
   onSearchChange() {
@@ -93,18 +107,18 @@ export class ShopComponent {
       minWidth: '500px',
       data: {
         selectedBrands: this.shopParams.brands,
-        selectedTypes: this.shopParams.types
-      }
+        selectedTypes: this.shopParams.types,
+      },
     });
     dialogRef.afterClosed().subscribe({
-      next: result => {
+      next: (result) => {
         if (result) {
           this.shopParams.brands = result.selectedBrands;
           this.shopParams.types = result.selectedTypes;
           this.shopParams.pageNumber = 1;
           this.getProducts();
         }
-      }
-    })
+      },
+    });
   }
 }
