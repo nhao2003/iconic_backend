@@ -8,6 +8,7 @@ namespace API.Extensions
     {
         public AutoMapperProfiles()
         {
+            // Category
             CreateMap<Category, CategoryDto>().ReverseMap();
             CreateMap<CategoryDescription, CategoryDescriptionDto>().ReverseMap();
 
@@ -36,6 +37,34 @@ namespace API.Extensions
                     UrlKey = src.UrlKey
                 }
             }));
+
+            // Attribute
+            CreateMap<ProductAttribute, AttributeDto>().ReverseMap();
+            CreateMap<AttributeOption, AttributeOptionDto>().ReverseMap();
+
+            CreateMap<ProductAttribute, CreateAttributeDto>()
+                .ReverseMap()
+                .AfterMap((dto, entity) =>
+                {
+                    foreach (var option in entity.AttributeOptions)
+                    {
+                        option.AttributeCode = dto.AttributeCode;
+                    }
+                });
+
+            CreateMap<AttributeOption, CreateAttributeOptionDto>().ReverseMap();
+
+            CreateMap<ProductAttribute, UpdateAttributeDto>()
+                .ReverseMap()
+                .AfterMap((dto, entity) =>
+                {
+                    foreach (var option in entity.AttributeOptions)
+                    {
+                        option.AttributeCode = dto.AttributeCode;
+                    }
+                });
+
+            CreateMap<AttributeOption, UpdateAttributeOptionDto>().ReverseMap();
         }
     }
 }
