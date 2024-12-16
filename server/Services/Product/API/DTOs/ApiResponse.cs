@@ -3,10 +3,10 @@
 namespace API.DTOs
 {
     // success respone
-    public class APISucessResponse
+    public class APISuccessResponse
     {
-        public APISucessResponse() { }
-        public APISucessResponse(HttpStatusCode statusCode, string message, dynamic data)
+        public APISuccessResponse() { }
+        public APISuccessResponse(HttpStatusCode statusCode, string message, dynamic data)
         {
             StatusCode = statusCode;
             Message = message;

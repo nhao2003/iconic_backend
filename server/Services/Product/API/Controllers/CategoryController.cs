@@ -55,7 +55,7 @@ public class CategoryController(IUnitOfWork unit, IMapper _mapper) : BaseApiCont
 
         if (await unit.Complete())
         {
-            return CreatedAtAction("GetCategory", new { id = category.Id }, new APISucessResponse
+            return CreatedAtAction("GetCategory", new { id = category.Id }, new APISuccessResponse
             {
                 StatusCode = HttpStatusCode.Created,
                 Message = "Category created successfully",

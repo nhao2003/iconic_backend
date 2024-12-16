@@ -57,7 +57,7 @@ public class BaseApiController : ControllerBase
 
     protected ActionResult APISuccessResponse<T>(T data, string message = "Success")
     {
-        return Ok(new APISucessResponse()
+        return Ok(new APISuccessResponse()
         {
             StatusCode = HttpStatusCode.OK,
             Message = message,

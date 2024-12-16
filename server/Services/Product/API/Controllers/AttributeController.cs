@@ -55,7 +55,7 @@ namespace API.Controllers
 
             if (await unit.Complete())
             {
-                return CreatedAtAction("GetAttribute", new { id = attribute.Id }, new APISucessResponse
+                return CreatedAtAction("GetAttribute", new { id = attribute.Id }, new APISuccessResponse
                 {
                     StatusCode = HttpStatusCode.Created,
                     Message = "Attribute created successfully",

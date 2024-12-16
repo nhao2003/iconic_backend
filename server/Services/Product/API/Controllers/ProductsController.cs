@@ -1,14 +1,18 @@
-﻿using API.RequestHelpers;
+﻿using API.DTOs;
+using API.RequestHelpers;
+using AutoMapper;
 using Core.Entities;
 using Core.Interfaces;
 using Core.Specifications;
 using Core.Specifications.Params;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
+using System;
 
 namespace API.Controllers;
 
-public class ProductsController(IUnitOfWork unit) : BaseApiController
+public class ProductsController(IUnitOfWork unit, IMapper _mapper) : BaseApiController
 {
     [Cache(600)]
     [HttpGet]
@@ -17,33 +21,99 @@ public class ProductsController(IUnitOfWork unit) : BaseApiController
     {
         var spec = new ProductSpecification(specParams);
 
-        return await CreatePagedResult(unit.Repository<Product>(), spec, specParams.PageIndex, specParams.PageSize);
+        return await CreatePagedResult<Product, ProductDto>(unit.Repository<Product>(), spec, specParams.PageIndex, specParams.PageSize, _mapper);
     }
 
     [Cache(600)]
     [HttpGet("{id:int}")] // api/products/2
     public async Task<ActionResult<Product>> GetProduct(int id)
     {
-        var product = await unit.Repository<Product>().GetByIdAsync(id);
+        var spec = new ProductSpecification(id);
+
+        var product = await unit.Repository<Product>().GetEntityWithSpec(spec);
 
         if (product == null) return NotFound();
 
-        return product;
+        return APISuccessResponse(
+            _mapper.Map<ProductDto>(product),
+            "Product retrieved successfully"
+        );
     }
 
     [InvalidateCache("api/products|")]
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
     [HttpPost]
-    public async Task<ActionResult<Product>> CreateProduct(Product product)
+    public async Task<ActionResult<Product>> CreateProduct(CreateProductDto createProduct)
     {
+        var product = _mapper.Map<Product>(createProduct);
+
+        // get category by Id
+        var category = await unit.Repository<Category>().GetByIdAsync(createProduct.CategoryId);
+        if (category != null)
+        {
+            product.Category = category;
+        }
+
+        // get Attributes by Ids
+        var attributes = new List<ProductAttribute>();
+        foreach (var attributeId in createProduct.AttributeIds)
+        {
+            var attr = await unit.Repository<ProductAttribute>().GetByIdAsync(attributeId);
+            if (attr != null)
+            {
+                attributes.Add(attr);
+            }
+        }
+        product.Attributes = attributes;
+
+        // get AttributeOptions by Ids
+        var attributeOptionMap = new Dictionary<int, AttributeOption>();
+        foreach (var variant in createProduct.Variants)
+        {
+            foreach (var attribute in variant.AttributeValues)
+            {
+                if (!attributeOptionMap.ContainsKey(attribute.OptionId))
+                {
+                    var option = await unit.Repository<AttributeOption>().GetByIdAsync(attribute.OptionId);
+                    if (option != null)
+                    {
+                        attributeOptionMap[attribute.AttributeId] = option;
+                    }
+                }
+            }
+        }
+
+        foreach (var productVariant in product.Variants)
+        {
+            foreach (var productAttributeValue in productVariant.AttributeValues)
+            {
+                if (attributeOptionMap.TryGetValue(productAttributeValue.AttributeId, out var option))
+                {
+                    productAttributeValue.Option = option;
+                }
+            }
+        }
+
         unit.Repository<Product>().Add(product);
 
         if (await unit.Complete())
         {
-            return CreatedAtAction("GetProduct", new { id = product.Id }, product);
+            return CreatedAtAction("GetProduct", new { id = product.Id },
+                new APISuccessResponse
+                {
+                    StatusCode = HttpStatusCode.Created,
+                    Message = "Product created successfully",
+                    Data = _mapper.Map<ProductDto>(product)
+                }
+            );
         }
 
-        return BadRequest("Problem creating product");
+        return APIErrorResponse(
+            Guid.NewGuid(),
+            HttpStatusCode.BadRequest,
+            "Problem creating product",
+            new List<string> { "Failed to save the product to the database." }
+        );
     }
 
     [InvalidateCache("api/products|")]

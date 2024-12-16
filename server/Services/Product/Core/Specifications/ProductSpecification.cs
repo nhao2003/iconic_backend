@@ -11,6 +11,10 @@ public class ProductSpecification : BaseSpecification<Product>
         (specParams.Types.Count == 0 || specParams.Types.Contains(x.Type))
     )
     {
+        AddInclude("Variants.AttributeValues");
+        AddInclude("Category.CategoryDescriptions");
+        AddInclude("ProductCustomOptions.ProductCustomOptionValues");
+
         ApplyPaging(specParams.PageSize * (specParams.PageIndex - 1), specParams.PageSize);
 
         switch (specParams.Sort)
@@ -25,5 +29,16 @@ public class ProductSpecification : BaseSpecification<Product>
                 AddOrderBy(x => x.Name);
                 break;
         }
+    }
+
+    public ProductSpecification(int id)
+    {
+        AddInclude(x => x.Category);
+
+        AddInclude(x => x.Attributes);
+
+        AddInclude(x => x.Variants);
+
+        AddInclude(x => x.ProductCustomOptions);
     }
 }
