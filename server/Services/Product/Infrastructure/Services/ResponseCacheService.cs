@@ -19,11 +19,12 @@ public class ResponseCacheService(IConnectionMultiplexer redis) : IResponseCache
 
     public async Task<string?> GetCachedResponseAsync(string cacheKey)
     {
-        var cachedResponse = await _database.StringGetAsync(cacheKey);
+        return null;
+        //var cachedResponse = await _database.StringGetAsync(cacheKey);
 
-        if (cachedResponse.IsNullOrEmpty) return null;
+        //if (cachedResponse.IsNullOrEmpty) return null;
 
-        return cachedResponse;
+        //return cachedResponse;
     }
 
     public async Task RemoveCacheByPattern(string pattern)

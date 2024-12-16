@@ -16,7 +16,7 @@ public class Product : BaseEntity
     public string? Barcode { get; set; }
     public decimal? Weight { get; set; }
     public Category? Category { get; set; }
-    public List<ProductAttribute> Attributes { get; set; } = new();
+    public List<ProductAttributeNavigator> ProductAttributes { get; set; } = new();
     public List<Variant> Variants { get; set; } = new();
     public List<ProductCustomOption> ProductCustomOptions { get; set; } = [];
 }

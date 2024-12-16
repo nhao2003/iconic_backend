@@ -18,6 +18,7 @@
 
         public List<AttributeOption> AttributeOptions { get; set; } = [];
 
+        public List<ProductAttributeNavigator> ProductAttributes { get; set; } = new();
         public List<ProductAttributeValueIndex> ProductAttributeValueIndexes { get; set; } = [];
     }
 }

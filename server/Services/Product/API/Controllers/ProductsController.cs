@@ -8,7 +8,6 @@ using Core.Specifications.Params;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
-using System;
 
 namespace API.Controllers;
 
@@ -64,7 +63,12 @@ public class ProductsController(IUnitOfWork unit, IMapper _mapper) : BaseApiCont
                 attributes.Add(attr);
             }
         }
-        product.Attributes = attributes;
+        // Populate the ProductAttributes collection
+        product.ProductAttributes = attributes.Select(attr => new ProductAttributeNavigator
+        {
+            Product = product,
+            ProductAttribute = attr
+        }).ToList();
 
         // get AttributeOptions by Ids
         var attributeOptionMap = new Dictionary<int, AttributeOption>();
@@ -143,7 +147,12 @@ public class ProductsController(IUnitOfWork unit, IMapper _mapper) : BaseApiCont
                 attributes.Add(attr);
             }
         }
-        product.Attributes = attributes;
+        // Populate the ProductAttributes collection
+        product.ProductAttributes = attributes.Select(attr => new ProductAttributeNavigator
+        {
+            Product = product,
+            ProductAttribute = attr
+        }).ToList();
 
         // get AttributeOptions by Ids
         var attributeOptionMap = new Dictionary<int, AttributeOption>();

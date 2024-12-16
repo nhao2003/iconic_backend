@@ -419,9 +419,6 @@ namespace Infrastructure.Migrations
                     b.Property<bool>("IsRequired")
                         .HasColumnType("bit");
 
-                    b.Property<int?>("ProductId")
-                        .HasColumnType("int");
-
                     b.Property<int>("SortOrder")
                         .HasColumnType("int");
 
@@ -432,9 +429,22 @@ namespace Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProductId");
-
                     b.ToTable("ProductAttributes");
+                });
+
+            modelBuilder.Entity("Core.Entities.ProductAttributeNavigator", b =>
+                {
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductAttributeId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ProductId", "ProductAttributeId");
+
+                    b.HasIndex("ProductAttributeId");
+
+                    b.ToTable("ProductAttributeNavigators");
                 });
 
             modelBuilder.Entity("Core.Entities.ProductAttributeValueIndex", b =>
@@ -587,13 +597,13 @@ namespace Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "83628309-95ad-411f-83ac-3e5e73c7c945",
+                            Id = "600c1fc2-4751-4eac-9bb2-ed22a08d1f3f",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "3baa1865-9057-4f28-9362-e49e7c5fd3b1",
+                            Id = "792dc9d3-c238-40fc-9117-c092f21a3a1c",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
                         });
@@ -874,12 +884,23 @@ namespace Infrastructure.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("Core.Entities.ProductAttribute", b =>
+            modelBuilder.Entity("Core.Entities.ProductAttributeNavigator", b =>
                 {
-                    b.HasOne("Core.Entities.Product", null)
-                        .WithMany("Attributes")
+                    b.HasOne("Core.Entities.ProductAttribute", "ProductAttribute")
+                        .WithMany("ProductAttributes")
+                        .HasForeignKey("ProductAttributeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Core.Entities.Product", "Product")
+                        .WithMany("ProductAttributes")
                         .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+
+                    b.Navigation("ProductAttribute");
                 });
 
             modelBuilder.Entity("Core.Entities.ProductAttributeValueIndex", b =>
@@ -1011,7 +1032,7 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Core.Entities.Product", b =>
                 {
-                    b.Navigation("Attributes");
+                    b.Navigation("ProductAttributes");
 
                     b.Navigation("ProductCustomOptions");
 
@@ -1023,6 +1044,8 @@ namespace Infrastructure.Migrations
                     b.Navigation("AttributeOptions");
 
                     b.Navigation("ProductAttributeValueIndexes");
+
+                    b.Navigation("ProductAttributes");
                 });
 
             modelBuilder.Entity("Core.Entities.ProductCustomOption", b =>

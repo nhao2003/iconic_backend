@@ -1,4 +1,6 @@
-﻿namespace API.DTOs
+﻿using Core.Entities;
+
+namespace API.DTOs
 {
     public class ProductDto
     {
@@ -18,7 +20,7 @@
 
         public CategoryDto? Category { get; set; }
 
-        public List<AttributeDto> Attributes { get; set; }
+        public List<ProductAttributeNavigatorDto> ProductAttributes { get; set; } = new();
 
         public List<VariantDto> Variants { get; set; }
 

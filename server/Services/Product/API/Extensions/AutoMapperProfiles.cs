@@ -75,6 +75,8 @@ namespace API.Extensions
             CreateMap<Variant, CreateVariantDto>().ReverseMap();
             CreateMap<Variant, UpdateVariantDto>().ReverseMap();
 
+            CreateMap<ProductAttributeNavigator, ProductAttributeNavigatorDto>().ReverseMap();
+
             CreateMap<ProductAttributeValueIndex, ProductAttributeValueIndexDto>().ReverseMap();
             CreateMap<CreateProductAttributeValueIndexDto, ProductAttributeValueIndex>().ReverseMap();
             CreateMap<UpdateProductAttributeValueIndexDto, ProductAttributeValueIndexDto>().ReverseMap();

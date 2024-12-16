@@ -11,6 +11,7 @@ public class ProductSpecification : BaseSpecification<Product>
         (specParams.Types.Count == 0 || specParams.Types.Contains(x.Type))
     )
     {
+        AddInclude("ProductAttributes.ProductAttribute");
         AddInclude("Variants.AttributeValues");
         AddInclude("Category.CategoryDescriptions");
         AddInclude("ProductCustomOptions.ProductCustomOptionValues");
@@ -31,9 +32,9 @@ public class ProductSpecification : BaseSpecification<Product>
         }
     }
 
-    public ProductSpecification(int id)
+    public ProductSpecification(int id) : base(x => x.Id == id)
     {
-        AddInclude("Attributes");
+        AddInclude("ProductAttributes.ProductAttribute");
         AddInclude("Variants.AttributeValues");
         AddInclude("Category.CategoryDescriptions");
         AddInclude("ProductCustomOptions.ProductCustomOptionValues");
