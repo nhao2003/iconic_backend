@@ -16,4 +16,14 @@
         public int AttributeId { get; set; }
         public int OptionId { get; set; }
     }
+
+    public class UpdateProductAttributeValueIndexDto
+    {
+        public int Id { get; set; }
+
+        public string? OptionText { get; set; }
+        public int VariantId { get; set; }
+        public int AttributeId { get; set; }
+        public int OptionId { get; set; }
+    }
 }

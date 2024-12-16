@@ -16,7 +16,7 @@ public class ProductAttributeValueIndexConfiguration : IEntityTypeConfiguration<
         builder.HasOne(pavi => pavi.Variant)
                .WithMany(v => v.AttributeValues)
                .HasForeignKey(pavi => pavi.VariantId)
-               .OnDelete(DeleteBehavior.Restrict);
+               .OnDelete(DeleteBehavior.Cascade);
 
         builder.HasOne(pavi => pavi.Option)
                .WithMany(o => o.ProductAttributeValueIndexes)

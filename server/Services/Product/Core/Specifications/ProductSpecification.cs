@@ -33,12 +33,9 @@ public class ProductSpecification : BaseSpecification<Product>
 
     public ProductSpecification(int id)
     {
-        AddInclude(x => x.Category);
-
-        AddInclude(x => x.Attributes);
-
-        AddInclude(x => x.Variants);
-
-        AddInclude(x => x.ProductCustomOptions);
+        AddInclude("Attributes");
+        AddInclude("Variants.AttributeValues");
+        AddInclude("Category.CategoryDescriptions");
+        AddInclude("ProductCustomOptions.ProductCustomOptionValues");
     }
 }

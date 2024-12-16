@@ -69,26 +69,15 @@ namespace API.Extensions
             // Product
             CreateMap<Product, ProductDto>().ReverseMap();
             CreateMap<CreateProductDto, Product>().ReverseMap();
-
-
-            //reateMap<CreateCategoryDto, Category>()
-            //.ForMember(dest => dest.CategoryDescriptions, opt => opt.MapFrom(src => new List<CategoryDescription>
-            //{
-            //    new CategoryDescription
-            //    {
-            //        Name = src.Name,
-            //        ShortDescription = src.ShortDescription,
-            //        Description = src.Description,
-            //        Image = src.Image,
-            //        UrlKey = src.UrlKey
-            //    }
-            //}));
+            CreateMap<UpdateProductDto, Product>().ReverseMap();
 
             CreateMap<Variant, VariantDto>().ReverseMap();
             CreateMap<Variant, CreateVariantDto>().ReverseMap();
+            CreateMap<Variant, UpdateVariantDto>().ReverseMap();
 
             CreateMap<ProductAttributeValueIndex, ProductAttributeValueIndexDto>().ReverseMap();
-            CreateMap<ProductAttributeValueIndex, CreateProductAttributeValueIndexDto>().ReverseMap();
+            CreateMap<CreateProductAttributeValueIndexDto, ProductAttributeValueIndex>().ReverseMap();
+            CreateMap<UpdateProductAttributeValueIndexDto, ProductAttributeValueIndexDto>().ReverseMap();
 
             CreateMap<ProductCustomOption, ProductCustomOptionDto>().ReverseMap();
             CreateMap<ProductCustomOption, CreateProductCustomOptionDto>().ReverseMap();

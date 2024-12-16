@@ -119,19 +119,81 @@ public class ProductsController(IUnitOfWork unit, IMapper _mapper) : BaseApiCont
     [InvalidateCache("api/products|")]
     [Authorize(Roles = "Admin")]
     [HttpPut("{id:int}")]
-    public async Task<ActionResult> UpdateProduct(int id, Product product)
+    public async Task<ActionResult> UpdateProduct(int id, UpdateProductDto updateProduct)
     {
-        if (product.Id != id || !ProductExists(id))
+        if (updateProduct.Id != id || !ProductExists(id))
             return BadRequest("Cannot update this product");
+
+        var product = _mapper.Map<Product>(updateProduct);
+
+        // get category by Id
+        var category = await unit.Repository<Category>().GetByIdAsync(updateProduct.CategoryId);
+        if (category != null)
+        {
+            product.Category = category;
+        }
+
+        // get Attributes by Ids
+        var attributes = new List<ProductAttribute>();
+        foreach (var attributeId in updateProduct.AttributeIds)
+        {
+            var attr = await unit.Repository<ProductAttribute>().GetByIdAsync(attributeId);
+            if (attr != null)
+            {
+                attributes.Add(attr);
+            }
+        }
+        product.Attributes = attributes;
+
+        // get AttributeOptions by Ids
+        var attributeOptionMap = new Dictionary<int, AttributeOption>();
+        foreach (var variant in updateProduct.Variants)
+        {
+            foreach (var attribute in variant.AttributeValues)
+            {
+                if (!attributeOptionMap.ContainsKey(attribute.OptionId))
+                {
+                    var option = await unit.Repository<AttributeOption>().GetByIdAsync(attribute.OptionId);
+                    if (option != null)
+                    {
+                        attributeOptionMap[attribute.AttributeId] = option;
+                    }
+                }
+            }
+        }
+
+        foreach (var productVariant in product.Variants)
+        {
+            foreach (var productAttributeValue in productVariant.AttributeValues)
+            {
+                if (attributeOptionMap.TryGetValue(productAttributeValue.AttributeId, out var option))
+                {
+                    productAttributeValue.Option = option;
+                }
+            }
+        }
 
         unit.Repository<Product>().Update(product);
 
         if (await unit.Complete())
         {
-            return NoContent();
+            return CreatedAtAction("GetProduct", new { id = product.Id },
+            new APISuccessResponse
+            {
+                StatusCode = HttpStatusCode.OK,
+                Message = "Product updated successfully",
+                Data = _mapper.Map<ProductDto>(product)
+            }
+        );
+
         }
 
-        return BadRequest("Problem updating the product");
+        return APIErrorResponse(
+            Guid.NewGuid(),
+            HttpStatusCode.BadRequest,
+            "Problem updating product",
+            new List<string> { "Failed to save the product to the database." }
+        );
     }
 
     [InvalidateCache("api/products|")]
