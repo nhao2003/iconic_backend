@@ -1,9 +1,7 @@
 ﻿using API.DTOs;
 using API.RequestHelpers;
-using AutoMapper;
+using API.Resolvers;
 using Core.Entities;
-using Core.Interfaces;
-using Core.Specifications;
 using Core.Specifications.Params;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -11,30 +9,33 @@ using System.Net;
 
 namespace API.Controllers;
 
-public class ProductsController(IUnitOfWork unit, IMapper _mapper) : BaseApiController
+public class ProductsController(ProductResolver resolver) : BaseApiController
 {
     [Cache(600)]
     [HttpGet]
     public async Task<ActionResult<IReadOnlyList<Product>>> GetProducts(
         [FromQuery] ProductSpecParams specParams)
     {
-        var spec = new ProductSpecification(specParams);
+        var pagination = await resolver.GetProducts(specParams);
 
-        return await CreatePagedResult<Product, ProductDto>(unit.Repository<Product>(), spec, specParams.PageIndex, specParams.PageSize, _mapper);
+        return APISuccessResponse(pagination, "Data retrieved successfully");
     }
 
     [Cache(600)]
-    [HttpGet("{id:int}")] // api/products/2
+    [HttpGet("{id:int}")]
     public async Task<ActionResult<Product>> GetProduct(int id)
     {
-        var spec = new ProductSpecification(id);
+        var product = await resolver.GetProductById(id);
 
-        var product = await unit.Repository<Product>().GetEntityWithSpec(spec);
-
-        if (product == null) return NotFound();
+        if (product == null) return APIErrorResponse(
+            Guid.NewGuid(),
+            HttpStatusCode.BadRequest,
+            "Product not Found",
+            new List<string> { "Failed when get the product by Id from the database." }
+        );
 
         return APISuccessResponse(
-            _mapper.Map<ProductDto>(product),
+            product,
             "Product retrieved successfully"
         );
     }
@@ -44,70 +45,16 @@ public class ProductsController(IUnitOfWork unit, IMapper _mapper) : BaseApiCont
     [HttpPost]
     public async Task<ActionResult<Product>> CreateProduct(CreateProductDto createProduct)
     {
-        var product = _mapper.Map<Product>(createProduct);
+        var product = await resolver.CreateProduct(createProduct);
 
-        // get category by Id
-        var category = await unit.Repository<Category>().GetByIdAsync(createProduct.CategoryId);
-        if (category != null)
-        {
-            product.Category = category;
-        }
-
-        // get Attributes by Ids
-        var attributes = new List<ProductAttribute>();
-        foreach (var attributeId in createProduct.AttributeIds)
-        {
-            var attr = await unit.Repository<ProductAttribute>().GetByIdAsync(attributeId);
-            if (attr != null)
-            {
-                attributes.Add(attr);
-            }
-        }
-        // Populate the ProductAttributes collection
-        product.ProductAttributes = attributes.Select(attr => new ProductAttributeNavigator
-        {
-            Product = product,
-            ProductAttribute = attr
-        }).ToList();
-
-        // get AttributeOptions by Ids
-        var attributeOptionMap = new Dictionary<int, AttributeOption>();
-        foreach (var variant in createProduct.Variants)
-        {
-            foreach (var attribute in variant.AttributeValues)
-            {
-                if (!attributeOptionMap.ContainsKey(attribute.OptionId))
-                {
-                    var option = await unit.Repository<AttributeOption>().GetByIdAsync(attribute.OptionId);
-                    if (option != null)
-                    {
-                        attributeOptionMap[attribute.AttributeId] = option;
-                    }
-                }
-            }
-        }
-
-        foreach (var productVariant in product.Variants)
-        {
-            foreach (var productAttributeValue in productVariant.AttributeValues)
-            {
-                if (attributeOptionMap.TryGetValue(productAttributeValue.AttributeId, out var option))
-                {
-                    productAttributeValue.Option = option;
-                }
-            }
-        }
-
-        unit.Repository<Product>().Add(product);
-
-        if (await unit.Complete())
+        if (product != null)
         {
             return CreatedAtAction("GetProduct", new { id = product.Id },
                 new APISuccessResponse
                 {
                     StatusCode = HttpStatusCode.Created,
                     Message = "Product created successfully",
-                    Data = _mapper.Map<ProductDto>(product)
+                    Data = product
                 }
             );
         }
@@ -125,78 +72,19 @@ public class ProductsController(IUnitOfWork unit, IMapper _mapper) : BaseApiCont
     [HttpPut("{id:int}")]
     public async Task<ActionResult> UpdateProduct(int id, UpdateProductDto updateProduct)
     {
-        if (updateProduct.Id != id || !ProductExists(id))
-            return BadRequest("Cannot update this product");
+        var product = await resolver.UpdateProduct(id, updateProduct);
 
-        var product = _mapper.Map<Product>(updateProduct);
-
-        // get category by Id
-        var category = await unit.Repository<Category>().GetByIdAsync(updateProduct.CategoryId);
-        if (category != null)
-        {
-            product.Category = category;
-        }
-
-        // get Attributes by Ids
-        var attributes = new List<ProductAttribute>();
-        foreach (var attributeId in updateProduct.AttributeIds)
-        {
-            var attr = await unit.Repository<ProductAttribute>().GetByIdAsync(attributeId);
-            if (attr != null)
-            {
-                attributes.Add(attr);
-            }
-        }
-        // Populate the ProductAttributes collection
-        product.ProductAttributes = attributes.Select(attr => new ProductAttributeNavigator
-        {
-            Product = product,
-            ProductAttribute = attr
-        }).ToList();
-
-        // get AttributeOptions by Ids
-        var attributeOptionMap = new Dictionary<int, AttributeOption>();
-        foreach (var variant in updateProduct.Variants)
-        {
-            foreach (var attribute in variant.AttributeValues)
-            {
-                if (!attributeOptionMap.ContainsKey(attribute.OptionId))
-                {
-                    var option = await unit.Repository<AttributeOption>().GetByIdAsync(attribute.OptionId);
-                    if (option != null)
-                    {
-                        attributeOptionMap[attribute.AttributeId] = option;
-                    }
-                }
-            }
-        }
-
-        foreach (var productVariant in product.Variants)
-        {
-            foreach (var productAttributeValue in productVariant.AttributeValues)
-            {
-                if (attributeOptionMap.TryGetValue(productAttributeValue.AttributeId, out var option))
-                {
-                    productAttributeValue.Option = option;
-                }
-            }
-        }
-
-        unit.Repository<Product>().Update(product);
-
-        if (await unit.Complete())
+        if (product != null)
         {
             return CreatedAtAction("GetProduct", new { id = product.Id },
-            new APISuccessResponse
-            {
-                StatusCode = HttpStatusCode.OK,
-                Message = "Product updated successfully",
-                Data = _mapper.Map<ProductDto>(product)
-            }
-        );
-
+                new APISuccessResponse
+                {
+                    StatusCode = HttpStatusCode.OK,
+                    Message = "Product updated successfully",
+                    Data = product
+                }
+            );
         }
-
         return APIErrorResponse(
             Guid.NewGuid(),
             HttpStatusCode.BadRequest,
@@ -210,20 +98,15 @@ public class ProductsController(IUnitOfWork unit, IMapper _mapper) : BaseApiCont
     [HttpDelete("{id:int}")]
     public async Task<ActionResult> DeleteProduct(int id)
     {
-        var product = await unit.Repository<Product>().GetByIdAsync(id);
-
-        if (product == null) return NotFound();
-
-        unit.Repository<Product>().Remove(product);
-
-        if (await unit.Complete())
+        var product = await resolver.DeleteProduct(id);
+        if (product != null)
         {
             return CreatedAtAction("DeleteProduct", new { id = product.Id },
             new APISuccessResponse
             {
                 StatusCode = HttpStatusCode.OK,
                 Message = "Product Deleted successfully",
-                Data = _mapper.Map<ProductDto>(product)
+                Data = product
             });
         }
 
@@ -239,22 +122,17 @@ public class ProductsController(IUnitOfWork unit, IMapper _mapper) : BaseApiCont
     [HttpGet("brands")]
     public async Task<ActionResult<IReadOnlyList<string>>> GetBrands()
     {
-        var spec = new BrandListSpecification();
+        var brands = await resolver.GetBrands();
 
-        return Ok(await unit.Repository<Product>().ListAsync(spec));
+        return APISuccessResponse(brands, "Get Brands successfully");
     }
 
     [Cache(10000)]
     [HttpGet("types")]
     public async Task<ActionResult<IReadOnlyList<string>>> GetTypes()
     {
-        var spec = new TypeListSpecification();
+        var types = await resolver.GetTypes();
 
-        return Ok(await unit.Repository<Product>().ListAsync(spec));
-    }
-
-    private bool ProductExists(int id)
-    {
-        return unit.Repository<Product>().Exists(id);
+        return APISuccessResponse(types, "Get Types successfully");
     }
 }

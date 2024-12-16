@@ -1,5 +1,6 @@
 using API.Extensions;
 using API.Middleware;
+using API.Resolvers;
 using API.SignalR;
 using Core.Entities;
 using Core.Interfaces;
@@ -33,6 +34,8 @@ builder.Services.AddSingleton<IConnectionMultiplexer>(config =>
 });
 builder.Services.AddSingleton<ICartService, CartService>();
 builder.Services.AddSingleton<IResponseCacheService, ResponseCacheService>();
+
+builder.Services.AddScoped<ProductResolver>();
 
 builder.Services.AddAuthorization();
 builder.Services.AddIdentityApiEndpoints<AppUser>()

@@ -1,198 +1,2275 @@
 [
   {
-    "Name": "Angular Speedster Board 2000",
-    "Description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
-    "Price": 200,
-    "DiscountedPrice": 180,
-    "ImageUrl": "/images/products/sb-ang1.png",
-    "Type": "Boards",
-    "Brand": "Angular",
-    "QuantityInStock": 82,
-    "Visibility": true,
-    "Sku": "ANG-2000",
-    "Barcode": "123456789",
-    "Weight": 2.5
+    "name": "Red Cotton Shirt",
+    "description": "A stylish red cotton shirt perfect for casual outings.",
+    "price": 29.99,
+    "discountedPrice": 24.99,
+    "imageUrl": "/images/products/sb-ang1.png",
+    "type": "Fashion",
+    "brand": "Fashionista",
+    "quantityInStock": 100,
+    "visibility": true,
+    "sku": "SKU98765",
+    "barcode": "987654321098",
+    "weight": 0.5,
+    "categoryId": 1,
+    "attributeIds": [ 1, 2, 3 ],
+    "variants": [
+      {
+        "sku": "VAR12345",
+        "price": 25.99,
+        "imageUrl": "/images/products/sb-core1.png",
+        "attributeValues": [
+          {
+            "optionText": "Red",
+            "variantId": 1,
+            "attributeId": 1,
+            "optionId": 1
+          },
+          {
+            "optionText": "Medium",
+            "variantId": 1,
+            "attributeId": 2,
+            "optionId": 5
+          },
+          {
+            "optionText": "Cotton",
+            "variantId": 1,
+            "attributeId": 3,
+            "optionId": 7
+          }
+        ]
+      },
+      {
+        "sku": "VAR67890",
+        "price": 27.99,
+        "imageUrl": "/images/products/sb-react1.png",
+        "attributeValues": [
+          {
+            "optionText": "Blue",
+            "variantId": 2,
+            "attributeId": 1,
+            "optionId": 2
+          },
+          {
+            "optionText": "Large",
+            "variantId": 2,
+            "attributeId": 2,
+            "optionId": 6
+          },
+          {
+            "optionText": "Inox",
+            "variantId": 2,
+            "attributeId": 3,
+            "optionId": 8
+          }
+        ]
+      }
+    ],
+    "productCustomOptions": [
+      {
+        "optionName": "Gift Wrap",
+        "optionType": "checkbox",
+        "isRequired": false,
+        "sortOrder": 1,
+        "productCustomOptionValues": [
+          {
+            "extraPrice": 5.0,
+            "sortOrder": 1,
+            "value": "Yes"
+          },
+          {
+            "extraPrice": 0.0,
+            "sortOrder": 2,
+            "value": "No"
+          }
+        ]
+      },
+      {
+        "optionName": "Warranty",
+        "optionType": "dropdown",
+        "isRequired": true,
+        "sortOrder": 2,
+        "productCustomOptionValues": [
+          {
+            "extraPrice": 10.0,
+            "sortOrder": 1,
+            "value": "1 Year"
+          },
+          {
+            "extraPrice": 20.0,
+            "sortOrder": 2,
+            "value": "2 Years"
+          }
+        ]
+      }
+    ]
   },
   {
-    "Name": "Green Angular Board 3000",
-    "Description": "Nunc viverra imperdiet enim.",
-    "Price": 150,
-    "DiscountedPrice": null,
-    "ImageUrl": "/images/products/sb-ang2.png",
-    "Type": "Boards",
-    "Brand": "Angular",
-    "QuantityInStock": 75,
-    "Visibility": true,
-    "Sku": "ANG-3000",
-    "Barcode": "123456780",
-    "Weight": 3.0
+    "name": "Blue Denim Jacket",
+    "description": "A classic blue denim jacket for a timeless look.",
+    "price": 49.99,
+    "discountedPrice": 44.99,
+    "imageUrl": "/images/products/sb-core2.png",
+    "type": "Fashion",
+    "brand": "Trendy Wear",
+    "quantityInStock": 80,
+    "visibility": true,
+    "sku": "SKU11223",
+    "barcode": "123123123123",
+    "weight": 0.8,
+    "categoryId": 2,
+    "attributeIds": [ 1, 2, 3 ],
+    "variants": [
+      {
+        "sku": "VAR11223",
+        "price": 47.99,
+        "imageUrl": "/images/products/hat-core1.png",
+        "attributeValues": [
+          {
+            "optionText": "Blue",
+            "variantId": 1,
+            "attributeId": 1,
+            "optionId": 2
+          },
+          {
+            "optionText": "Large",
+            "variantId": 1,
+            "attributeId": 2,
+            "optionId": 6
+          },
+          {
+            "optionText": "Inox",
+            "variantId": 1,
+            "attributeId": 3,
+            "optionId": 8
+          }
+        ]
+      },
+      {
+        "sku": "VAR33445",
+        "price": 49.99,
+        "imageUrl": "/images/products/hat-react1.png",
+        "attributeValues": [
+          {
+            "optionText": "Green",
+            "variantId": 2,
+            "attributeId": 1,
+            "optionId": 3
+          },
+          {
+            "optionText": "Medium",
+            "variantId": 2,
+            "attributeId": 2,
+            "optionId": 5
+          },
+          {
+            "optionText": "Wood",
+            "variantId": 2,
+            "attributeId": 3,
+            "optionId": 9
+          }
+        ]
+      }
+    ],
+    "productCustomOptions": [
+      {
+        "optionName": "Gift Wrap",
+        "optionType": "checkbox",
+        "isRequired": false,
+        "sortOrder": 1,
+        "productCustomOptionValues": [
+          {
+            "extraPrice": 5.0,
+            "sortOrder": 1,
+            "value": "Yes"
+          },
+          {
+            "extraPrice": 0.0,
+            "sortOrder": 2,
+            "value": "No"
+          }
+        ]
+      },
+      {
+        "optionName": "Warranty",
+        "optionType": "dropdown",
+        "isRequired": true,
+        "sortOrder": 2,
+        "productCustomOptionValues": [
+          {
+            "extraPrice": 10.0,
+            "sortOrder": 1,
+            "value": "1 Year"
+          },
+          {
+            "extraPrice": 20.0,
+            "sortOrder": 2,
+            "value": "2 Years"
+          }
+        ]
+      }
+    ]
   },
   {
-    "Name": "Core Board Speed Rush 3",
-    "Description": "Suspendisse dui purus, scelerisque at, vulputate vitae.",
-    "Price": 180,
-    "DiscountedPrice": null,
-    "ImageUrl": "/images/products/sb-core1.png",
-    "Type": "Boards",
-    "Brand": "NetCore",
-    "QuantityInStock": 3,
-    "Visibility": true,
-    "Sku": "CORE-003",
-    "Barcode": "123456781",
-    "Weight": 2.8
+    "name": "Stylish Black Boots",
+    "description": "A pair of stylish black boots, perfect for all occasions.",
+    "price": 89.99,
+    "discountedPrice": 79.99,
+    "imageUrl": "/images/products/boot-core1.png",
+    "type": "Footwear",
+    "brand": "Urban Fashion",
+    "quantityInStock": 60,
+    "visibility": true,
+    "sku": "SKU99887",
+    "barcode": "987654321098",
+    "weight": 1.2,
+    "categoryId": 1,
+    "attributeIds": [ 1, 2, 3 ],
+    "variants": [
+      {
+        "sku": "VAR99887",
+        "price": 85.99,
+        "imageUrl": "/images/products/boot-ang2.png",
+        "attributeValues": [
+          {
+            "optionText": "Black",
+            "variantId": 1,
+            "attributeId": 1,
+            "optionId": 1
+          },
+          {
+            "optionText": "Medium",
+            "variantId": 1,
+            "attributeId": 2,
+            "optionId": 5
+          },
+          {
+            "optionText": "Inox",
+            "variantId": 1,
+            "attributeId": 3,
+            "optionId": 8
+          }
+        ]
+      },
+      {
+        "sku": "VAR66554",
+        "price": 89.99,
+        "imageUrl": "/images/products/boot-ang1.png",
+        "attributeValues": [
+          {
+            "optionText": "Black",
+            "variantId": 2,
+            "attributeId": 1,
+            "optionId": 1
+          },
+          {
+            "optionText": "Large",
+            "variantId": 2,
+            "attributeId": 2,
+            "optionId": 6
+          },
+          {
+            "optionText": "Wood",
+            "variantId": 2,
+            "attributeId": 3,
+            "optionId": 9
+          }
+        ]
+      }
+    ],
+    "productCustomOptions": [
+      {
+        "optionName": "Gift Wrap",
+        "optionType": "checkbox",
+        "isRequired": false,
+        "sortOrder": 1,
+        "productCustomOptionValues": [
+          {
+            "extraPrice": 5.0,
+            "sortOrder": 1,
+            "value": "Yes"
+          },
+          {
+            "extraPrice": 0.0,
+            "sortOrder": 2,
+            "value": "No"
+          }
+        ]
+      },
+      {
+        "optionName": "Warranty",
+        "optionType": "dropdown",
+        "isRequired": true,
+        "sortOrder": 2,
+        "productCustomOptionValues": [
+          {
+            "extraPrice": 10.0,
+            "sortOrder": 1,
+            "value": "1 Year"
+          },
+          {
+            "extraPrice": 20.0,
+            "sortOrder": 2,
+            "value": "2 Years"
+          }
+        ]
+      }
+    ]
   },
   {
-    "Name": "Net Core Super Board",
-    "Description": "Pellentesque habitant morbi tristique senectus et netus.",
-    "Price": 300,
-    "DiscountedPrice": 280,
-    "ImageUrl": "/images/products/sb-core2.png",
-    "Type": "Boards",
-    "Brand": "NetCore",
-    "QuantityInStock": 52,
-    "Visibility": true,
-    "Sku": "CORE-002",
-    "Barcode": "123456782",
-    "Weight": 4.0
+    "name": "Classic Red T-Shirt",
+    "description": "A simple yet elegant red T-shirt for daily wear.",
+    "price": 29.99,
+    "discountedPrice": 24.99,
+    "imageUrl": "/images/products/sb-core1.png",
+    "type": "Clothing",
+    "brand": "Classic Wear",
+    "quantityInStock": 100,
+    "visibility": true,
+    "sku": "SKU11223",
+    "barcode": "123123123123",
+    "weight": 0.5,
+    "categoryId": 1,
+    "attributeIds": [ 1, 2 ],
+    "variants": [
+      {
+        "sku": "VAR11223",
+        "price": 24.99,
+        "imageUrl": "/images/products/sb-ang1.png",
+        "attributeValues": [
+          {
+            "optionText": "Red",
+            "variantId": 1,
+            "attributeId": 1,
+            "optionId": 1
+          },
+          {
+            "optionText": "Medium",
+            "variantId": 1,
+            "attributeId": 2,
+            "optionId": 5
+          }
+        ]
+      },
+      {
+        "sku": "VAR44556",
+        "price": 29.99,
+        "imageUrl": "/images/products/sb-ts1.png",
+        "attributeValues": [
+          {
+            "optionText": "Red",
+            "variantId": 2,
+            "attributeId": 1,
+            "optionId": 1
+          },
+          {
+            "optionText": "Large",
+            "variantId": 2,
+            "attributeId": 2,
+            "optionId": 6
+          }
+        ]
+      }
+    ],
+    "productCustomOptions": [
+      {
+        "optionName": "Gift Wrap",
+        "optionType": "checkbox",
+        "isRequired": false,
+        "sortOrder": 1,
+        "productCustomOptionValues": [
+          {
+            "extraPrice": 5.0,
+            "sortOrder": 1,
+            "value": "Yes"
+          },
+          {
+            "extraPrice": 0.0,
+            "sortOrder": 2,
+            "value": "No"
+          }
+        ]
+      },
+      {
+        "optionName": "Warranty",
+        "optionType": "dropdown",
+        "isRequired": true,
+        "sortOrder": 2,
+        "productCustomOptionValues": [
+          {
+            "extraPrice": 10.0,
+            "sortOrder": 1,
+            "value": "1 Year"
+          },
+          {
+            "extraPrice": 20.0,
+            "sortOrder": 2,
+            "value": "2 Years"
+          }
+        ]
+      }
+    ]
   },
   {
-    "Name": "React Racing Board Pro",
-    "Description": "High-performance racing board with React technology.",
-    "Price": 260,
-    "DiscountedPrice": 240,
-    "ImageUrl": "/images/products/sb-react2.png",
-    "Type": "Boards",
-    "Brand": "React",
-    "QuantityInStock": 45,
-    "Visibility": true,
-    "Sku": "REACT-001",
-    "Barcode": "123456783",
-    "Weight": 3.2
+    "name": "Stylish Blue Jeans",
+    "description": "Comfortable and stylish blue jeans with a modern fit.",
+    "price": 49.99,
+    "discountedPrice": 39.99,
+    "imageUrl": "/images/products/boot-core1.png",
+    "type": "Clothing",
+    "brand": "FashionHub",
+    "quantityInStock": 75,
+    "visibility": true,
+    "sku": "SKU22334",
+    "barcode": "987654321098",
+    "weight": 1.2,
+    "categoryId": 1,
+    "attributeIds": [ 1, 2, 3 ],
+    "variants": [
+      {
+        "sku": "VAR22334-Small",
+        "price": 39.99,
+        "imageUrl": "/images/products/boot-ang2.png",
+        "attributeValues": [
+          {
+            "optionText": "Blue",
+            "variantId": 1,
+            "attributeId": 1,
+            "optionId": 2
+          },
+          {
+            "optionText": "Small",
+            "variantId": 1,
+            "attributeId": 2,
+            "optionId": 4
+          },
+          {
+            "optionText": "Inox",
+            "variantId": 1,
+            "attributeId": 3,
+            "optionId": 8
+          }
+        ]
+      },
+      {
+        "sku": "VAR22334-Large",
+        "price": 49.99,
+        "imageUrl": "/images/products/boot-redis1.png",
+        "attributeValues": [
+          {
+            "optionText": "Blue",
+            "variantId": 2,
+            "attributeId": 1,
+            "optionId": 2
+          },
+          {
+            "optionText": "Large",
+            "variantId": 2,
+            "attributeId": 2,
+            "optionId": 6
+          },
+          {
+            "optionText": "Wood",
+            "variantId": 2,
+            "attributeId": 3,
+            "optionId": 9
+          }
+        ]
+      }
+    ],
+    "productCustomOptions": [
+      {
+        "optionName": "Gift Wrap",
+        "optionType": "checkbox",
+        "isRequired": false,
+        "sortOrder": 1,
+        "productCustomOptionValues": [
+          {
+            "extraPrice": 5.0,
+            "sortOrder": 1,
+            "value": "Yes"
+          },
+          {
+            "extraPrice": 0.0,
+            "sortOrder": 2,
+            "value": "No"
+          }
+        ]
+      },
+      {
+        "optionName": "Warranty",
+        "optionType": "dropdown",
+        "isRequired": true,
+        "sortOrder": 2,
+        "productCustomOptionValues": [
+          {
+            "extraPrice": 10.0,
+            "sortOrder": 1,
+            "value": "1 Year"
+          },
+          {
+            "extraPrice": 20.0,
+            "sortOrder": 2,
+            "value": "2 Years"
+          }
+        ]
+      }
+    ]
   },
   {
-    "Name": "Typescript Lightning Board",
-    "Description": "Lightweight and durable, designed for speed.",
-    "Price": 190,
-    "DiscountedPrice": 170,
-    "ImageUrl": "/images/products/sb-ts2.png",
-    "Type": "Boards",
-    "Brand": "Typescript",
-    "QuantityInStock": 60,
-    "Visibility": true,
-    "Sku": "TS-2001",
-    "Barcode": "123456784",
-    "Weight": 2.1
+    "name": "Classic White Shirt",
+    "description": "A timeless white shirt perfect for formal and casual wear.",
+    "price": 35.99,
+    "discountedPrice": 29.99,
+    "imageUrl": "/images/products/sb-core1.png",
+    "type": "Clothing",
+    "brand": "StyleMaster",
+    "quantityInStock": 120,
+    "visibility": true,
+    "sku": "SKU12346",
+    "barcode": "234567890123",
+    "weight": 0.5,
+    "categoryId": 2,
+    "attributeIds": [ 1, 2 ],
+    "variants": [
+      {
+        "sku": "VAR12346-Medium",
+        "price": 29.99,
+        "imageUrl": "/images/products/sb-core2.png",
+        "attributeValues": [
+          {
+            "optionText": "Red",
+            "variantId": 1,
+            "attributeId": 1,
+            "optionId": 1
+          },
+          {
+            "optionText": "Medium",
+            "variantId": 1,
+            "attributeId": 2,
+            "optionId": 5
+          }
+        ]
+      },
+      {
+        "sku": "VAR12346-Large",
+        "price": 35.99,
+        "imageUrl": "/images/products/sb-react1.png",
+        "attributeValues": [
+          {
+            "optionText": "Blue",
+            "variantId": 2,
+            "attributeId": 1,
+            "optionId": 2
+          },
+          {
+            "optionText": "Large",
+            "variantId": 2,
+            "attributeId": 2,
+            "optionId": 6
+          }
+        ]
+      }
+    ],
+    "productCustomOptions": [
+      {
+        "optionName": "Gift Box",
+        "optionType": "checkbox",
+        "isRequired": false,
+        "sortOrder": 1,
+        "productCustomOptionValues": [
+          {
+            "extraPrice": 4.0,
+            "sortOrder": 1,
+            "value": "Yes"
+          },
+          {
+            "extraPrice": 0.0,
+            "sortOrder": 2,
+            "value": "No"
+          }
+        ]
+      }
+    ]
   },
   {
-    "Name": "NetCore Turbo Helmet",
-    "Description": "Premium helmet for ultimate protection and style.",
-    "Price": 120,
-    "DiscountedPrice": 100,
-    "ImageUrl": "/images/products/helmet-core1.png",
-    "Type": "Helmets",
-    "Brand": "NetCore",
-    "QuantityInStock": 30,
-    "Visibility": true,
-    "Sku": "CORE-HELM-01",
-    "Barcode": "123456785",
-    "Weight": 1.5
+    "name": "Denim Jacket",
+    "description": "A versatile denim jacket for all seasons.",
+    "price": 79.99,
+    "discountedPrice": 69.99,
+    "imageUrl": "/images/products/boot-core1.png",
+    "type": "Outerwear",
+    "brand": "UrbanWear",
+    "quantityInStock": 80,
+    "visibility": true,
+    "sku": "SKU22335",
+    "barcode": "345678901234",
+    "weight": 1.1,
+    "categoryId": 3,
+    "attributeIds": [ 1, 3 ],
+    "variants": [
+      {
+        "sku": "VAR22335-Small",
+        "price": 69.99,
+        "imageUrl": "/images/products/boot-ang1.png",
+        "attributeValues": [
+          {
+            "optionText": "Green",
+            "variantId": 1,
+            "attributeId": 1,
+            "optionId": 3
+          },
+          {
+            "optionText": "Iron",
+            "variantId": 1,
+            "attributeId": 3,
+            "optionId": 7
+          }
+        ]
+      },
+      {
+        "sku": "VAR22335-Medium",
+        "price": 79.99,
+        "imageUrl": "/images/products/boot-ang2.png",
+        "attributeValues": [
+          {
+            "optionText": "Blue",
+            "variantId": 2,
+            "attributeId": 1,
+            "optionId": 2
+          },
+          {
+            "optionText": "Wood",
+            "variantId": 2,
+            "attributeId": 3,
+            "optionId": 9
+          }
+        ]
+      }
+    ],
+    "productCustomOptions": [
+      {
+        "optionName": "Engraving",
+        "optionType": "text",
+        "isRequired": false,
+        "sortOrder": 1,
+        "productCustomOptionValues": []
+      }
+    ]
   },
   {
-    "Name": "Angular Red Helmet",
-    "Description": "Stylish and secure helmet for all riders.",
-    "Price": 110,
-    "DiscountedPrice": 95,
-    "ImageUrl": "/images/products/helmet-ang1.png",
-    "Type": "Helmets",
-    "Brand": "Angular",
-    "QuantityInStock": 50,
-    "Visibility": true,
-    "Sku": "ANG-HELM-01",
-    "Barcode": "123456786",
-    "Weight": 1.3
+    "name": "Leather Handbag",
+    "description": "Premium leather handbag for everyday use.",
+    "price": 150.0,
+    "discountedPrice": 135.0,
+    "imageUrl": "/images/products/glove-react1.png",
+    "type": "Accessories",
+    "brand": "LuxuryLine",
+    "quantityInStock": 50,
+    "visibility": true,
+    "sku": "SKU32336",
+    "barcode": "456789012345",
+    "weight": 0.8,
+    "categoryId": 2,
+    "attributeIds": [ 1 ],
+    "variants": [
+      {
+        "sku": "VAR32336-Red",
+        "price": 135.0,
+        "imageUrl": "/images/products/glove-code1.png",
+        "attributeValues": [
+          {
+            "optionText": "Red",
+            "variantId": 1,
+            "attributeId": 1,
+            "optionId": 1
+          }
+        ]
+      },
+      {
+        "sku": "VAR32336-Blue",
+        "price": 150.0,
+        "imageUrl": "/images/products/glove-code2.png",
+        "attributeValues": [
+          {
+            "optionText": "Blue",
+            "variantId": 2,
+            "attributeId": 1,
+            "optionId": 2
+          }
+        ]
+      }
+    ],
+    "productCustomOptions": [
+      {
+        "optionName": "Extra Strap",
+        "optionType": "checkbox",
+        "isRequired": false,
+        "sortOrder": 1,
+        "productCustomOptionValues": [
+          {
+            "extraPrice": 20.0,
+            "sortOrder": 1,
+            "value": "Yes"
+          },
+          {
+            "extraPrice": 0.0,
+            "sortOrder": 2,
+            "value": "No"
+          }
+        ]
+      }
+    ]
   },
   {
-    "Name": "Redis Speed Boots",
-    "Description": "High-quality boots for extreme performance.",
-    "Price": 200,
-    "DiscountedPrice": 180,
-    "ImageUrl": "/images/products/boot-redis2.png",
-    "Type": "Boots",
-    "Brand": "Redis",
-    "QuantityInStock": 25,
-    "Visibility": true,
-    "Sku": "REDIS-BOOT-02",
-    "Barcode": "123456787",
-    "Weight": 2.8
+    "name": "Elegant Black Dress",
+    "description": "A beautiful and versatile black dress perfect for formal occasions.",
+    "price": 89.99,
+    "discountedPrice": 79.99,
+    "imageUrl": "/images/products/hat-react1.png",
+    "type": "Clothing",
+    "brand": "StylePro",
+    "quantityInStock": 40,
+    "visibility": true,
+    "sku": "SKU30001",
+    "barcode": "789456123012",
+    "weight": 0.8,
+    "categoryId": 1,
+    "attributeIds": [ 1, 2 ],
+    "variants": [
+      {
+        "sku": "VAR30001-Small",
+        "price": 79.99,
+        "imageUrl": "/images/products/sb-ang1.png",
+        "attributeValues": [
+          {
+            "optionText": "Black",
+            "variantId": 1,
+            "attributeId": 1,
+            "optionId": 1
+          },
+          {
+            "optionText": "Small",
+            "variantId": 1,
+            "attributeId": 2,
+            "optionId": 4
+          }
+        ]
+      },
+      {
+        "sku": "VAR30001-Medium",
+        "price": 89.99,
+        "imageUrl": "/images/products/sb-react1.png",
+        "attributeValues": [
+          {
+            "optionText": "Black",
+            "variantId": 2,
+            "attributeId": 1,
+            "optionId": 1
+          },
+          {
+            "optionText": "Medium",
+            "variantId": 2,
+            "attributeId": 2,
+            "optionId": 5
+          }
+        ]
+      }
+    ],
+    "productCustomOptions": [
+      {
+        "optionName": "Gift Wrap",
+        "optionType": "checkbox",
+        "isRequired": false,
+        "sortOrder": 1,
+        "productCustomOptionValues": [
+          {
+            "extraPrice": 5.0,
+            "sortOrder": 1,
+            "value": "Yes"
+          },
+          {
+            "extraPrice": 0.0,
+            "sortOrder": 2,
+            "value": "No"
+          }
+        ]
+      },
+      {
+        "optionName": "Premium Packaging",
+        "optionType": "checkbox",
+        "isRequired": false,
+        "sortOrder": 2,
+        "productCustomOptionValues": [
+          {
+            "extraPrice": 10.0,
+            "sortOrder": 1,
+            "value": "Yes"
+          },
+          {
+            "extraPrice": 0.0,
+            "sortOrder": 2,
+            "value": "No"
+          }
+        ]
+      }
+    ]
   },
   {
-    "Name": "React Pro Gloves",
-    "Description": "Comfortable gloves for pro-level riders.",
-    "Price": 25,
-    "DiscountedPrice": 20,
-    "ImageUrl": "/images/products/glove-react3.png",
-    "Type": "Gloves",
-    "Brand": "React",
-    "QuantityInStock": 70,
-    "Visibility": true,
-    "Sku": "REACT-GLOVE-03",
-    "Barcode": "123456788",
-    "Weight": 0.2
+    "name": "Casual White T-Shirt",
+    "description": "A classic white T-shirt that pairs perfectly with any outfit.",
+    "price": 19.99,
+    "discountedPrice": 15.99,
+    "imageUrl": "/images/products/sb-core1.png",
+    "type": "Clothing",
+    "brand": "UrbanWear",
+    "quantityInStock": 150,
+    "visibility": true,
+    "sku": "SKU30002",
+    "barcode": "654321987654",
+    "weight": 0.5,
+    "categoryId": 2,
+    "attributeIds": [ 1, 2, 3 ],
+    "variants": [
+      {
+        "sku": "VAR30002-Small",
+        "price": 15.99,
+        "imageUrl": "/images/products/sb-ts1.png",
+        "attributeValues": [
+          {
+            "optionText": "White",
+            "variantId": 1,
+            "attributeId": 1,
+            "optionId": 3
+          },
+          {
+            "optionText": "Small",
+            "variantId": 1,
+            "attributeId": 2,
+            "optionId": 4
+          },
+          {
+            "optionText": "Iron",
+            "variantId": 1,
+            "attributeId": 3,
+            "optionId": 7
+          }
+        ]
+      },
+      {
+        "sku": "VAR30002-Large",
+        "price": 19.99,
+        "imageUrl": "/images/products/hat-core1.png",
+        "attributeValues": [
+          {
+            "optionText": "White",
+            "variantId": 2,
+            "attributeId": 1,
+            "optionId": 3
+          },
+          {
+            "optionText": "Large",
+            "variantId": 2,
+            "attributeId": 2,
+            "optionId": 6
+          },
+          {
+            "optionText": "Inox",
+            "variantId": 2,
+            "attributeId": 3,
+            "optionId": 8
+          }
+        ]
+      }
+    ],
+    "productCustomOptions": [
+      {
+        "optionName": "Gift Wrap",
+        "optionType": "checkbox",
+        "isRequired": false,
+        "sortOrder": 1,
+        "productCustomOptionValues": [
+          {
+            "extraPrice": 2.0,
+            "sortOrder": 1,
+            "value": "Yes"
+          },
+          {
+            "extraPrice": 0.0,
+            "sortOrder": 2,
+            "value": "No"
+          }
+        ]
+      }
+    ]
   },
   {
-    "Name": "Angular All-Terrain Board",
-    "Description": "Built for durability and all-terrain adventures.",
-    "Price": 300,
-    "DiscountedPrice": null,
-    "ImageUrl": "/images/products/sb-ang3.png",
-    "Type": "Boards",
-    "Brand": "Angular",
-    "QuantityInStock": 40,
-    "Visibility": true,
-    "Sku": "ANG-TERR-300",
-    "Barcode": "123456789",
-    "Weight": 4.5
+    "name": "Trendy Sneakers",
+    "description": "Comfortable and stylish sneakers for everyday use.",
+    "price": 69.99,
+    "discountedPrice": 59.99,
+    "imageUrl": "/images/products/glove-react1.png",
+    "type": "Footwear",
+    "brand": "StepUp",
+    "quantityInStock": 100,
+    "visibility": true,
+    "sku": "SKU30003",
+    "barcode": "112233445566",
+    "weight": 1.0,
+    "categoryId": 3,
+    "attributeIds": [ 1, 2 ],
+    "variants": [
+      {
+        "sku": "VAR30003-Red-Small",
+        "price": 59.99,
+        "imageUrl": "/images/products/glove-react2.png",
+        "attributeValues": [
+          {
+            "optionText": "Red",
+            "variantId": 1,
+            "attributeId": 1,
+            "optionId": 1
+          },
+          {
+            "optionText": "Small",
+            "variantId": 1,
+            "attributeId": 2,
+            "optionId": 4
+          }
+        ]
+      },
+      {
+        "sku": "VAR30003-Blue-Medium",
+        "price": 69.99,
+        "imageUrl": "/images/products/glove-code1.png",
+        "attributeValues": [
+          {
+            "optionText": "Blue",
+            "variantId": 2,
+            "attributeId": 1,
+            "optionId": 2
+          },
+          {
+            "optionText": "Medium",
+            "variantId": 2,
+            "attributeId": 2,
+            "optionId": 5
+          }
+        ]
+      }
+    ],
+    "productCustomOptions": [
+      {
+        "optionName": "Shoe Bag",
+        "optionType": "checkbox",
+        "isRequired": false,
+        "sortOrder": 1,
+        "productCustomOptionValues": [
+          {
+            "extraPrice": 3.0,
+            "sortOrder": 1,
+            "value": "Yes"
+          },
+          {
+            "extraPrice": 0.0,
+            "sortOrder": 2,
+            "value": "No"
+          }
+        ]
+      }
+    ]
   },
   {
-    "Name": "Typescript Swift Boots",
-    "Description": "Sleek and stylish boots for agile riders.",
-    "Price": 220,
-    "DiscountedPrice": 200,
-    "ImageUrl": "/images/products/boot-ts1.png",
-    "Type": "Boots",
-    "Brand": "Typescript",
-    "QuantityInStock": 35,
-    "Visibility": true,
-    "Sku": "TS-BOOT-01",
-    "Barcode": "123456790",
-    "Weight": 3.0
+    "name": "Premium Leather Wallet",
+    "description": "A durable and stylish leather wallet with multiple compartments for cards and cash.",
+    "price": 49.99,
+    "discountedPrice": 39.99,
+    "imageUrl": "/images/products/wallet1.png",
+    "type": "Accessories",
+    "brand": "LeatherLux",
+    "quantityInStock": 200,
+    "visibility": true,
+    "sku": "SKU40001",
+    "barcode": "101010101001",
+    "weight": 0.3,
+    "categoryId": 4,
+    "attributeIds": [ 1 ],
+    "variants": [
+      {
+        "sku": "VAR40001-Black",
+        "price": 39.99,
+        "imageUrl": "/images/products/wallet-black.png",
+        "attributeValues": [
+          {
+            "optionText": "Black",
+            "variantId": 1,
+            "attributeId": 1,
+            "optionId": 1
+          }
+        ]
+      },
+      {
+        "sku": "VAR40001-Brown",
+        "price": 49.99,
+        "imageUrl": "/images/products/wallet-brown.png",
+        "attributeValues": [
+          {
+            "optionText": "Brown",
+            "variantId": 2,
+            "attributeId": 1,
+            "optionId": 2
+          }
+        ]
+      }
+    ],
+    "productCustomOptions": [
+      {
+        "optionName": "Gift Box",
+        "optionType": "checkbox",
+        "isRequired": false,
+        "sortOrder": 1,
+        "productCustomOptionValues": [
+          {
+            "extraPrice": 5.0,
+            "sortOrder": 1,
+            "value": "Yes"
+          },
+          {
+            "extraPrice": 0.0,
+            "sortOrder": 2,
+            "value": "No"
+          }
+        ]
+      }
+    ]
   },
   {
-    "Name": "Core Thermal Gloves",
-    "Description": "Stay warm with premium thermal gloves.",
-    "Price": 30,
-    "DiscountedPrice": 25,
-    "ImageUrl": "/images/products/glove-core2.png",
-    "Type": "Gloves",
-    "Brand": "NetCore",
-    "QuantityInStock": 100,
-    "Visibility": true,
-    "Sku": "CORE-GLOVE-02",
-    "Barcode": "123456791",
-    "Weight": 0.3
+    "name": "Classic Blue Jeans",
+    "description": "Comfortable and durable blue jeans for casual wear.",
+    "price": 59.99,
+    "discountedPrice": 49.99,
+    "imageUrl": "/images/products/jeans1.png",
+    "type": "Clothing",
+    "brand": "DenimWear",
+    "quantityInStock": 150,
+    "visibility": true,
+    "sku": "SKU40002",
+    "barcode": "202020202002",
+    "weight": 0.9,
+    "categoryId": 5,
+    "attributeIds": [ 1, 2 ],
+    "variants": [
+      {
+        "sku": "VAR40002-32-Regular",
+        "price": 49.99,
+        "imageUrl": "/images/products/jeans-blue.png",
+        "attributeValues": [
+          {
+            "optionText": "Blue",
+            "variantId": 1,
+            "attributeId": 1,
+            "optionId": 3
+          },
+          {
+            "optionText": "32",
+            "variantId": 1,
+            "attributeId": 2,
+            "optionId": 9
+          }
+        ]
+      },
+      {
+        "sku": "VAR40002-34-Regular",
+        "price": 59.99,
+        "imageUrl": "/images/products/jeans-lightblue.png",
+        "attributeValues": [
+          {
+            "optionText": "Light Blue",
+            "variantId": 2,
+            "attributeId": 1,
+            "optionId": 4
+          },
+          {
+            "optionText": "34",
+            "variantId": 2,
+            "attributeId": 2,
+            "optionId": 10
+          }
+        ]
+      }
+    ],
+    "productCustomOptions": [
+      {
+        "optionName": "Tailoring Service",
+        "optionType": "checkbox",
+        "isRequired": false,
+        "sortOrder": 1,
+        "productCustomOptionValues": [
+          {
+            "extraPrice": 8.0,
+            "sortOrder": 1,
+            "value": "Yes"
+          },
+          {
+            "extraPrice": 0.0,
+            "sortOrder": 2,
+            "value": "No"
+          }
+        ]
+      }
+    ]
   },
   {
-    "Name": "React Velocity Board",
-    "Description": "Designed for speed and precision.",
-    "Price": 280,
-    "DiscountedPrice": 260,
-    "ImageUrl": "/images/products/sb-react3.png",
-    "Type": "Boards",
-    "Brand": "React",
-    "QuantityInStock": 20,
-    "Visibility": true,
-    "Sku": "REACT-BOARD-03",
-    "Barcode": "123456792",
-    "Weight": 3.7
+    "name": "Luxury Wristwatch",
+    "description": "A sleek and stylish wristwatch for all occasions.",
+    "price": 199.99,
+    "discountedPrice": 149.99,
+    "imageUrl": "/images/products/watch1.png",
+    "type": "Accessories",
+    "brand": "TimeElite",
+    "quantityInStock": 80,
+    "visibility": true,
+    "sku": "SKU40003",
+    "barcode": "303030303003",
+    "weight": 0.7,
+    "categoryId": 6,
+    "attributeIds": [ 1 ],
+    "variants": [
+      {
+        "sku": "VAR40003-Silver",
+        "price": 149.99,
+        "imageUrl": "/images/products/watch-silver.png",
+        "attributeValues": [
+          {
+            "optionText": "Silver",
+            "variantId": 1,
+            "attributeId": 1,
+            "optionId": 1
+          }
+        ]
+      },
+      {
+        "sku": "VAR40003-Gold",
+        "price": 199.99,
+        "imageUrl": "/images/products/watch-gold.png",
+        "attributeValues": [
+          {
+            "optionText": "Gold",
+            "variantId": 2,
+            "attributeId": 1,
+            "optionId": 2
+          }
+        ]
+      }
+    ],
+    "productCustomOptions": [
+      {
+        "optionName": "Engraving",
+        "optionType": "text",
+        "isRequired": false,
+        "sortOrder": 1,
+        "productCustomOptionValues": []
+      }
+    ]
+  },
+  {
+    "name": "Sports Running Shoes",
+    "description": "High-performance running shoes designed for comfort and durability.",
+    "price": 79.99,
+    "discountedPrice": 69.99,
+    "imageUrl": "/images/products/shoes1.png",
+    "type": "Footwear",
+    "brand": "RunTech",
+    "quantityInStock": 120,
+    "visibility": true,
+    "sku": "SKU40004",
+    "barcode": "404040404004",
+    "weight": 1.2,
+    "categoryId": 7,
+    "attributeIds": [ 1, 2 ],
+    "variants": [
+      {
+        "sku": "VAR40004-Red-42",
+        "price": 69.99,
+        "imageUrl": "/images/products/shoes-red.png",
+        "attributeValues": [
+          {
+            "optionText": "Red",
+            "variantId": 1,
+            "attributeId": 1,
+            "optionId": 1
+          },
+          {
+            "optionText": "42",
+            "variantId": 1,
+            "attributeId": 2,
+            "optionId": 11
+          }
+        ]
+      },
+      {
+        "sku": "VAR40004-Blue-44",
+        "price": 79.99,
+        "imageUrl": "/images/products/shoes-blue.png",
+        "attributeValues": [
+          {
+            "optionText": "Blue",
+            "variantId": 2,
+            "attributeId": 1,
+            "optionId": 2
+          },
+          {
+            "optionText": "44",
+            "variantId": 2,
+            "attributeId": 2,
+            "optionId": 12
+          }
+        ]
+      }
+    ],
+    "productCustomOptions": [
+      {
+        "optionName": "Shoe Bag",
+        "optionType": "checkbox",
+        "isRequired": false,
+        "sortOrder": 1,
+        "productCustomOptionValues": [
+          {
+            "extraPrice": 3.0,
+            "sortOrder": 1,
+            "value": "Yes"
+          },
+          {
+            "extraPrice": 0.0,
+            "sortOrder": 2,
+            "value": "No"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Ergonomic Office Chair",
+    "description": "Designed for all-day comfort with adjustable lumbar support and reclining features.",
+    "price": 299.99,
+    "discountedPrice": 249.99,
+    "imageUrl": "/images/products/office-chair.png",
+    "type": "Furniture",
+    "brand": "ComfortPlus",
+    "quantityInStock": 50,
+    "visibility": true,
+    "sku": "SKU50001",
+    "barcode": "505050505005",
+    "weight": 15.0,
+    "categoryId": 8,
+    "attributeIds": [ 1 ],
+    "variants": [
+      {
+        "sku": "VAR50001-Black",
+        "price": 249.99,
+        "imageUrl": "/images/products/chair-black.png",
+        "attributeValues": [
+          {
+            "optionText": "Black",
+            "variantId": 1,
+            "attributeId": 1,
+            "optionId": 1
+          }
+        ]
+      },
+      {
+        "sku": "VAR50001-Grey",
+        "price": 259.99,
+        "imageUrl": "/images/products/chair-grey.png",
+        "attributeValues": [
+          {
+            "optionText": "Grey",
+            "variantId": 2,
+            "attributeId": 1,
+            "optionId": 2
+          }
+        ]
+      }
+    ],
+    "productCustomOptions": [
+      {
+        "optionName": "Assembly Service",
+        "optionType": "checkbox",
+        "isRequired": false,
+        "sortOrder": 1,
+        "productCustomOptionValues": [
+          {
+            "extraPrice": 20.0,
+            "sortOrder": 1,
+            "value": "Yes"
+          },
+          {
+            "extraPrice": 0.0,
+            "sortOrder": 2,
+            "value": "No"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Wireless Earbuds Pro",
+    "description": "High-quality sound with active noise cancellation and long battery life.",
+    "price": 129.99,
+    "discountedPrice": 109.99,
+    "imageUrl": "/images/products/earbuds1.png",
+    "type": "Electronics",
+    "brand": "SoundElite",
+    "quantityInStock": 300,
+    "visibility": true,
+    "sku": "SKU50002",
+    "barcode": "606060606006",
+    "weight": 0.2,
+    "categoryId": 9,
+    "attributeIds": [ 1 ],
+    "variants": [
+      {
+        "sku": "VAR50002-Black",
+        "price": 109.99,
+        "imageUrl": "/images/products/earbuds-black.png",
+        "attributeValues": [
+          {
+            "optionText": "Black",
+            "variantId": 1,
+            "attributeId": 1,
+            "optionId": 1
+          }
+        ]
+      },
+      {
+        "sku": "VAR50002-White",
+        "price": 119.99,
+        "imageUrl": "/images/products/earbuds-white.png",
+        "attributeValues": [
+          {
+            "optionText": "White",
+            "variantId": 2,
+            "attributeId": 1,
+            "optionId": 2
+          }
+        ]
+      }
+    ],
+    "productCustomOptions": [
+      {
+        "optionName": "Warranty Extension",
+        "optionType": "checkbox",
+        "isRequired": false,
+        "sortOrder": 1,
+        "productCustomOptionValues": [
+          {
+            "extraPrice": 15.0,
+            "sortOrder": 1,
+            "value": "Yes"
+          },
+          {
+            "extraPrice": 0.0,
+            "sortOrder": 2,
+            "value": "No"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Stainless Steel Water Bottle",
+    "description": "Keeps your drinks hot or cold for hours, perfect for outdoor activities.",
+    "price": 29.99,
+    "discountedPrice": 19.99,
+    "imageUrl": "/images/products/water-bottle.png",
+    "type": "Outdoor Gear",
+    "brand": "HydroMax",
+    "quantityInStock": 500,
+    "visibility": true,
+    "sku": "SKU50003",
+    "barcode": "707070707007",
+    "weight": 0.8,
+    "categoryId": 10,
+    "attributeIds": [ 1 ],
+    "variants": [
+      {
+        "sku": "VAR50003-Blue",
+        "price": 19.99,
+        "imageUrl": "/images/products/bottle-blue.png",
+        "attributeValues": [
+          {
+            "optionText": "Blue",
+            "variantId": 1,
+            "attributeId": 1,
+            "optionId": 3
+          }
+        ]
+      },
+      {
+        "sku": "VAR50003-Red",
+        "price": 29.99,
+        "imageUrl": "/images/products/bottle-red.png",
+        "attributeValues": [
+          {
+            "optionText": "Red",
+            "variantId": 2,
+            "attributeId": 1,
+            "optionId": 4
+          }
+        ]
+      }
+    ],
+    "productCustomOptions": [
+      {
+        "optionName": "Engraving",
+        "optionType": "text",
+        "isRequired": false,
+        "sortOrder": 1,
+        "productCustomOptionValues": []
+      }
+    ]
+  },
+  {
+    "name": "Adjustable Dumbbell Set",
+    "description": "A versatile set of dumbbells with adjustable weights for your fitness needs.",
+    "price": 159.99,
+    "discountedPrice": 139.99,
+    "imageUrl": "/images/products/dumbbell.png",
+    "type": "Fitness",
+    "brand": "FitPro",
+    "quantityInStock": 100,
+    "visibility": true,
+    "sku": "SKU50004",
+    "barcode": "808080808008",
+    "weight": 25.0,
+    "categoryId": 11,
+    "attributeIds": [ 2 ],
+    "variants": [
+      {
+        "sku": "VAR50004-20kg",
+        "price": 139.99,
+        "imageUrl": "/images/products/dumbbell-20kg.png",
+        "attributeValues": [
+          {
+            "optionText": "20kg",
+            "variantId": 1,
+            "attributeId": 2,
+            "optionId": 9
+          }
+        ]
+      },
+      {
+        "sku": "VAR50004-30kg",
+        "price": 159.99,
+        "imageUrl": "/images/products/dumbbell-30kg.png",
+        "attributeValues": [
+          {
+            "optionText": "30kg",
+            "variantId": 2,
+            "attributeId": 2,
+            "optionId": 10
+          }
+        ]
+      }
+    ],
+    "productCustomOptions": [
+      {
+        "optionName": "Protective Mat",
+        "optionType": "checkbox",
+        "isRequired": false,
+        "sortOrder": 1,
+        "productCustomOptionValues": [
+          {
+            "extraPrice": 10.0,
+            "sortOrder": 1,
+            "value": "Yes"
+          },
+          {
+            "extraPrice": 0.0,
+            "sortOrder": 2,
+            "value": "No"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Portable Projector",
+    "description": "A compact projector with HD resolution, ideal for home or outdoor movie nights.",
+    "price": 249.99,
+    "discountedPrice": 199.99,
+    "imageUrl": "/images/products/projector.png",
+    "type": "Electronics",
+    "brand": "VisionMax",
+    "quantityInStock": 60,
+    "visibility": true,
+    "sku": "SKU50005",
+    "barcode": "909090909009",
+    "weight": 1.5,
+    "categoryId": 12,
+    "attributeIds": [ 1 ],
+    "variants": [
+      {
+        "sku": "VAR50005-White",
+        "price": 199.99,
+        "imageUrl": "/images/products/projector-white.png",
+        "attributeValues": [
+          {
+            "optionText": "White",
+            "variantId": 1,
+            "attributeId": 1,
+            "optionId": 1
+          }
+        ]
+      },
+      {
+        "sku": "VAR50005-Black",
+        "price": 249.99,
+        "imageUrl": "/images/products/projector-black.png",
+        "attributeValues": [
+          {
+            "optionText": "Black",
+            "variantId": 2,
+            "attributeId": 1,
+            "optionId": 2
+          }
+        ]
+      }
+    ],
+    "productCustomOptions": [
+      {
+        "optionName": "Screen Size (inches)",
+        "optionType": "dropdown",
+        "isRequired": true,
+        "sortOrder": 1,
+        "productCustomOptionValues": [
+          {
+            "extraPrice": 0.0,
+            "sortOrder": 1,
+            "value": "50"
+          },
+          {
+            "extraPrice": 30.0,
+            "sortOrder": 2,
+            "value": "100"
+          },
+          {
+            "extraPrice": 50.0,
+            "sortOrder": 3,
+            "value": "150"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Gaming Monitor 27\"",
+    "description": "Experience stunning visuals with a 144Hz refresh rate and 1ms response time.",
+    "price": 399.99,
+    "discountedPrice": 349.99,
+    "imageUrl": "/images/products/gaming-monitor.png",
+    "type": "Electronics",
+    "brand": "GameView",
+    "quantityInStock": 150,
+    "visibility": true,
+    "sku": "SKU50006",
+    "barcode": "1000100010001",
+    "weight": 8.5,
+    "categoryId": 13,
+    "attributeIds": [ 1, 2 ],
+    "variants": [
+      {
+        "sku": "VAR50006-Curved",
+        "price": 349.99,
+        "imageUrl": "/images/products/monitor-curved.png",
+        "attributeValues": [
+          {
+            "optionText": "Curved",
+            "variantId": 1,
+            "attributeId": 2,
+            "optionId": 5
+          }
+        ]
+      },
+      {
+        "sku": "VAR50006-Flat",
+        "price": 399.99,
+        "imageUrl": "/images/products/monitor-flat.png",
+        "attributeValues": [
+          {
+            "optionText": "Flat",
+            "variantId": 2,
+            "attributeId": 2,
+            "optionId": 6
+          }
+        ]
+      }
+    ],
+    "productCustomOptions": [
+      {
+        "optionName": "Warranty Extension",
+        "optionType": "checkbox",
+        "isRequired": false,
+        "sortOrder": 1,
+        "productCustomOptionValues": [
+          {
+            "extraPrice": 25.0,
+            "sortOrder": 1,
+            "value": "Yes"
+          },
+          {
+            "extraPrice": 0.0,
+            "sortOrder": 2,
+            "value": "No"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Smart Fitness Watch",
+    "description": "Track your steps, heart rate, and sleep patterns with this stylish fitness watch.",
+    "price": 199.99,
+    "discountedPrice": 149.99,
+    "imageUrl": "/images/products/fitness-watch.png",
+    "type": "Electronics",
+    "brand": "FitTracker",
+    "quantityInStock": 200,
+    "visibility": true,
+    "sku": "SKU50007",
+    "barcode": "2000200020002",
+    "weight": 0.3,
+    "categoryId": 14,
+    "attributeIds": [ 1 ],
+    "variants": [
+      {
+        "sku": "VAR50007-Black",
+        "price": 149.99,
+        "imageUrl": "/images/products/watch-black.png",
+        "attributeValues": [
+          {
+            "optionText": "Black",
+            "variantId": 1,
+            "attributeId": 1,
+            "optionId": 1
+          }
+        ]
+      },
+      {
+        "sku": "VAR50007-Pink",
+        "price": 159.99,
+        "imageUrl": "/images/products/watch-pink.png",
+        "attributeValues": [
+          {
+            "optionText": "Pink",
+            "variantId": 2,
+            "attributeId": 1,
+            "optionId": 7
+          }
+        ]
+      }
+    ],
+    "productCustomOptions": [
+      {
+        "optionName": "Extra Band Color",
+        "optionType": "dropdown",
+        "isRequired": false,
+        "sortOrder": 1,
+        "productCustomOptionValues": [
+          {
+            "extraPrice": 10.0,
+            "sortOrder": 1,
+            "value": "Red"
+          },
+          {
+            "extraPrice": 10.0,
+            "sortOrder": 2,
+            "value": "Blue"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Foldable Electric Scooter",
+    "description": "Lightweight and powerful scooter with a range of 20 miles per charge.",
+    "price": 499.99,
+    "discountedPrice": 449.99,
+    "imageUrl": "/images/products/electric-scooter.png",
+    "type": "Outdoor Gear",
+    "brand": "EcoRide",
+    "quantityInStock": 80,
+    "visibility": true,
+    "sku": "SKU50008",
+    "barcode": "3000300030003",
+    "weight": 12.0,
+    "categoryId": 15,
+    "attributeIds": [ 2 ],
+    "variants": [
+      {
+        "sku": "VAR50008-Red",
+        "price": 449.99,
+        "imageUrl": "/images/products/scooter-red.png",
+        "attributeValues": [
+          {
+            "optionText": "Red",
+            "variantId": 1,
+            "attributeId": 1,
+            "optionId": 4
+          }
+        ]
+      },
+      {
+        "sku": "VAR50008-Blue",
+        "price": 459.99,
+        "imageUrl": "/images/products/scooter-blue.png",
+        "attributeValues": [
+          {
+            "optionText": "Blue",
+            "variantId": 2,
+            "attributeId": 1,
+            "optionId": 3
+          }
+        ]
+      }
+    ],
+    "productCustomOptions": [
+      {
+        "optionName": "Seat Attachment",
+        "optionType": "checkbox",
+        "isRequired": false,
+        "sortOrder": 1,
+        "productCustomOptionValues": [
+          {
+            "extraPrice": 50.0,
+            "sortOrder": 1,
+            "value": "Yes"
+          },
+          {
+            "extraPrice": 0.0,
+            "sortOrder": 2,
+            "value": "No"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Compact DSLR Camera",
+    "description": "Capture professional-quality photos with this lightweight and easy-to-use DSLR camera.",
+    "price": 599.99,
+    "discountedPrice": 549.99,
+    "imageUrl": "/images/products/dslr-camera.png",
+    "type": "Electronics",
+    "brand": "PhotoMaster",
+    "quantityInStock": 70,
+    "visibility": true,
+    "sku": "SKU50009",
+    "barcode": "4000400040004",
+    "weight": 2.0,
+    "categoryId": 16,
+    "attributeIds": [ 1 ],
+    "variants": [
+      {
+        "sku": "VAR50009-Standard",
+        "price": 549.99,
+        "imageUrl": "/images/products/camera-standard.png",
+        "attributeValues": [
+          {
+            "optionText": "Standard Lens",
+            "variantId": 1,
+            "attributeId": 2,
+            "optionId": 11
+          }
+        ]
+      },
+      {
+        "sku": "VAR50009-Pro",
+        "price": 699.99,
+        "imageUrl": "/images/products/camera-pro.png",
+        "attributeValues": [
+          {
+            "optionText": "Professional Lens",
+            "variantId": 2,
+            "attributeId": 2,
+            "optionId": 12
+          }
+        ]
+      }
+    ],
+    "productCustomOptions": [
+      {
+        "optionName": "Memory Card",
+        "optionType": "dropdown",
+        "isRequired": true,
+        "sortOrder": 1,
+        "productCustomOptionValues": [
+          {
+            "extraPrice": 0.0,
+            "sortOrder": 1,
+            "value": "16GB"
+          },
+          {
+            "extraPrice": 20.0,
+            "sortOrder": 2,
+            "value": "32GB"
+          },
+          {
+            "extraPrice": 40.0,
+            "sortOrder": 3,
+            "value": "64GB"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Standing Desk Converter",
+    "description": "Transform any desk into a standing desk for improved posture and productivity.",
+    "price": 249.99,
+    "discountedPrice": 199.99,
+    "imageUrl": "/images/products/standing-desk.png",
+    "type": "Furniture",
+    "brand": "WorkEase",
+    "quantityInStock": 90,
+    "visibility": true,
+    "sku": "SKU50010",
+    "barcode": "5000500050005",
+    "weight": 10.0,
+    "categoryId": 17,
+    "attributeIds": [ 2 ],
+    "variants": [
+      {
+        "sku": "VAR50010-Small",
+        "price": 199.99,
+        "imageUrl": "/images/products/desk-small.png",
+        "attributeValues": [
+          {
+            "optionText": "Small",
+            "variantId": 1,
+            "attributeId": 2,
+            "optionId": 8
+          }
+        ]
+      },
+      {
+        "sku": "VAR50010-Large",
+        "price": 299.99,
+        "imageUrl": "/images/products/desk-large.png",
+        "attributeValues": [
+          {
+            "optionText": "Large",
+            "variantId": 2,
+            "attributeId": 2,
+            "optionId": 9
+          }
+        ]
+      }
+    ],
+    "productCustomOptions": [
+      {
+        "optionName": "Keyboard Tray",
+        "optionType": "checkbox",
+        "isRequired": false,
+        "sortOrder": 1,
+        "productCustomOptionValues": [
+          {
+            "extraPrice": 30.0,
+            "sortOrder": 1,
+            "value": "Yes"
+          },
+          {
+            "extraPrice": 0.0,
+            "sortOrder": 2,
+            "value": "No"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Wireless Earbuds Pro",
+    "description": "High-quality wireless earbuds with active noise cancellation and 30-hour battery life.",
+    "price": 149.99,
+    "discountedPrice": 129.99,
+    "imageUrl": "/images/products/wireless-earbuds.png",
+    "type": "Electronics",
+    "brand": "AudioPrime",
+    "quantityInStock": 300,
+    "visibility": true,
+    "sku": "SKU50011",
+    "barcode": "6000600060006",
+    "weight": 0.2,
+    "categoryId": 18,
+    "attributeIds": [ 1 ],
+    "variants": [
+      {
+        "sku": "VAR50011-White",
+        "price": 129.99,
+        "imageUrl": "/images/products/earbuds-white.png",
+        "attributeValues": [
+          {
+            "optionText": "White",
+            "variantId": 1,
+            "attributeId": 1,
+            "optionId": 10
+          }
+        ]
+      },
+      {
+        "sku": "VAR50011-Black",
+        "price": 129.99,
+        "imageUrl": "/images/products/earbuds-black.png",
+        "attributeValues": [
+          {
+            "optionText": "Black",
+            "variantId": 2,
+            "attributeId": 1,
+            "optionId": 11
+          }
+        ]
+      }
+    ],
+    "productCustomOptions": [
+      {
+        "optionName": "Charging Case Color",
+        "optionType": "dropdown",
+        "isRequired": false,
+        "sortOrder": 1,
+        "productCustomOptionValues": [
+          {
+            "extraPrice": 5.0,
+            "sortOrder": 1,
+            "value": "Silver"
+          },
+          {
+            "extraPrice": 5.0,
+            "sortOrder": 2,
+            "value": "Gold"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Portable Power Bank",
+    "description": "Charge your devices on the go with a 20,000mAh power bank featuring fast charging.",
+    "price": 59.99,
+    "discountedPrice": 49.99,
+    "imageUrl": "/images/products/power-bank.png",
+    "type": "Electronics",
+    "brand": "ChargeMate",
+    "quantityInStock": 500,
+    "visibility": true,
+    "sku": "SKU50012",
+    "barcode": "7000700070007",
+    "weight": 0.5,
+    "categoryId": 19,
+    "attributeIds": [ 2 ],
+    "variants": [
+      {
+        "sku": "VAR50012-Silver",
+        "price": 49.99,
+        "imageUrl": "/images/products/powerbank-silver.png",
+        "attributeValues": [
+          {
+            "optionText": "Silver",
+            "variantId": 1,
+            "attributeId": 2,
+            "optionId": 10
+          }
+        ]
+      },
+      {
+        "sku": "VAR50012-Black",
+        "price": 49.99,
+        "imageUrl": "/images/products/powerbank-black.png",
+        "attributeValues": [
+          {
+            "optionText": "Black",
+            "variantId": 2,
+            "attributeId": 2,
+            "optionId": 11
+          }
+        ]
+      }
+    ],
+    "productCustomOptions": [
+      {
+        "optionName": "Cable Type",
+        "optionType": "dropdown",
+        "isRequired": false,
+        "sortOrder": 1,
+        "productCustomOptionValues": [
+          {
+            "extraPrice": 10.0,
+            "sortOrder": 1,
+            "value": "USB-C"
+          },
+          {
+            "extraPrice": 15.0,
+            "sortOrder": 2,
+            "value": "Lightning"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Ergonomic Office Chair",
+    "description": "Sit comfortably for hours with lumbar support and adjustable height.",
+    "price": 249.99,
+    "discountedPrice": 199.99,
+    "imageUrl": "/images/products/office-chair.png",
+    "type": "Furniture",
+    "brand": "SitWell",
+    "quantityInStock": 100,
+    "visibility": true,
+    "sku": "SKU50013",
+    "barcode": "8000800080008",
+    "weight": 12.0,
+    "categoryId": 20,
+    "attributeIds": [ 3 ],
+    "variants": [
+      {
+        "sku": "VAR50013-Black",
+        "price": 199.99,
+        "imageUrl": "/images/products/chair-black.png",
+        "attributeValues": [
+          {
+            "optionText": "Black",
+            "variantId": 1,
+            "attributeId": 3,
+            "optionId": 14
+          }
+        ]
+      },
+      {
+        "sku": "VAR50013-Grey",
+        "price": 209.99,
+        "imageUrl": "/images/products/chair-grey.png",
+        "attributeValues": [
+          {
+            "optionText": "Grey",
+            "variantId": 2,
+            "attributeId": 3,
+            "optionId": 15
+          }
+        ]
+      }
+    ],
+    "productCustomOptions": [
+      {
+        "optionName": "Headrest",
+        "optionType": "checkbox",
+        "isRequired": false,
+        "sortOrder": 1,
+        "productCustomOptionValues": [
+          {
+            "extraPrice": 20.0,
+            "sortOrder": 1,
+            "value": "Yes"
+          },
+          {
+            "extraPrice": 0.0,
+            "sortOrder": 2,
+            "value": "No"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Smart Coffee Maker",
+    "description": "Brew coffee remotely with this app-controlled coffee maker.",
+    "price": 129.99,
+    "discountedPrice": 99.99,
+    "imageUrl": "/images/products/coffee-maker.png",
+    "type": "Home Appliances",
+    "brand": "BrewSmart",
+    "quantityInStock": 120,
+    "visibility": true,
+    "sku": "SKU50014",
+    "barcode": "9000900090009",
+    "weight": 4.5,
+    "categoryId": 21,
+    "attributeIds": [ 1 ],
+    "variants": [
+      {
+        "sku": "VAR50014-Black",
+        "price": 99.99,
+        "imageUrl": "/images/products/coffee-black.png",
+        "attributeValues": [
+          {
+            "optionText": "Black",
+            "variantId": 1,
+            "attributeId": 1,
+            "optionId": 10
+          }
+        ]
+      },
+      {
+        "sku": "VAR50014-White",
+        "price": 109.99,
+        "imageUrl": "/images/products/coffee-white.png",
+        "attributeValues": [
+          {
+            "optionText": "White",
+            "variantId": 2,
+            "attributeId": 1,
+            "optionId": 11
+          }
+        ]
+      }
+    ],
+    "productCustomOptions": [
+      {
+        "optionName": "Reusable Filter",
+        "optionType": "checkbox",
+        "isRequired": false,
+        "sortOrder": 1,
+        "productCustomOptionValues": [
+          {
+            "extraPrice": 10.0,
+            "sortOrder": 1,
+            "value": "Yes"
+          },
+          {
+            "extraPrice": 0.0,
+            "sortOrder": 2,
+            "value": "No"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Compact Air Purifier",
+    "description": "Keep your air clean and fresh with this portable air purifier.",
+    "price": 199.99,
+    "discountedPrice": 159.99,
+    "imageUrl": "/images/products/air-purifier.png",
+    "type": "Home Appliances",
+    "brand": "PureAir",
+    "quantityInStock": 150,
+    "visibility": true,
+    "sku": "SKU50015",
+    "barcode": "10001000100010",
+    "weight": 3.0,
+    "categoryId": 22,
+    "attributeIds": [ 1 ],
+    "variants": [
+      {
+        "sku": "VAR50015-Small",
+        "price": 159.99,
+        "imageUrl": "/images/products/purifier-small.png",
+        "attributeValues": [
+          {
+            "optionText": "Small",
+            "variantId": 1,
+            "attributeId": 1,
+            "optionId": 14
+          }
+        ]
+      },
+      {
+        "sku": "VAR50015-Large",
+        "price": 219.99,
+        "imageUrl": "/images/products/purifier-large.png",
+        "attributeValues": [
+          {
+            "optionText": "Large",
+            "variantId": 2,
+            "attributeId": 1,
+            "optionId": 15
+          }
+        ]
+      }
+    ],
+    "productCustomOptions": [
+      {
+        "optionName": "Extra Filters",
+        "optionType": "dropdown",
+        "isRequired": false,
+        "sortOrder": 1,
+        "productCustomOptionValues": [
+          {
+            "extraPrice": 25.0,
+            "sortOrder": 1,
+            "value": "1 Pack"
+          },
+          {
+            "extraPrice": 40.0,
+            "sortOrder": 2,
+            "value": "2 Pack"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Smart Home Security Camera",
+    "description": "Monitor your home remotely with this app-controlled security camera.",
+    "price": 149.99,
+    "discountedPrice": 129.99,
+    "imageUrl": "/images/products/security-camera.png",
+    "type": "Home Appliances",
+    "brand": "SecureHome",
+    "quantityInStock": 200,
+    "visibility": true,
+    "sku": "SKU50016",
+    "barcode": "11001100110011",
+    "weight": 0.5,
+    "categoryId": 23,
+    "attributeIds": [ 1 ],
+    "variants": [
+      {
+        "sku": "VAR50016-White",
+        "price": 129.99,
+        "imageUrl": "/images/products/camera-white.png",
+        "attributeValues": [
+          {
+            "optionText": "White",
+            "variantId": 1,
+            "attributeId": 1,
+            "optionId": 11
+          }
+        ]
+      },
+      {
+        "sku": "VAR50016-Black",
+        "price": 139.99,
+        "imageUrl": "/images/products/camera-black.png",
+        "attributeValues": [
+          {
+            "optionText": "Black",
+            "variantId": 2,
+            "attributeId": 1,
+            "optionId": 10
+          }
+        ]
+      }
+    ],
+    "productCustomOptions": [
+      {
+        "optionName": "Mounting Bracket",
+        "optionType": "checkbox",
+        "isRequired": false,
+        "sortOrder": 1,
+        "productCustomOptionValues": [
+          {
+            "extraPrice": 15.0,
+            "sortOrder": 1,
+            "value": "Yes"
+          },
+          {
+            "extraPrice": 0.0,
+            "sortOrder": 2,
+            "value": "No"
+          }
+        ]
+      }
+    ]
   }
 ]
