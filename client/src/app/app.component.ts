@@ -11,5 +11,5 @@ import { ShopComponent } from "./features/shop/shop.component";
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'Skinet';
+  title = 'Iconic';
 }
