@@ -1,6 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { Pagination } from '../../shared/models/pagination';
+import { ApiResponse, Pagination } from '../../shared/models/pagination';
 import { Product } from '../../shared/models/product';
 import { ShopParams } from '../../shared/models/shopParams';
 import { environment } from '../../../environments/environment';
@@ -36,9 +36,12 @@ export class ShopService {
     params = params.append('pageSize', shopParams.pageSize);
     params = params.append('pageIndex', shopParams.pageNumber);
 
-    return this.http.get<Pagination<Product>>(this.baseUrl + 'products', {
-      params,
-    });
+    return this.http.get<ApiResponse<Pagination<Product>>>(
+      this.baseUrl + 'products',
+      {
+        params,
+      }
+    );
   }
 
   getProduct(id: number) {

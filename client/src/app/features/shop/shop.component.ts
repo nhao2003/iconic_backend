@@ -68,7 +68,7 @@ export class ShopComponent {
   getProducts() {
     this.shopService.getProducts(this.shopParams).subscribe({
       next: (response) => {
-        this.products = response;
+        this.products = response.data;
 
         console.log('Count:' + this.products.count);
         console.log('Data' + response.data);
