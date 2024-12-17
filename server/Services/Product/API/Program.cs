@@ -1,6 +1,7 @@
 using API.Extensions;
 using API.Middleware;
 using API.Resolvers;
+using API.Schemas.Queries;
 using API.SignalR;
 using Core.Entities;
 using Core.Interfaces;
@@ -49,7 +50,12 @@ builder.Services.AddSignalR();
 builder.Services.AddControllers().AddJsonOptions(x =>
                             x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
+// Add AutoMapper
 builder.Services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
+
+builder.Services.AddGraphQLServer()
+    .AddQueryType(q => q.Name("Query"))
+    .AddType<ProductQuery>();
 
 var app = builder.Build();
 
@@ -69,6 +75,8 @@ app.MapControllers();
 app.MapGroup("api").MapIdentityApi<AppUser>(); // api/login
 app.MapHub<NotificationHub>("/hub/notifications");
 app.MapFallbackToController("Index", "Fallback");
+
+app.MapGraphQL();
 
 try
 {

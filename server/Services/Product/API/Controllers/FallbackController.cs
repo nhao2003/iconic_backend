@@ -6,7 +6,7 @@ public class FallbackController : Controller
 {
     public IActionResult Index()
     {
-        return PhysicalFile(Path.Combine(Directory.GetCurrentDirectory(), 
+        return PhysicalFile(System.IO.Path.Combine(Directory.GetCurrentDirectory(),
             "wwwroot", "index.html"), "text/HTML");
     }
 }
