@@ -7,6 +7,7 @@ public class Product : BaseEntity
     public decimal Price { get; set; }
     public decimal? DiscountedPrice { get; set; }
     public required string ImageUrl { get; set; }
+    public List<string> ImageCoverUrls { get; set; }
     public required string Type { get; set; }
     public required string Brand { get; set; }
     public int QuantityInStock { get; set; }
