@@ -22,10 +22,10 @@ import { FormsModule } from '@angular/forms';
     MatInput,
     MatLabel,
     MatDivider,
-    FormsModule
+    FormsModule,
   ],
   templateUrl: './product-details.component.html',
-  styleUrl: './product-details.component.scss'
+  styleUrl: './product-details.component.scss',
 })
 export class ProductDetailsComponent implements OnInit {
   private shopService = inject(ShopService);
@@ -43,12 +43,12 @@ export class ProductDetailsComponent implements OnInit {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
     if (!id) return;
     this.shopService.getProduct(+id).subscribe({
-      next: product => {
-        this.product = product;
+      next: (product) => {
+        this.product = product.data;
         this.updateQuantityInCart();
       },
-      error: error => console.log(error)
-    })
+      error: (error) => console.log(error),
+    });
   }
 
   updateCart() {
@@ -65,12 +65,14 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   updateQuantityInCart() {
-    this.quantityInCart = this.cartService.cart()?.items
-      .find(x => x.productId === this.product?.id)?.quantity || 0;
+    this.quantityInCart =
+      this.cartService
+        .cart()
+        ?.items.find((x) => x.productId === this.product?.id)?.quantity || 0;
     this.quantity = this.quantityInCart || 1;
   }
 
   getButtonText() {
-    return this.quantityInCart > 0 ? 'Update cart' : 'Add to cart'
+    return this.quantityInCart > 0 ? 'Update cart' : 'Add to cart';
   }
 }
