@@ -2,20 +2,18 @@
 using API.RequestHelpers;
 using API.Resolvers;
 using Core.Specifications.Params;
-using HotChocolate;
-using HotChocolate.Types;
 
 namespace API.Schemas.Queries;
 
 [ExtendObjectType("Query")]
 public class ProductQuery(ProductResolver resolver)
 {
-    public async Task<Pagination<ProductDto>> GetProducts(ProductSpecParams specParams)
+    public async Task<Pagination<ProductDto>> GetProducts(ProductSpecParams specParams, [Service] ProductResolver resolver)
     {
         return await resolver.GetProducts(specParams);
     }
 
-    public async Task<ProductDto> GetProduct(int id)
+    public async Task<ProductDto> GetProduct(int id, [Service] ProductResolver resolver)
     {
         var product = await resolver.GetProductById(id);
 
