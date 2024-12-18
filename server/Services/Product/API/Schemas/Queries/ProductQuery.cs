@@ -14,7 +14,7 @@ public class ProductQuery(ProductResolver resolver)
         return await resolver.GetProducts(specParams);
     }
 
-    public async Task<ProductDto> GetProduct(int id, [Service] ProductResolver resolver)
+    public async Task<ProductDto> GetProduct(long id, [Service] ProductResolver resolver)
     {
         var product = await resolver.GetProductById(id);
 

@@ -22,7 +22,7 @@ public class AdminController(IUnitOfWork unit, IPaymentService paymentService) :
     }
 
     [HttpGet("orders/{id:int}")]
-    public async Task<ActionResult<OrderDto>> GetOrderById(int id)
+    public async Task<ActionResult<OrderDto>> GetOrderById(long id)
     {
         var spec = new OrderSpecification(id);
         
@@ -34,7 +34,7 @@ public class AdminController(IUnitOfWork unit, IPaymentService paymentService) :
     }
 
     [HttpPost("orders/refund/{id:int}")]
-    public async Task<ActionResult<OrderDto>> RefundOrder(int id)
+    public async Task<ActionResult<OrderDto>> RefundOrder(long id)
     {
         var spec = new OrderSpecification(id);
 

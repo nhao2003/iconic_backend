@@ -4,7 +4,7 @@ namespace API.DTOs
 {
     public class AttributeDto
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
         public string AttributeCode { get; set; }
 
         public string AttributeName { get; set; }
@@ -24,7 +24,7 @@ namespace API.DTOs
 
     public class AttributeOptionDto
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
         public string AttributeCode { get; set; }
 
         public string OptionText { get; set; }
@@ -60,7 +60,7 @@ namespace API.DTOs
 
     public class UpdateAttributeDto
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
         public string AttributeCode { get; set; }
 
         public string AttributeName { get; set; }
@@ -80,7 +80,7 @@ namespace API.DTOs
 
     public class UpdateAttributeOptionDto
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
         public string AttributeCode { get; set; }
 
         public string OptionText { get; set; }

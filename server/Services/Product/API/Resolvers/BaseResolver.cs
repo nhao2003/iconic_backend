@@ -49,7 +49,7 @@ namespace API.Resolvers
             return new Pagination<TDto>(pageIndex, pageSize, count, dtoItems);
         }
 
-        protected bool IssExists<T>(int id, IGenericRepository<T> repo) where T : BaseEntity
+        protected bool IssExists<T>(long id, IGenericRepository<T> repo) where T : BaseEntity
         {
             return repo.Exists(id);
         }

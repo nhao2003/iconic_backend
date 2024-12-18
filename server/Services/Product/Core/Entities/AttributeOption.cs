@@ -2,7 +2,7 @@
 
 public class AttributeOption : BaseEntity
 {
-    public int AttributeId { get; set; }
+    public long AttributeId { get; set; }
     public ProductAttribute Attribute { get; set; }
 
     public required string AttributeCode { get; set; }

@@ -27,7 +27,7 @@ public class CategorySpecification : BaseSpecification<Category>
         }
     }
 
-    public CategorySpecification(int id) : base(x => x.Id == id)
+    public CategorySpecification(long id) : base(x => x.Id == id)
     {
         AddInclude(x => x.CategoryDescriptions);
     }

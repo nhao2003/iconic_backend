@@ -11,7 +11,7 @@ namespace API.Controllers;
 
 public class ProductsController(ProductResolver resolver) : BaseApiController
 {
-    [Cache(600)]
+    // [Cache(600)]
     [HttpGet]
     public async Task<ActionResult<IReadOnlyList<Product>>> GetProducts(
         [FromQuery] ProductSpecParams specParams)
@@ -21,9 +21,9 @@ public class ProductsController(ProductResolver resolver) : BaseApiController
         return APISuccessResponse(pagination, "Data retrieved successfully");
     }
 
-    [Cache(600)]
+    // [Cache(600)]
     [HttpGet("{id:int}")]
-    public async Task<ActionResult<Product>> GetProduct(int id)
+    public async Task<ActionResult<Product>> GetProduct(long id)
     {
         var product = await resolver.GetProductById(id);
 
@@ -70,7 +70,7 @@ public class ProductsController(ProductResolver resolver) : BaseApiController
     [InvalidateCache("api/products|")]
     [Authorize(Roles = "Admin")]
     [HttpPut("{id:int}")]
-    public async Task<ActionResult> UpdateProduct(int id, UpdateProductDto updateProduct)
+    public async Task<ActionResult> UpdateProduct(long id, UpdateProductDto updateProduct)
     {
         var product = await resolver.UpdateProduct(id, updateProduct);
 
@@ -96,7 +96,7 @@ public class ProductsController(ProductResolver resolver) : BaseApiController
     [InvalidateCache("api/products|")]
     [Authorize(Roles = "Admin")]
     [HttpDelete("{id:int}")]
-    public async Task<ActionResult> DeleteProduct(int id)
+    public async Task<ActionResult> DeleteProduct(long id)
     {
         var product = await resolver.DeleteProduct(id);
         if (product != null)

@@ -13,7 +13,7 @@ public class AttributeQuery()
         return await resolver.GetAttributes(specParams);
     }
 
-    public async Task<AttributeDto> GetAttribute(int id, [Service] AttributeResolver resolver)
+    public async Task<AttributeDto> GetAttribute(long id, [Service] AttributeResolver resolver)
     {
         var attribute = await resolver.GetAttributeById(id);
 

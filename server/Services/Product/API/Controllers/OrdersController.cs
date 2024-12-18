@@ -86,7 +86,7 @@ public class OrdersController(ICartService cartService, IUnitOfWork unit) : Base
     }
 
     [HttpGet("{id:int}")]
-    public async Task<ActionResult<OrderDto>> GetOrderById(int id)
+    public async Task<ActionResult<OrderDto>> GetOrderById(long id)
     {
         var spec = new OrderSpecification(User.GetEmail(), id);
 

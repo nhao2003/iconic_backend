@@ -31,7 +31,7 @@ public class CategoryResolver : BaseResolver
         );
     }
 
-    public async Task<CategoryDto> GetCategory(int id)
+    public async Task<CategoryDto> GetCategory(long id)
     {
         var spec = new CategorySpecification(id);
         var category = await _unit.Repository<Category>().GetEntityWithSpec(spec);
@@ -50,7 +50,7 @@ public class CategoryResolver : BaseResolver
         return _mapper.Map<CategoryDto>(category);
     }
 
-    public async Task<CategoryDto?> UpdateCategory(int id, UpdateCategoryDto updateCategoryDto)
+    public async Task<CategoryDto?> UpdateCategory(long id, UpdateCategoryDto updateCategoryDto)
     {
         if (updateCategoryDto.Id != id || !_unit.Repository<Category>().Exists(id))
             throw new ArgumentException("Invalid category ID.");
@@ -66,7 +66,7 @@ public class CategoryResolver : BaseResolver
         return newCategory != null ? _mapper.Map<CategoryDto>(newCategory) : null;
     }
 
-    public async Task<bool> DeleteCategory(int id)
+    public async Task<bool> DeleteCategory(long id)
     {
         var category = await _unit.Repository<Category>().GetByIdAsync(id);
         if (category == null) throw new Exception("The specified category does not exist.");

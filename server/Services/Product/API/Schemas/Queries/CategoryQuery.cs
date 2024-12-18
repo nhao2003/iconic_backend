@@ -13,7 +13,7 @@ public class CategoryQuery
         return await resolver.GetCategories(specParams);
     }
 
-    public async Task<CategoryDto> GetCategory(int id, [Service] CategoryResolver resolver)
+    public async Task<CategoryDto> GetCategory(long id, [Service] CategoryResolver resolver)
     {
         var category = await resolver.GetCategory(id);
 

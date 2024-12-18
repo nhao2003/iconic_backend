@@ -23,7 +23,7 @@ public class CategoryController(CategoryResolver resolver) : BaseApiController
 
     [Cache(600)]
     [HttpGet("{id:int}")]
-    public async Task<ActionResult<Category>> GetCategory(int id)
+    public async Task<ActionResult<Category>> GetCategory(long id)
     {
         var category = await resolver.GetCategory(id);
 
@@ -68,7 +68,7 @@ public class CategoryController(CategoryResolver resolver) : BaseApiController
     [InvalidateCache("api/categories|")]
     [Authorize(Roles = "Admin")]
     [HttpPut("{id:int}")]
-    public async Task<ActionResult> UpdateCategory(int id, UpdateCategoryDto updateCategory)
+    public async Task<ActionResult> UpdateCategory(long id, UpdateCategoryDto updateCategory)
     {
         var category = await resolver.UpdateCategory(id, updateCategory);
 
@@ -86,7 +86,7 @@ public class CategoryController(CategoryResolver resolver) : BaseApiController
     [InvalidateCache("api/categories|")]
     [Authorize(Roles = "Admin")]
     [HttpDelete("{id:int}")]
-    public async Task<ActionResult> DeleteCategory(int id)
+    public async Task<ActionResult> DeleteCategory(long id)
     {
         var result = await resolver.DeleteCategory(id);
         if (result)

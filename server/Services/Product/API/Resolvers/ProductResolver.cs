@@ -24,7 +24,7 @@ public class ProductResolver : BaseResolver
         return await CreatePagedResult<Product, ProductDto>(_unitOfWork.Repository<Product>(), spec, specParams.PageIndex, specParams.PageSize, _mapper);
     }
 
-    public async Task<ProductDto?> GetProductById(int id)
+    public async Task<ProductDto?> GetProductById(long id)
     {
         var spec = new ProductSpecification(id);
         var product = await _unitOfWork.Repository<Product>().GetEntityWithSpec(spec);
@@ -61,7 +61,7 @@ public class ProductResolver : BaseResolver
         }).ToList();
 
         // get AttributeOptions by Ids
-        var attributeOptionMap = new Dictionary<int, AttributeOption>();
+        var attributeOptionMap = new Dictionary<long, AttributeOption>();
         foreach (var variant in createProduct.Variants)
         {
             foreach (var attribute in variant.AttributeValues)
@@ -98,7 +98,7 @@ public class ProductResolver : BaseResolver
         return null;
     }
 
-    public async Task<ProductDto?> UpdateProduct(int id, UpdateProductDto updateProduct)
+    public async Task<ProductDto?> UpdateProduct(long id, UpdateProductDto updateProduct)
     {
         if (updateProduct.Id != id || !IssExists<Product>(id, _unitOfWork.Repository<Product>()))
             throw new Exception($"Product with ID {id} not found or mismatched.");
@@ -130,7 +130,7 @@ public class ProductResolver : BaseResolver
         }).ToList();
 
         // get AttributeOptions by Ids
-        var attributeOptionMap = new Dictionary<int, AttributeOption>();
+        var attributeOptionMap = new Dictionary<long, AttributeOption>();
         foreach (var variant in updateProduct.Variants)
         {
             foreach (var attribute in variant.AttributeValues)
@@ -167,7 +167,7 @@ public class ProductResolver : BaseResolver
         return null;
     }
 
-    public async Task<ProductDto?> DeleteProduct(int id)
+    public async Task<ProductDto?> DeleteProduct(long id)
     {
         var product = await _unitOfWork.Repository<Product>().GetByIdAsync(id);
         if (product == null) throw new Exception($"Product with ID {id} not found or mismatched.");

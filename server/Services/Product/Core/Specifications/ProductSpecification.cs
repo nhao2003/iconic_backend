@@ -32,7 +32,7 @@ public class ProductSpecification : BaseSpecification<Product>
         }
     }
 
-    public ProductSpecification(int id) : base(x => x.Id == id)
+    public ProductSpecification(long id) : base(x => x.Id == id)
     {
         AddInclude("ProductAttributes.ProductAttribute.AttributeOptions");
         AddInclude("Variants.AttributeValues.Option");

@@ -4,7 +4,7 @@ namespace API.DTOs
 {
     public class CategoryDto
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
         public required string Slug { get; set; }
 
         public bool Status { get; set; }
@@ -18,7 +18,7 @@ namespace API.DTOs
 
     public class CategoryDescriptionDto
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
         public required string Name { get; set; }
 
         public string? ShortDescription { get; set; }
@@ -53,7 +53,7 @@ namespace API.DTOs
 
     public class UpdateCategoryDto
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         public required string Slug { get; set; }
 

@@ -21,7 +21,7 @@ public class AttributeController(AttributeResolver resolver) : BaseApiController
 
     [Cache(600)]
     [HttpGet("{id:int}")]
-    public async Task<ActionResult<AttributeDto>> GetAttribute(int id)
+    public async Task<ActionResult<AttributeDto>> GetAttribute(long id)
     {
         var attribute = await resolver.GetAttributeById(id);
 
@@ -67,7 +67,7 @@ public class AttributeController(AttributeResolver resolver) : BaseApiController
     [InvalidateCache("api/attributes|")]
     [Authorize(Roles = "Admin")]
     [HttpPut("{id:int}")]
-    public async Task<ActionResult> UpdateAttribute(int id, UpdateAttributeDto updateAttribute)
+    public async Task<ActionResult> UpdateAttribute(long id, UpdateAttributeDto updateAttribute)
     {
         var attribute = await resolver.UpdateAttribute(id, updateAttribute);
 
@@ -86,7 +86,7 @@ public class AttributeController(AttributeResolver resolver) : BaseApiController
     [InvalidateCache("api/attributes|")]
     [Authorize(Roles = "Admin")]
     [HttpDelete("{id:int}")]
-    public async Task<ActionResult> DeleteAttribute(int id)
+    public async Task<ActionResult> DeleteAttribute(long id)
     {
         var result = await resolver.DeleteAttribute(id);
 

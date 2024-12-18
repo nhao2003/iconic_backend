@@ -5,7 +5,7 @@ namespace API.DTOs;
 public class UpdateProductDto
 {
     [Required]
-    public int Id { get; set; }
+    public long Id { get; set; }
 
     [Required]
     public string Name { get; set; } = string.Empty;
@@ -42,9 +42,9 @@ public class UpdateProductDto
 
     public decimal? Weight { get; set; }
 
-    public int CategoryId { get; set; }
+    public long CategoryId { get; set; }
 
-    public List<int> AttributeIds { get; set; } = new List<int>();
+    public List<long> AttributeIds { get; set; } = new List<long>();
 
     public List<UpdateVariantDto> Variants { get; set; } = new List<UpdateVariantDto> { };
 

@@ -21,12 +21,12 @@ public class GenericRepository<T>(StoreContext context) : IGenericRepository<T> 
         return await query.CountAsync();
     }
 
-    public bool Exists(int id)
+    public bool Exists(long id)
     {
         return context.Set<T>().Any(x => x.Id == id);
     }
 
-    public async Task<T?> GetByIdAsync(int id)
+    public async Task<T?> GetByIdAsync(long id)
     {
         return await context.Set<T>().FindAsync(id);
     }

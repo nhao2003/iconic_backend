@@ -26,7 +26,7 @@ public class AttributeResolver : BaseResolver
             _unitOfWork.Repository<ProductAttribute>(), spec, specParams.PageIndex, specParams.PageSize, _mapper);
     }
 
-    public async Task<AttributeDto?> GetAttributeById(int id)
+    public async Task<AttributeDto?> GetAttributeById(long id)
     {
         var spec = new AttributeSpecification(id);
         var attribute = await _unitOfWork.Repository<ProductAttribute>().GetEntityWithSpec(spec);
@@ -45,7 +45,7 @@ public class AttributeResolver : BaseResolver
         return null;
     }
 
-    public async Task<AttributeDto?> UpdateAttribute(int id, UpdateAttributeDto updateAttribute)
+    public async Task<AttributeDto?> UpdateAttribute(long id, UpdateAttributeDto updateAttribute)
     {
         if (updateAttribute.Id != id) return null;
 
@@ -60,7 +60,7 @@ public class AttributeResolver : BaseResolver
         return null;
     }
 
-    public async Task<bool> DeleteAttribute(int id)
+    public async Task<bool> DeleteAttribute(long id)
     {
         var attribute = await _unitOfWork.Repository<ProductAttribute>().GetByIdAsync(id);
         if (attribute == null) return false;

@@ -27,7 +27,7 @@ public class AttributeSpecification : BaseSpecification<ProductAttribute>
         }
     }
 
-    public AttributeSpecification(int id) : base(x => x.Id == id)
+    public AttributeSpecification(long id) : base(x => x.Id == id)
     {
         AddInclude(x => x.AttributeOptions);
     }

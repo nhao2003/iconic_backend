@@ -2,7 +2,7 @@
 {
     public class ProductCustomOptionDto
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
         public string OptionName { get; set; }
 
         public string OptionType { get; set; }
@@ -17,7 +17,7 @@
 
     public class ProductCustomOptionValueDto
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
         public decimal? ExtraPrice { get; set; }
 
         public int? SortOrder { get; set; }

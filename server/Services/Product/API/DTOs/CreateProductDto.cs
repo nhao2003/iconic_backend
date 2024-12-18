@@ -39,9 +39,9 @@ public class CreateProductDto
 
     public decimal? Weight { get; set; }
 
-    public int CategoryId { get; set; }
+    public long CategoryId { get; set; }
 
-    public List<int> AttributeIds { get; set; } = new List<int>();
+    public List<long> AttributeIds { get; set; } = new List<long>();
 
     public List<CreateVariantDto> Variants { get; set; } = new List<CreateVariantDto> { };
 

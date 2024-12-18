@@ -12,7 +12,7 @@ public class OrderSpecification : BaseSpecification<Order>
         AddOrderByDescending(x => x.OrderDate);
     }
 
-    public OrderSpecification(string email, int id) : base(x => x.BuyerEmail == email && x.Id == id)
+    public OrderSpecification(string email, long id) : base(x => x.BuyerEmail == email && x.Id == id)
     {
         AddInclude("OrderItems");
         AddInclude("DeliveryMethod");
@@ -35,7 +35,7 @@ public class OrderSpecification : BaseSpecification<Order>
         AddOrderByDescending(x => x.OrderDate);
     }
 
-    public OrderSpecification(int id) : base(x => x.Id == id)
+    public OrderSpecification(long id) : base(x => x.Id == id)
     {
         AddInclude("OrderItems");
         AddInclude("DeliveryMethod");

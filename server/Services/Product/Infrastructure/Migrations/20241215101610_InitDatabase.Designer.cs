@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    [Migration("20240728034223_RolesAdded")]
-    partial class RolesAdded
+    [Migration("20241215101610_InitDatabase")]
+    partial class InitDatabase
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,11 +27,11 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Core.Entities.Address", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("bigint");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
                     b.Property<string>("City")
                         .IsRequired()
@@ -69,8 +69,8 @@ namespace Infrastructure.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
-                    b.Property<int?>("AddressId")
-                        .HasColumnType("int");
+                    b.Property<long?>("AddressId")
+                        .HasColumnType("bigint");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
@@ -137,13 +137,117 @@ namespace Infrastructure.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("Core.Entities.AttributeOption", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<string>("AttributeCode")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<long>("AttributeId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OptionText")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AttributeId");
+
+                    b.ToTable("AttributeOptions");
+                });
+
+            modelBuilder.Entity("Core.Entities.Category", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<bool>("IncludeInNav")
+                        .HasColumnType("bit");
+
+                    b.Property<long?>("ParentCategoryId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("ParentStatus")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<short?>("Position")
+                        .HasColumnType("smallint");
+
+                    b.Property<string>("Slug")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ParentCategoryId");
+
+                    b.ToTable("Categories");
+                });
+
+            modelBuilder.Entity("Core.Entities.CategoryDescription", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<long>("CategoryId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("ShortDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UrlKey")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("CategoryDescriptions");
+                });
+
             modelBuilder.Entity("Core.Entities.DeliveryMethod", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("bigint");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
                     b.Property<string>("DeliveryTime")
                         .IsRequired()
@@ -167,18 +271,18 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Core.Entities.OrderAggregate.Order", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("bigint");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
                     b.Property<string>("BuyerEmail")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("DeliveryMethodId")
-                        .HasColumnType("int");
+                    b.Property<long>("DeliveryMethodId")
+                        .HasColumnType("bigint");
 
                     b.Property<decimal>("Discount")
                         .HasColumnType("decimal(18,2)");
@@ -206,14 +310,14 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Core.Entities.OrderAggregate.OrderItem", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("bigint");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
 
-                    b.Property<int?>("OrderId")
-                        .HasColumnType("int");
+                    b.Property<long?>("OrderId")
+                        .HasColumnType("bigint");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
@@ -230,27 +334,42 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Core.Entities.Product", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("bigint");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<string>("Barcode")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Brand")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<long?>("CategoryId")
+                        .HasColumnType("bigint");
+
                     b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal?>("DiscountedPrice")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("ImageCoverUrls")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageUrl")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PictureUrl")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
@@ -258,13 +377,202 @@ namespace Infrastructure.Migrations
                     b.Property<int>("QuantityInStock")
                         .HasColumnType("int");
 
+                    b.Property<string>("Sku")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
                     b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Visibility")
+                        .HasColumnType("bit");
+
+                    b.Property<decimal?>("Weight")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("Core.Entities.ProductAttribute", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<string>("AttributeCode")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("AttributeName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<bool>("DisplayOnFrontend")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsFilterable")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsRequired")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("SortOrder")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ProductAttributes");
+                });
+
+            modelBuilder.Entity("Core.Entities.ProductAttributeNavigator", b =>
+                {
+                    b.Property<long>("ProductId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("ProductAttributeId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("ProductId", "ProductAttributeId");
+
+                    b.HasIndex("ProductAttributeId");
+
+                    b.ToTable("ProductAttributeNavigators");
+                });
+
+            modelBuilder.Entity("Core.Entities.ProductAttributeValueIndex", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<long>("AttributeId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long?>("OptionId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("OptionText")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("VariantId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AttributeId");
+
+                    b.HasIndex("OptionId");
+
+                    b.HasIndex("VariantId");
+
+                    b.ToTable("ProductAttributeValueIndexes");
+                });
+
+            modelBuilder.Entity("Core.Entities.ProductCustomOption", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<bool>("IsRequired")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("OptionName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OptionType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("ProductId")
+                        .HasColumnType("bigint");
+
+                    b.Property<int?>("SortOrder")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("ProductCustomOptions");
+                });
+
+            modelBuilder.Entity("Core.Entities.ProductCustomOptionValue", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<decimal?>("ExtraPrice")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<long>("ProductCustomOptionId")
+                        .HasColumnType("bigint");
+
+                    b.Property<int?>("SortOrder")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Value")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Products");
+                    b.HasIndex("ProductCustomOptionId");
+
+                    b.ToTable("ProductCustomOptionValues");
+                });
+
+            modelBuilder.Entity("Core.Entities.Variant", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<string>("ImageUrl")
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<long>("ProductId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Sku")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("Variants");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -296,13 +604,13 @@ namespace Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "f0f410eb-1c21-44be-aeb9-ed4954e4fe12",
+                            Id = "d2d3da6f-e616-4192-8245-beeecaa7cdd5",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "d9babf83-382a-4e6f-b8da-e4ab34c7ca60",
+                            Id = "88d55877-3d49-4c06-b290-2335275cc435",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
                         });
@@ -423,6 +731,38 @@ namespace Infrastructure.Migrations
                     b.Navigation("Address");
                 });
 
+            modelBuilder.Entity("Core.Entities.AttributeOption", b =>
+                {
+                    b.HasOne("Core.Entities.ProductAttribute", "Attribute")
+                        .WithMany("AttributeOptions")
+                        .HasForeignKey("AttributeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Attribute");
+                });
+
+            modelBuilder.Entity("Core.Entities.Category", b =>
+                {
+                    b.HasOne("Core.Entities.Category", "ParentCategory")
+                        .WithMany()
+                        .HasForeignKey("ParentCategoryId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.Navigation("ParentCategory");
+                });
+
+            modelBuilder.Entity("Core.Entities.CategoryDescription", b =>
+                {
+                    b.HasOne("Core.Entities.Category", "Category")
+                        .WithMany("CategoryDescriptions")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+                });
+
             modelBuilder.Entity("Core.Entities.OrderAggregate.Order", b =>
                 {
                     b.HasOne("Core.Entities.DeliveryMethod", "DeliveryMethod")
@@ -433,8 +773,8 @@ namespace Infrastructure.Migrations
 
                     b.OwnsOne("Core.Entities.OrderAggregate.PaymentSummary", "PaymentSummary", b1 =>
                         {
-                            b1.Property<int>("OrderId")
-                                .HasColumnType("int");
+                            b1.Property<long>("OrderId")
+                                .HasColumnType("bigint");
 
                             b1.Property<string>("Brand")
                                 .IsRequired()
@@ -459,8 +799,8 @@ namespace Infrastructure.Migrations
 
                     b.OwnsOne("Core.Entities.OrderAggregate.ShippingAddress", "ShippingAddress", b1 =>
                         {
-                            b1.Property<int>("OrderId")
-                                .HasColumnType("int");
+                            b1.Property<long>("OrderId")
+                                .HasColumnType("bigint");
 
                             b1.Property<string>("City")
                                 .IsRequired()
@@ -515,15 +855,15 @@ namespace Infrastructure.Migrations
 
                     b.OwnsOne("Core.Entities.OrderAggregate.ProductItemOrdered", "ItemOrdered", b1 =>
                         {
-                            b1.Property<int>("OrderItemId")
-                                .HasColumnType("int");
+                            b1.Property<long>("OrderItemId")
+                                .HasColumnType("bigint");
 
                             b1.Property<string>("PictureUrl")
                                 .IsRequired()
                                 .HasColumnType("nvarchar(max)");
 
-                            b1.Property<int>("ProductId")
-                                .HasColumnType("int");
+                            b1.Property<long>("ProductId")
+                                .HasColumnType("bigint");
 
                             b1.Property<string>("ProductName")
                                 .IsRequired()
@@ -539,6 +879,94 @@ namespace Infrastructure.Migrations
 
                     b.Navigation("ItemOrdered")
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Core.Entities.Product", b =>
+                {
+                    b.HasOne("Core.Entities.Category", "Category")
+                        .WithMany("Products")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.SetNull);
+
+                    b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("Core.Entities.ProductAttributeNavigator", b =>
+                {
+                    b.HasOne("Core.Entities.ProductAttribute", "ProductAttribute")
+                        .WithMany("ProductAttributes")
+                        .HasForeignKey("ProductAttributeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Core.Entities.Product", "Product")
+                        .WithMany("ProductAttributes")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+
+                    b.Navigation("ProductAttribute");
+                });
+
+            modelBuilder.Entity("Core.Entities.ProductAttributeValueIndex", b =>
+                {
+                    b.HasOne("Core.Entities.ProductAttribute", "Attribute")
+                        .WithMany("ProductAttributeValueIndexes")
+                        .HasForeignKey("AttributeId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Core.Entities.AttributeOption", "Option")
+                        .WithMany("ProductAttributeValueIndexes")
+                        .HasForeignKey("OptionId")
+                        .OnDelete(DeleteBehavior.SetNull);
+
+                    b.HasOne("Core.Entities.Variant", "Variant")
+                        .WithMany("AttributeValues")
+                        .HasForeignKey("VariantId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Attribute");
+
+                    b.Navigation("Option");
+
+                    b.Navigation("Variant");
+                });
+
+            modelBuilder.Entity("Core.Entities.ProductCustomOption", b =>
+                {
+                    b.HasOne("Core.Entities.Product", "Product")
+                        .WithMany("ProductCustomOptions")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("Core.Entities.ProductCustomOptionValue", b =>
+                {
+                    b.HasOne("Core.Entities.ProductCustomOption", "ProductCustomOption")
+                        .WithMany("ProductCustomOptionValues")
+                        .HasForeignKey("ProductCustomOptionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ProductCustomOption");
+                });
+
+            modelBuilder.Entity("Core.Entities.Variant", b =>
+                {
+                    b.HasOne("Core.Entities.Product", "Product")
+                        .WithMany("Variants")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -592,9 +1020,49 @@ namespace Infrastructure.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Core.Entities.AttributeOption", b =>
+                {
+                    b.Navigation("ProductAttributeValueIndexes");
+                });
+
+            modelBuilder.Entity("Core.Entities.Category", b =>
+                {
+                    b.Navigation("CategoryDescriptions");
+
+                    b.Navigation("Products");
+                });
+
             modelBuilder.Entity("Core.Entities.OrderAggregate.Order", b =>
                 {
                     b.Navigation("OrderItems");
+                });
+
+            modelBuilder.Entity("Core.Entities.Product", b =>
+                {
+                    b.Navigation("ProductAttributes");
+
+                    b.Navigation("ProductCustomOptions");
+
+                    b.Navigation("Variants");
+                });
+
+            modelBuilder.Entity("Core.Entities.ProductAttribute", b =>
+                {
+                    b.Navigation("AttributeOptions");
+
+                    b.Navigation("ProductAttributeValueIndexes");
+
+                    b.Navigation("ProductAttributes");
+                });
+
+            modelBuilder.Entity("Core.Entities.ProductCustomOption", b =>
+                {
+                    b.Navigation("ProductCustomOptionValues");
+                });
+
+            modelBuilder.Entity("Core.Entities.Variant", b =>
+                {
+                    b.Navigation("AttributeValues");
                 });
 #pragma warning restore 612, 618
         }

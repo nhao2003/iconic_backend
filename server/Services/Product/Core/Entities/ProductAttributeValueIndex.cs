@@ -4,11 +4,11 @@ public class ProductAttributeValueIndex : BaseEntity
 {
     public string? OptionText { get; set; }
 
-    public int VariantId { get; set; }
+    public long VariantId { get; set; }
 
     public Variant Variant { get; set; } = null!;
 
-    public int AttributeId { get; set; }
+    public long AttributeId { get; set; }
 
     public ProductAttribute Attribute { get; set; } = null!;
 

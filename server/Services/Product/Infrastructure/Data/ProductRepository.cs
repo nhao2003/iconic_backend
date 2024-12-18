@@ -23,7 +23,7 @@
 //            .ToListAsync();
 //    }
 
-//    public async Task<Product?> GetProductByIdAsync(int id)
+//    public async Task<Product?> GetProductByIdAsync(long id)
 //    {
 //        return await context.Products.FindAsync(id);
 //    }
@@ -57,7 +57,7 @@
 //            .ToListAsync();
 //    }
 
-//    public bool ProductExists(int id)
+//    public bool ProductExists(long id)
 //    {
 //        return context.Products.Any(x => x.Id == id);
 //    }
