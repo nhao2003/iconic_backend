@@ -11,7 +11,7 @@ namespace API.Controllers;
 
 public class ProductsController(ProductResolver resolver) : BaseApiController
 {
-    //[Cache(600)]
+    [Cache(600)]
     [HttpGet]
     public async Task<ActionResult<IReadOnlyList<Product>>> GetProducts(
         [FromQuery] ProductSpecParams specParams)

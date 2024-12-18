@@ -2,7 +2,6 @@
 using AutoMapper;
 using Core.Entities;
 using Core.Interfaces;
-using Infrastructure.Data;
 
 namespace API.Resolvers
 {

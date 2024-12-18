@@ -5,7 +5,6 @@ using Core.Interfaces;
 using Core.Specifications.Params;
 using Core.Specifications;
 using API.RequestHelpers;
-using System.Net;
 
 namespace API.Resolvers;
 
@@ -102,7 +101,7 @@ public class ProductResolver : BaseResolver
     public async Task<ProductDto?> UpdateProduct(int id, UpdateProductDto updateProduct)
     {
         if (updateProduct.Id != id || !IssExists<Product>(id, _unitOfWork.Repository<Product>()))
-            return null;
+            throw new Exception($"Product with ID {id} not found or mismatched.");
 
         var product = _mapper.Map<Product>(updateProduct);
 
@@ -171,7 +170,7 @@ public class ProductResolver : BaseResolver
     public async Task<ProductDto?> DeleteProduct(int id)
     {
         var product = await _unitOfWork.Repository<Product>().GetByIdAsync(id);
-        if (product == null) return null;
+        if (product == null) throw new Exception($"Product with ID {id} not found or mismatched.");
 
         _unitOfWork.Repository<Product>().Remove(product);
         if (await _unitOfWork.Complete())

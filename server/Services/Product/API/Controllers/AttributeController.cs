@@ -1,214 +1,143 @@
 ﻿using API.DTOs;
+using API.Resolvers;
 using API.RequestHelpers;
-using AutoMapper;
 using Core.Entities;
-using Core.Interfaces;
 using Core.Specifications.Params;
-using Core.Specifications;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
-namespace API.Controllers
+namespace API.Controllers;
+
+public class AttributeController(AttributeResolver resolver) : BaseApiController
 {
-    public class AttributeController(IUnitOfWork unit, IMapper _mapper) : BaseApiController
+    [Cache(600)]
+    [HttpGet]
+    public async Task<ActionResult<IReadOnlyList<ProductAttribute>>> GetAttributes([FromQuery] AttributeSpecParams specParams)
     {
-        [Cache(600)]
-        [HttpGet]
-        public async Task<ActionResult<IReadOnlyList<ProductAttribute>>> GetAttributes(
-        [FromQuery] AttributeSpecParams specParams)
-        {
-            var spec = new AttributeSpecification(specParams);
+        var attributes = await resolver.GetAttributes(specParams);
 
-            return await CreatePagedResult<ProductAttribute, AttributeDto>(
-                unit.Repository<ProductAttribute>(),
-                spec,
-                specParams.PageIndex,
-                specParams.PageSize, _mapper
+        return APISuccessResponse(attributes, "Attributes retrieved successfully");
+    }
+
+    [Cache(600)]
+    [HttpGet("{id:int}")]
+    public async Task<ActionResult<ProductAttribute>> GetAttribute(int id)
+    {
+        var attribute = await resolver.GetAttributeById(id);
+
+        if (attribute == null)
+        {
+            return APIErrorResponse(
+                Guid.NewGuid(),
+                HttpStatusCode.NotFound,
+                "Attribute not found",
+                new List<string> { "The specified attribute does not exist." }
             );
         }
 
-        [Cache(600)]
-        [HttpGet("{id:int}")]
-        public async Task<ActionResult<ProductAttribute>> GetAttribute(int id)
+        return APISuccessResponse(attribute, "Attribute retrieved successfully");
+    }
+
+    [InvalidateCache("api/attributes|")]
+    [Authorize(Roles = "Admin")]
+    [HttpPost]
+    public async Task<ActionResult<ProductAttribute>> CreateAttribute(CreateAttributeDto createAttribute)
+    {
+        var attribute = await resolver.CreateAttribute(createAttribute);
+
+        if (attribute != null)
         {
-            var spec = new AttributeSpecification(id);
-
-            var attribute = await unit.Repository<ProductAttribute>().GetEntityWithSpec(spec);
-
-            if (attribute == null) return NotFound();
-
-            return APISuccessResponse(
-                _mapper.Map<AttributeDto>(attribute),
-                "Attribute retrieved successfully"
-            );
-        }
-
-        [InvalidateCache("api/attribute|")]
-        [Authorize(Roles = "Admin")]
-        [HttpPost]
-        public async Task<ActionResult<ProductAttribute>> CreateAttribute(CreateAttributeDto createAttribute)
-        {
-            var attribute = _mapper.Map<ProductAttribute>(createAttribute);
-
-            unit.Repository<ProductAttribute>().Add(attribute);
-
-            if (await unit.Complete())
-            {
-                return CreatedAtAction("GetAttribute", new { id = attribute.Id }, new APISuccessResponse
+            return CreatedAtAction("GetAttribute", new { id = attribute.Id },
+                new APISuccessResponse
                 {
                     StatusCode = HttpStatusCode.Created,
                     Message = "Attribute created successfully",
-                    Data = _mapper.Map<AttributeDto>(attribute)
+                    Data = attribute
                 });
-            }
-
-            return APIErrorResponse(
-                Guid.NewGuid(),
-                HttpStatusCode.BadRequest,
-                "Problem creating attribute",
-                new List<string> { "Failed to save the attribute to the database." }
-            );
         }
 
-        [InvalidateCache("api/attributes|")]
-        [Authorize(Roles = "Admin")]
-        [HttpPut("{id:int}")]
-        public async Task<ActionResult> UpdateAttribute(int id, UpdateAttributeDto updateAttribute)
+        return APIErrorResponse(
+            Guid.NewGuid(),
+            HttpStatusCode.BadRequest,
+            "Problem creating attribute",
+            new List<string> { "Failed to save the attribute to the database." }
+        );
+    }
+
+    [InvalidateCache("api/attributes|")]
+    [Authorize(Roles = "Admin")]
+    [HttpPut("{id:int}")]
+    public async Task<ActionResult> UpdateAttribute(int id, UpdateAttributeDto updateAttribute)
+    {
+        var attribute = await resolver.UpdateAttribute(id, updateAttribute);
+
+        if (attribute != null)
         {
-            if (updateAttribute.Id != id || !AttributeExists(id))
-                return APIErrorResponse(
-                    Guid.NewGuid(),
-                    HttpStatusCode.BadRequest,
-                    "Cannot update this attribute",
-                    new List<string> { "Invalid attribute ID." });
-
-            var attribute = _mapper.Map<ProductAttribute>(updateAttribute);
-
-            unit.Repository<ProductAttribute>().Update(attribute);
-
-            if (await unit.Complete())
-            {
-                var newAttribute = await unit.Repository<ProductAttribute>().GetByIdAsync(id);
-
-                if (newAttribute == null) return NotFound();
-
-                return APISuccessResponse(_mapper.Map<AttributeDto>(newAttribute), "Attribute updated successfully");
-            }
-
-            return APIErrorResponse(Guid.NewGuid(),
-                HttpStatusCode.BadRequest,
-                "Problem deleting the attribute",
-                new List<string> { "Failed to delete the attribute." });
+            return APISuccessResponse(attribute, "Attribute updated successfully");
         }
 
-        [InvalidateCache("api/attributes|")]
-        [Authorize(Roles = "Admin")]
-        [HttpDelete("{id:int}")]
-        public async Task<ActionResult> DeleteAttribute(int id)
+        return APIErrorResponse(
+            Guid.NewGuid(),
+            HttpStatusCode.BadRequest,
+            "Problem updating the attribute",
+            new List<string> { "Failed to update the attribute." });
+    }
+
+    [InvalidateCache("api/attributes|")]
+    [Authorize(Roles = "Admin")]
+    [HttpDelete("{id:int}")]
+    public async Task<ActionResult> DeleteAttribute(int id)
+    {
+        var result = await resolver.DeleteAttribute(id);
+
+        if (result)
         {
-            var attribute = await unit.Repository<ProductAttribute>().GetByIdAsync(id);
-
-            if (attribute == null)
-                return APIErrorResponse(
-                    Guid.NewGuid(),
-                    HttpStatusCode.NotFound,
-                    "Attribute not found",
-                    new List<string> { "The specified attribute does not exist." });
-
-            unit.Repository<ProductAttribute>().Remove(attribute);
-
-            if (await unit.Complete())
-            {
-                return APISuccessResponse(id, "Attribute deleted successfully");
-            }
-
-            return APIErrorResponse(Guid.NewGuid(),
-                HttpStatusCode.BadRequest,
-                "Problem deleting the attribute",
-                new List<string> { "Failed to delete the attribute." });
+            return APISuccessResponse(id, "Attribute deleted successfully");
         }
 
-        private bool AttributeExists(int id)
+        return APIErrorResponse(
+            Guid.NewGuid(),
+            HttpStatusCode.BadRequest,
+            "Problem deleting the attribute",
+            new List<string> { "Failed to delete the attribute." });
+    }
+
+    [Authorize(Roles = "Admin")]
+    [InvalidateCache("api/attributes|")]
+    [HttpPost("{attributeId:int}/options")]
+    public async Task<ActionResult> AddAttributeOption(int attributeId, CreateAttributeOptionDto createOptionDto)
+    {
+        var option = await resolver.AddAttributeOption(attributeId, createOptionDto);
+
+        if (option != null)
         {
-            return unit.Repository<ProductAttribute>().Exists(id);
+            return APISuccessResponse(option, "Attribute option added successfully");
         }
 
-        [Authorize(Roles = "Admin")]
-        [InvalidateCache("api/attributes|")]
-        [HttpPost("{attributeId:int}/options")]
-        public async Task<ActionResult> AddAttributeOption(int attributeId, CreateAttributeOptionDto createOptionDto)
+        return APIErrorResponse(
+            Guid.NewGuid(),
+            HttpStatusCode.BadRequest,
+            "Problem adding the attribute option",
+            new List<string> { "Failed to add the option to the database." });
+    }
+
+    [Authorize(Roles = "Admin")]
+    [InvalidateCache("api/attributes|")]
+    [HttpDelete("{attributeId:int}/options/{optionId:int}")]
+    public async Task<ActionResult> RemoveAttributeOption(int attributeId, int optionId)
+    {
+        var result = await resolver.RemoveAttributeOption(attributeId, optionId);
+
+        if (result)
         {
-            var attribute = await unit.Repository<ProductAttribute>().GetByIdAsync(attributeId);
-
-            if (attribute == null)
-                return APIErrorResponse(
-                    Guid.NewGuid(),
-                    HttpStatusCode.NotFound,
-                    "Attribute not found",
-                    new List<string> { "The specified attribute does not exist." });
-
-            var option = _mapper.Map<AttributeOption>(createOptionDto);
-            option.AttributeId = attributeId;
-            option.AttributeCode = attribute.AttributeCode;
-
-            attribute.AttributeOptions.Add(option);
-
-            unit.Repository<ProductAttribute>().Update(attribute);
-
-            if (await unit.Complete())
-            {
-                return APISuccessResponse(
-                    _mapper.Map<AttributeOptionDto>(option),
-                    "Attribute option added successfully"
-                );
-            }
-
-            return APIErrorResponse(
-                Guid.NewGuid(),
-                HttpStatusCode.BadRequest,
-                "Problem adding the attribute option",
-                new List<string> { "Failed to add the option to the database." });
+            return APISuccessResponse(optionId, "Attribute option removed successfully");
         }
 
-        [Authorize(Roles = "Admin")]
-        [InvalidateCache("api/attributes|")]
-        [HttpDelete("{attributeId:int}/options/{optionId:int}")]
-        public async Task<ActionResult> RemoveAttributeOption(int attributeId, int optionId)
-        {
-            var attribute = await unit.Repository<ProductAttribute>().GetByIdAsync(attributeId);
-
-            if (attribute == null)
-                return APIErrorResponse(
-                    Guid.NewGuid(),
-                    HttpStatusCode.NotFound,
-                    "Attribute not found",
-                    new List<string> { "The specified attribute does not exist." });
-
-            var option = attribute.AttributeOptions.FirstOrDefault(o => o.Id == optionId);
-
-            if (option == null)
-                return APIErrorResponse(
-                    Guid.NewGuid(),
-                    HttpStatusCode.NotFound,
-                    "Option not found",
-                    new List<string> { "The specified option does not exist." });
-
-            attribute.AttributeOptions.Remove(option);
-
-            unit.Repository<ProductAttribute>().Update(attribute);
-
-            if (await unit.Complete())
-            {
-                return APISuccessResponse(optionId, "Attribute option removed successfully");
-            }
-
-            return APIErrorResponse(
-                Guid.NewGuid(),
-                HttpStatusCode.BadRequest,
-                "Problem removing the attribute option",
-                new List<string> { "Failed to remove the option from the database." });
-        }
-
+        return APIErrorResponse(
+            Guid.NewGuid(),
+            HttpStatusCode.BadRequest,
+            "Problem removing the attribute option",
+            new List<string> { "Failed to remove the option from the database." });
     }
 }

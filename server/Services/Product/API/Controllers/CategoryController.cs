@@ -1,9 +1,7 @@
 ﻿using API.DTOs;
 using API.RequestHelpers;
-using AutoMapper;
+using API.Resolvers;
 using Core.Entities;
-using Core.Interfaces;
-using Core.Specifications;
 using Core.Specifications.Params;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -11,35 +9,33 @@ using System.Net;
 
 namespace API.Controllers;
 
-public class CategoryController(IUnitOfWork unit, IMapper _mapper) : BaseApiController
+public class CategoryController(CategoryResolver resolver) : BaseApiController
 {
     [Cache(600)]
     [HttpGet]
     public async Task<ActionResult<IReadOnlyList<Category>>> GetCategories(
         [FromQuery] CategorySpecParams specParams)
     {
-        var spec = new CategorySpecification(specParams);
+        var pagination = await resolver.GetCategories(specParams);
 
-        return await CreatePagedResult<Category, CategoryDto>(
-            unit.Repository<Category>(),
-            spec,
-            specParams.PageIndex,
-            specParams.PageSize, _mapper
-        );
+        return APISuccessResponse(pagination, "Data retrieved successfully");
     }
 
     [Cache(600)]
     [HttpGet("{id:int}")]
     public async Task<ActionResult<Category>> GetCategory(int id)
     {
-        var spec = new CategorySpecification(id);
+        var category = await resolver.GetCategory(id);
 
-        var category = await unit.Repository<Category>().GetEntityWithSpec(spec);
-
-        if (category == null) return NotFound();
+        if (category == null) return APIErrorResponse(
+            Guid.NewGuid(),
+            HttpStatusCode.BadRequest,
+            "Category not Found",
+            new List<string> { "Failed when get the category by Id from the database." }
+        );
 
         return APISuccessResponse(
-            _mapper.Map<CategoryDto>(category),
+            category,
             "Category retrieved successfully"
         );
     }
@@ -49,17 +45,15 @@ public class CategoryController(IUnitOfWork unit, IMapper _mapper) : BaseApiCont
     [HttpPost]
     public async Task<ActionResult<Category>> CreateCategory(CreateCategoryDto createCategory)
     {
-        var category = _mapper.Map<Category>(createCategory);
+        var category = await resolver.CreateCategory(createCategory);
 
-        unit.Repository<Category>().Add(category);
-
-        if (await unit.Complete())
+        if (category != null)
         {
             return CreatedAtAction("GetCategory", new { id = category.Id }, new APISuccessResponse
             {
                 StatusCode = HttpStatusCode.Created,
                 Message = "Category created successfully",
-                Data = _mapper.Map<CategoryDto>(category)
+                Data = category
             });
         }
 
@@ -76,20 +70,11 @@ public class CategoryController(IUnitOfWork unit, IMapper _mapper) : BaseApiCont
     [HttpPut("{id:int}")]
     public async Task<ActionResult> UpdateCategory(int id, UpdateCategoryDto updateCategory)
     {
-        if (updateCategory.Id != id || !CategoryExists(id))
-            return APIErrorResponse(
-                Guid.NewGuid(),
-                HttpStatusCode.BadRequest,
-                "Cannot update this category",
-                new List<string> { "Invalid category ID." });
+        var category = await resolver.UpdateCategory(id, updateCategory);
 
-        var category = _mapper.Map<Category>(updateCategory);
-
-        unit.Repository<Category>().Update(category);
-
-        if (await unit.Complete())
+        if (category != null)
         {
-            return APISuccessResponse(_mapper.Map<CategoryDto>(category), "Category updated successfully");
+            return APISuccessResponse(category, "Category updated successfully");
         }
 
         return APIErrorResponse(Guid.NewGuid(),
@@ -103,18 +88,8 @@ public class CategoryController(IUnitOfWork unit, IMapper _mapper) : BaseApiCont
     [HttpDelete("{id:int}")]
     public async Task<ActionResult> DeleteCategory(int id)
     {
-        var category = await unit.Repository<Category>().GetByIdAsync(id);
-
-        if (category == null)
-            return APIErrorResponse(
-                Guid.NewGuid(),
-                HttpStatusCode.NotFound,
-                "Category not found",
-                new List<string> { "The specified category does not exist." });
-
-        unit.Repository<Category>().Remove(category);
-
-        if (await unit.Complete())
+        var result = await resolver.DeleteCategory(id);
+        if (result)
         {
             return APISuccessResponse(id, "Category deleted successfully");
         }
@@ -123,10 +98,5 @@ public class CategoryController(IUnitOfWork unit, IMapper _mapper) : BaseApiCont
             HttpStatusCode.BadRequest,
             "Problem deleting the category",
             new List<string> { "Failed to delete the category." });
-    }
-
-    private bool CategoryExists(int id)
-    {
-        return unit.Repository<Category>().Exists(id);
     }
 }
