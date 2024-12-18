@@ -58,7 +58,9 @@ builder.Services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
 
 builder.Services.AddGraphQLServer()
     .AddQueryType(q => q.Name("Query"))
-    .AddType<ProductQuery>();
+    .AddType<ProductQuery>()
+    .AddType<CategoryQuery>()
+    .AddType<AttributeQuery>();
 
 var app = builder.Build();
 

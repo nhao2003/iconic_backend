@@ -1,7 +1,6 @@
 ﻿using API.DTOs;
 using API.Resolvers;
 using API.RequestHelpers;
-using Core.Entities;
 using Core.Specifications.Params;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -13,7 +12,7 @@ public class AttributeController(AttributeResolver resolver) : BaseApiController
 {
     [Cache(600)]
     [HttpGet]
-    public async Task<ActionResult<IReadOnlyList<ProductAttribute>>> GetAttributes([FromQuery] AttributeSpecParams specParams)
+    public async Task<ActionResult<IReadOnlyList<AttributeDto>>> GetAttributes([FromQuery] AttributeSpecParams specParams)
     {
         var attributes = await resolver.GetAttributes(specParams);
 
@@ -22,7 +21,7 @@ public class AttributeController(AttributeResolver resolver) : BaseApiController
 
     [Cache(600)]
     [HttpGet("{id:int}")]
-    public async Task<ActionResult<ProductAttribute>> GetAttribute(int id)
+    public async Task<ActionResult<AttributeDto>> GetAttribute(int id)
     {
         var attribute = await resolver.GetAttributeById(id);
 
@@ -42,7 +41,7 @@ public class AttributeController(AttributeResolver resolver) : BaseApiController
     [InvalidateCache("api/attributes|")]
     [Authorize(Roles = "Admin")]
     [HttpPost]
-    public async Task<ActionResult<ProductAttribute>> CreateAttribute(CreateAttributeDto createAttribute)
+    public async Task<ActionResult<AttributeDto>> CreateAttribute(CreateAttributeDto createAttribute)
     {
         var attribute = await resolver.CreateAttribute(createAttribute);
 

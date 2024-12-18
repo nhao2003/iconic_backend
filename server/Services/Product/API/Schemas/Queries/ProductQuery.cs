@@ -2,6 +2,7 @@
 using API.RequestHelpers;
 using API.Resolvers;
 using Core.Specifications.Params;
+using Microsoft.AspNetCore.Mvc;
 
 namespace API.Schemas.Queries;
 
@@ -22,5 +23,15 @@ public class ProductQuery(ProductResolver resolver)
             throw new GraphQLException(new Error("Product not found.", "PRODUCT_NOT_FOUND"));
         }
         return product;
+    }
+
+    public async Task<IReadOnlyList<string>> GetBrands([Service] ProductResolver resolver)
+    {
+        return await resolver.GetBrands();
+    }
+
+    public async Task<IReadOnlyList<string>> GetTypes([Service] ProductResolver resolver)
+    {
+        return await resolver.GetTypes();
     }
 }
