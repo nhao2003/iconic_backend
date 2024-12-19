@@ -428,6 +428,524 @@
     "attributeIds": [ 1, 2, 3 ],
     "variants": [
       {
+        "sku": "VAR22334",
+        "price": 39.99,
+        "imageUrl": "/images/products/boot-ang2.png",
+        "attributeValues": [
+          {
+            "optionText": "Blue",
+            "variantId": 1,
+            "attributeId": 1,
+            "optionId": 2
+          },
+          {
+            "optionText": "Medium",
+            "variantId": 1,
+            "attributeId": 2,
+            "optionId": 5
+          },
+          {
+            "optionText": "Inox",
+            "variantId": 1,
+            "attributeId": 3,
+            "optionId": 8
+          }
+        ]
+      },
+      {
+        "sku": "VAR44556",
+        "price": 49.99,
+        "imageUrl": "/images/products/boot-ang1.png",
+        "attributeValues": [
+          {
+            "optionText": "Blue",
+            "variantId": 2,
+            "attributeId": 1,
+            "optionId": 2
+          },
+          {
+            "optionText": "Large",
+            "variantId": 2,
+            "attributeId": 2,
+            "optionId": 6
+          },
+          {
+            "optionText": "Wood",
+            "variantId": 2,
+            "attributeId": 3,
+            "optionId": 9
+          }
+        ]
+      }
+    ],
+    "productCustomOptions": [
+      {
+        "optionName": "Gift Wrap",
+        "optionType": "checkbox",
+        "isRequired": false,
+        "sortOrder": 1,
+        "productCustomOptionValues": [
+          {
+            "extraPrice": 5.0,
+            "sortOrder": 1,
+            "value": "Yes"
+          },
+          {
+            "extraPrice": 0.0,
+            "sortOrder": 2,
+            "value": "No"
+          }
+        ]
+      },
+      {
+        "optionName": "Warranty",
+        "optionType": "dropdown",
+        "isRequired": true,
+        "sortOrder": 2,
+        "productCustomOptionValues": [
+          {
+            "extraPrice": 10.0,
+            "sortOrder": 1,
+            "value": "1 Year"
+          },
+          {
+            "extraPrice": 20.0,
+            "sortOrder": 2,
+            "value": "2 Years"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Red Cotton Shirt",
+    "description": "A stylish red cotton shirt perfect for casual outings.",
+    "price": 29.99,
+    "discountedPrice": 24.99,
+    "imageUrl": "/images/products/sb-ang1.png",
+    "type": "Fashion",
+    "brand": "Fashionista",
+    "quantityInStock": 100,
+    "visibility": true,
+    "sku": "SKU98765",
+    "barcode": "987654321098",
+    "weight": 0.5,
+    "categoryId": 1,
+    "attributeIds": [ 1, 2, 3 ],
+    "variants": [
+      {
+        "sku": "VAR12345",
+        "price": 25.99,
+        "imageUrl": "/images/products/sb-core1.png",
+        "attributeValues": [
+          {
+            "optionText": "Red",
+            "variantId": 1,
+            "attributeId": 1,
+            "optionId": 1
+          },
+          {
+            "optionText": "Medium",
+            "variantId": 1,
+            "attributeId": 2,
+            "optionId": 5
+          },
+          {
+            "optionText": "Cotton",
+            "variantId": 1,
+            "attributeId": 3,
+            "optionId": 7
+          }
+        ]
+      },
+      {
+        "sku": "VAR67890",
+        "price": 27.99,
+        "imageUrl": "/images/products/sb-react1.png",
+        "attributeValues": [
+          {
+            "optionText": "Blue",
+            "variantId": 2,
+            "attributeId": 1,
+            "optionId": 2
+          },
+          {
+            "optionText": "Large",
+            "variantId": 2,
+            "attributeId": 2,
+            "optionId": 6
+          },
+          {
+            "optionText": "Inox",
+            "variantId": 2,
+            "attributeId": 3,
+            "optionId": 8
+          }
+        ]
+      }
+    ],
+    "productCustomOptions": [
+      {
+        "optionName": "Gift Wrap",
+        "optionType": "checkbox",
+        "isRequired": false,
+        "sortOrder": 1,
+        "productCustomOptionValues": [
+          {
+            "extraPrice": 5.0,
+            "sortOrder": 1,
+            "value": "Yes"
+          },
+          {
+            "extraPrice": 0.0,
+            "sortOrder": 2,
+            "value": "No"
+          }
+        ]
+      },
+      {
+        "optionName": "Warranty",
+        "optionType": "dropdown",
+        "isRequired": true,
+        "sortOrder": 2,
+        "productCustomOptionValues": [
+          {
+            "extraPrice": 10.0,
+            "sortOrder": 1,
+            "value": "1 Year"
+          },
+          {
+            "extraPrice": 20.0,
+            "sortOrder": 2,
+            "value": "2 Years"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Blue Denim Jacket",
+    "description": "A classic blue denim jacket for a timeless look.",
+    "price": 49.99,
+    "discountedPrice": 44.99,
+    "imageUrl": "/images/products/sb-core2.png",
+    "type": "Fashion",
+    "brand": "Trendy Wear",
+    "quantityInStock": 80,
+    "visibility": true,
+    "sku": "SKU11223",
+    "barcode": "123123123123",
+    "weight": 0.8,
+    "categoryId": 2,
+    "attributeIds": [ 1, 2, 3 ],
+    "variants": [
+      {
+        "sku": "VAR11223",
+        "price": 47.99,
+        "imageUrl": "/images/products/hat-core1.png",
+        "attributeValues": [
+          {
+            "optionText": "Blue",
+            "variantId": 1,
+            "attributeId": 1,
+            "optionId": 2
+          },
+          {
+            "optionText": "Large",
+            "variantId": 1,
+            "attributeId": 2,
+            "optionId": 6
+          },
+          {
+            "optionText": "Inox",
+            "variantId": 1,
+            "attributeId": 3,
+            "optionId": 8
+          }
+        ]
+      },
+      {
+        "sku": "VAR33445",
+        "price": 49.99,
+        "imageUrl": "/images/products/hat-react1.png",
+        "attributeValues": [
+          {
+            "optionText": "Green",
+            "variantId": 2,
+            "attributeId": 1,
+            "optionId": 3
+          },
+          {
+            "optionText": "Medium",
+            "variantId": 2,
+            "attributeId": 2,
+            "optionId": 5
+          },
+          {
+            "optionText": "Wood",
+            "variantId": 2,
+            "attributeId": 3,
+            "optionId": 9
+          }
+        ]
+      }
+    ],
+    "productCustomOptions": [
+      {
+        "optionName": "Gift Wrap",
+        "optionType": "checkbox",
+        "isRequired": false,
+        "sortOrder": 1,
+        "productCustomOptionValues": [
+          {
+            "extraPrice": 5.0,
+            "sortOrder": 1,
+            "value": "Yes"
+          },
+          {
+            "extraPrice": 0.0,
+            "sortOrder": 2,
+            "value": "No"
+          }
+        ]
+      },
+      {
+        "optionName": "Warranty",
+        "optionType": "dropdown",
+        "isRequired": true,
+        "sortOrder": 2,
+        "productCustomOptionValues": [
+          {
+            "extraPrice": 10.0,
+            "sortOrder": 1,
+            "value": "1 Year"
+          },
+          {
+            "extraPrice": 20.0,
+            "sortOrder": 2,
+            "value": "2 Years"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Stylish Black Boots",
+    "description": "A pair of stylish black boots, perfect for all occasions.",
+    "price": 89.99,
+    "discountedPrice": 79.99,
+    "imageUrl": "/images/products/boot-core1.png",
+    "type": "Footwear",
+    "brand": "Urban Fashion",
+    "quantityInStock": 60,
+    "visibility": true,
+    "sku": "SKU99887",
+    "barcode": "987654321098",
+    "weight": 1.2,
+    "categoryId": 1,
+    "attributeIds": [ 1, 2, 3 ],
+    "variants": [
+      {
+        "sku": "VAR99887",
+        "price": 85.99,
+        "imageUrl": "/images/products/boot-ang2.png",
+        "attributeValues": [
+          {
+            "optionText": "Black",
+            "variantId": 1,
+            "attributeId": 1,
+            "optionId": 1
+          },
+          {
+            "optionText": "Medium",
+            "variantId": 1,
+            "attributeId": 2,
+            "optionId": 5
+          },
+          {
+            "optionText": "Inox",
+            "variantId": 1,
+            "attributeId": 3,
+            "optionId": 8
+          }
+        ]
+      },
+      {
+        "sku": "VAR66554",
+        "price": 89.99,
+        "imageUrl": "/images/products/boot-ang1.png",
+        "attributeValues": [
+          {
+            "optionText": "Black",
+            "variantId": 2,
+            "attributeId": 1,
+            "optionId": 1
+          },
+          {
+            "optionText": "Large",
+            "variantId": 2,
+            "attributeId": 2,
+            "optionId": 6
+          },
+          {
+            "optionText": "Wood",
+            "variantId": 2,
+            "attributeId": 3,
+            "optionId": 9
+          }
+        ]
+      }
+    ],
+    "productCustomOptions": [
+      {
+        "optionName": "Gift Wrap",
+        "optionType": "checkbox",
+        "isRequired": false,
+        "sortOrder": 1,
+        "productCustomOptionValues": [
+          {
+            "extraPrice": 5.0,
+            "sortOrder": 1,
+            "value": "Yes"
+          },
+          {
+            "extraPrice": 0.0,
+            "sortOrder": 2,
+            "value": "No"
+          }
+        ]
+      },
+      {
+        "optionName": "Warranty",
+        "optionType": "dropdown",
+        "isRequired": true,
+        "sortOrder": 2,
+        "productCustomOptionValues": [
+          {
+            "extraPrice": 10.0,
+            "sortOrder": 1,
+            "value": "1 Year"
+          },
+          {
+            "extraPrice": 20.0,
+            "sortOrder": 2,
+            "value": "2 Years"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Classic Red T-Shirt",
+    "description": "A simple yet elegant red T-shirt for daily wear.",
+    "price": 29.99,
+    "discountedPrice": 24.99,
+    "imageUrl": "/images/products/sb-core1.png",
+    "type": "Clothing",
+    "brand": "Classic Wear",
+    "quantityInStock": 100,
+    "visibility": true,
+    "sku": "SKU11223",
+    "barcode": "123123123123",
+    "weight": 0.5,
+    "categoryId": 1,
+    "attributeIds": [ 1, 2 ],
+    "variants": [
+      {
+        "sku": "VAR11223",
+        "price": 24.99,
+        "imageUrl": "/images/products/sb-ang1.png",
+        "attributeValues": [
+          {
+            "optionText": "Red",
+            "variantId": 1,
+            "attributeId": 1,
+            "optionId": 1
+          },
+          {
+            "optionText": "Medium",
+            "variantId": 1,
+            "attributeId": 2,
+            "optionId": 5
+          }
+        ]
+      },
+      {
+        "sku": "VAR44556",
+        "price": 29.99,
+        "imageUrl": "/images/products/sb-ts1.png",
+        "attributeValues": [
+          {
+            "optionText": "Red",
+            "variantId": 2,
+            "attributeId": 1,
+            "optionId": 1
+          },
+          {
+            "optionText": "Large",
+            "variantId": 2,
+            "attributeId": 2,
+            "optionId": 6
+          }
+        ]
+      }
+    ],
+    "productCustomOptions": [
+      {
+        "optionName": "Gift Wrap",
+        "optionType": "checkbox",
+        "isRequired": false,
+        "sortOrder": 1,
+        "productCustomOptionValues": [
+          {
+            "extraPrice": 5.0,
+            "sortOrder": 1,
+            "value": "Yes"
+          },
+          {
+            "extraPrice": 0.0,
+            "sortOrder": 2,
+            "value": "No"
+          }
+        ]
+      },
+      {
+        "optionName": "Warranty",
+        "optionType": "dropdown",
+        "isRequired": true,
+        "sortOrder": 2,
+        "productCustomOptionValues": [
+          {
+            "extraPrice": 10.0,
+            "sortOrder": 1,
+            "value": "1 Year"
+          },
+          {
+            "extraPrice": 20.0,
+            "sortOrder": 2,
+            "value": "2 Years"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Stylish Blue Jeans",
+    "description": "Comfortable and stylish blue jeans with a modern fit.",
+    "price": 49.99,
+    "discountedPrice": 39.99,
+    "imageUrl": "/images/products/boot-core1.png",
+    "type": "Clothing",
+    "brand": "FashionHub",
+    "quantityInStock": 75,
+    "visibility": true,
+    "sku": "SKU22334",
+    "barcode": "987654321098",
+    "weight": 1.2,
+    "categoryId": 1,
+    "attributeIds": [ 1, 2, 3 ],
+    "variants": [
+      {
         "sku": "VAR22334-Small",
         "price": 39.99,
         "imageUrl": "/images/products/boot-ang2.png",
