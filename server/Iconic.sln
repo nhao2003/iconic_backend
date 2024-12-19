@@ -20,6 +20,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{3F80
 		product.txt = product.txt
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YarpApiGateway", "YarpApiGateway\YarpApiGateway.csproj", "{DA05DDC5-E9AE-4A64-AE52-16D585E61805}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +40,10 @@ Global
 		{19B0074D-0001-4F71-8033-D3EDC13E2A39}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19B0074D-0001-4F71-8033-D3EDC13E2A39}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19B0074D-0001-4F71-8033-D3EDC13E2A39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA05DDC5-E9AE-4A64-AE52-16D585E61805}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA05DDC5-E9AE-4A64-AE52-16D585E61805}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA05DDC5-E9AE-4A64-AE52-16D585E61805}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA05DDC5-E9AE-4A64-AE52-16D585E61805}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -47,6 +53,7 @@ Global
 		{12DFF922-8858-481A-8F21-87453A0B1D18} = {8446145B-0A18-434E-9424-0D9061E1D84C}
 		{19B0074D-0001-4F71-8033-D3EDC13E2A39} = {8446145B-0A18-434E-9424-0D9061E1D84C}
 		{8446145B-0A18-434E-9424-0D9061E1D84C} = {E152E074-B7FD-48FA-89F9-12748D71A01A}
+		{DA05DDC5-E9AE-4A64-AE52-16D585E61805} = {9C151EA2-61D0-4FD1-A91F-50CEDCE5ECC3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CA67C0BF-2016-4E20-90A2-9ECD87FAC2D6}
