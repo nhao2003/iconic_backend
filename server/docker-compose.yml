@@ -1,19 +1,17 @@
+version: '3.4'
+
 services:
-  sql:
+  api:
+    image: ${DOCKER_REGISTRY-}api
+    build:
+      context: .
+      dockerfile: Services/Product/API/Dockerfile
+
+  catalog_db:
     image: mcr.microsoft.com/mssql/server:2022-latest
-    environment:
-      ACCEPT_EULA: "1"
-      MSSQL_SA_PASSWORD: "Password@1"
-    ports:
-      - "1433:1433"
-    volumes:
-      - sql-data:/var/opt/mssql
-  redis:
+
+  distributed_cache:
     image: redis:latest
-    ports:
-      - "6379:6379"
-    volumes:
-      - redis-data:/data
 
 volumes:
   redis-data:
