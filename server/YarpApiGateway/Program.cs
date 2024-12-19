@@ -15,11 +15,15 @@ builder.Services.AddRateLimiter(rateLimiterOptions =>
     });
 });
 
+builder.Services.AddHealthChecks();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 app.UseRateLimiter();
 
 app.MapReverseProxy();
+
+app.UseHealthChecks("/health");
 
 app.Run();
