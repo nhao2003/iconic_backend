@@ -6,6 +6,8 @@
 # dotenv files
 .env
 
+server/Services/Product/API/wwwroot/images/products_real/images/*
+
 # User-specific files
 *.rsuser
 *.suo
