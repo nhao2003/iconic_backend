@@ -3,6 +3,21 @@ version: '3.4'
 services:
   api:
     image: ${DOCKER_REGISTRY-}api
+    container_name: api
+    build:
+      context: .
+      dockerfile: Services/Product/API/Dockerfile
+
+  api1:
+    image: ${DOCKER_REGISTRY-}api
+    container_name: api1
+    build:
+      context: .
+      dockerfile: Services/Product/API/Dockerfile
+  
+  api2:
+    image: ${DOCKER_REGISTRY-}api
+    container_name: api2
     build:
       context: .
       dockerfile: Services/Product/API/Dockerfile
