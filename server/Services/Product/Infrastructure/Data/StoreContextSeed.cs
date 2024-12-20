@@ -36,7 +36,7 @@ public class StoreContextSeed
 
         if (!context.ProductAttributes.Any())
         {
-            var attributesData = await File.ReadAllTextAsync(path + @"/Data/SeedData/attributes.json");
+            var attributesData = await File.ReadAllTextAsync(path + @"/Data/SeedData/attributes_crawl.json");
             var attributes = JsonSerializer.Deserialize<List<ProductAttribute>>(attributesData);
 
             if (attributes == null) return;

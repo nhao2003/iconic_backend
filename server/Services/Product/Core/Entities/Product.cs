@@ -8,6 +8,7 @@ public class Product : BaseEntity
     public decimal? DiscountedPrice { get; set; }
     public required string ImageUrl { get; set; }
     public List<string> ImageCoverUrls { get; set; } = new List<string>();
+    public string? Specifications { get; set; }
     public required string Type { get; set; }
     public required string Brand { get; set; }
     public int QuantityInStock { get; set; }

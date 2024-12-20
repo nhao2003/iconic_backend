@@ -20,6 +20,8 @@ public class CreateProductDto
 
     public List<string> ImageCoverUrls { get; set; } = new List<string>();
 
+    public string? Specifications { get; set; }
+
     [Required]
     public string Type { get; set; } = string.Empty;
 

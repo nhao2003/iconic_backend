@@ -11,6 +11,7 @@ namespace API.DTOs
         public decimal? DiscountedPrice { get; set; }
         public string ImageUrl { get; set; }
         public List<string> ImageCoverUrls { get; set; } = new List<string>();
+        public string? Specifications { get; set; }
         public string Type { get; set; }
         public string Brand { get; set; }
         public int QuantityInStock { get; set; }

@@ -1,6 +1,5 @@
 [
   {
-    "Id": 100000,
     "AttributeCode": "mau_sac",
     "AttributeName": "Màu sắc",
     "Type": "Select",
@@ -10,659 +9,528 @@
     "IsFilterable": true,
     "AttributeOptions": [
       {
-        "Id": 6936065148516026000,
         "AttributeCode": "mau_sac",
         "OptionText": "WHITE"
       },
       {
-        "Id": 6926865483790715000,
         "AttributeCode": "mau_sac",
         "OptionText": "BLACK"
       },
       {
-        "Id": 6926505583663385000,
         "AttributeCode": "mau_sac",
         "OptionText": "BLUE"
       },
       {
-        "Id": 6936083738392594000,
         "AttributeCode": "mau_sac",
         "OptionText": "YELLOW"
       },
       {
-        "Id": 6926865445131749000,
         "AttributeCode": "mau_sac",
         "OptionText": "Black"
       },
       {
-        "Id": 6926865456653568000,
         "AttributeCode": "mau_sac",
         "OptionText": "White"
       },
       {
-        "Id": 6926865445131831000,
         "AttributeCode": "mau_sac",
         "OptionText": "Grey"
       },
       {
-        "Id": 7284262990587726000,
         "AttributeCode": "mau_sac",
         "OptionText": "BLACK"
       },
       {
-        "Id": 7284262990587759000,
         "AttributeCode": "mau_sac",
         "OptionText": "OLIU"
       },
       {
-        "Id": 7284262990587791000,
         "AttributeCode": "mau_sac",
         "OptionText": "GREY"
       },
       {
-        "Id": 7287526642271128000,
         "AttributeCode": "mau_sac",
         "OptionText": "CREAM"
       },
       {
-        "Id": 7287526642271177000,
         "AttributeCode": "mau_sac",
         "OptionText": "PINK"
       },
       {
-        "Id": 7214921343068948000,
         "AttributeCode": "mau_sac",
         "OptionText": "BLACK RED"
       },
       {
-        "Id": 7214921343068965000,
         "AttributeCode": "mau_sac",
         "OptionText": "BLACK GREY"
       },
       {
-        "Id": 7214921343068981000,
         "AttributeCode": "mau_sac",
         "OptionText": "WHITE RED"
       },
       {
-        "Id": 7153160310156167000,
         "AttributeCode": "mau_sac",
         "OptionText": "Đen"
       },
       {
-        "Id": 7153160310156184000,
         "AttributeCode": "mau_sac",
         "OptionText": "Xám"
       },
       {
-        "Id": 7271241118971775000,
         "AttributeCode": "mau_sac",
         "OptionText": "Blue"
       },
       {
-        "Id": 7124628461666306000,
         "AttributeCode": "mau_sac",
         "OptionText": "BLACK"
       },
       {
-        "Id": 7124628461666322000,
         "AttributeCode": "mau_sac",
         "OptionText": "WHITE"
       },
       {
-        "Id": 7124628461666339000,
         "AttributeCode": "mau_sac",
         "OptionText": "GREEN"
       },
       {
-        "Id": 7294543538094819000,
         "AttributeCode": "mau_sac",
         "OptionText": "BLACK"
       },
       {
-        "Id": 7314673192684227000,
         "AttributeCode": "mau_sac",
         "OptionText": "WHITE"
       },
       {
-        "Id": 7223693835115973000,
         "AttributeCode": "mau_sac",
         "OptionText": "Black"
       },
       {
-        "Id": 7223693835115989000,
         "AttributeCode": "mau_sac",
         "OptionText": "Blue"
       },
       {
-        "Id": 7223693835116005000,
         "AttributeCode": "mau_sac",
         "OptionText": "Brown"
       },
       {
-        "Id": 7229284586558081000,
         "AttributeCode": "mau_sac",
         "OptionText": "Random ( màu ngẫu nhiên )"
       },
       {
-        "Id": 7247783771653835000,
         "AttributeCode": "mau_sac",
         "OptionText": "BLACK"
       },
       {
-        "Id": 7247783771653851000,
         "AttributeCode": "mau_sac",
         "OptionText": "LIGHTGREY"
       },
       {
-        "Id": 7126469622152481000,
         "AttributeCode": "mau_sac",
         "OptionText": "BLACK"
       },
       {
-        "Id": 7126469622152497000,
         "AttributeCode": "mau_sac",
         "OptionText": "WHITE"
       },
       {
-        "Id": 7126469622152514000,
         "AttributeCode": "mau_sac",
         "OptionText": "GREEN"
       },
       {
-        "Id": 7124626813980051000,
         "AttributeCode": "mau_sac",
         "OptionText": "BLACK"
       },
       {
-        "Id": 7124626813980068000,
         "AttributeCode": "mau_sac",
         "OptionText": "WHITE"
       },
       {
-        "Id": 7124626813980084000,
         "AttributeCode": "mau_sac",
         "OptionText": "GREEN"
       },
       {
-        "Id": 7124626813980101000,
         "AttributeCode": "mau_sac",
         "OptionText": "BLUE"
       },
       {
-        "Id": 7268002372054501000,
         "AttributeCode": "mau_sac",
         "OptionText": "Black"
       },
       {
-        "Id": 7268002372054518000,
         "AttributeCode": "mau_sac",
         "OptionText": "LightGrey"
       },
       {
-        "Id": 7246685609111521000,
         "AttributeCode": "mau_sac",
         "OptionText": "BLACK"
       },
       {
-        "Id": 7246685609111538000,
         "AttributeCode": "mau_sac",
         "OptionText": "WHITE"
       },
       {
-        "Id": 7156980538098698000,
         "AttributeCode": "mau_sac",
         "OptionText": "Black"
       },
       {
-        "Id": 7156980538098715000,
         "AttributeCode": "mau_sac",
         "OptionText": "White"
       },
       {
-        "Id": 7156980538098731000,
         "AttributeCode": "mau_sac",
         "OptionText": "Blue"
       },
       {
-        "Id": 7156980538098747000,
         "AttributeCode": "mau_sac",
         "OptionText": "Green"
       },
       {
-        "Id": 7275589103486355000,
         "AttributeCode": "mau_sac",
         "OptionText": "BLACK"
       },
       {
-        "Id": 7275589103486372000,
         "AttributeCode": "mau_sac",
         "OptionText": "GREY"
       },
       {
-        "Id": 7275589103486388000,
         "AttributeCode": "mau_sac",
         "OptionText": "BLACK GREY"
       },
       {
-        "Id": 7263426107104561000,
         "AttributeCode": "mau_sac",
         "OptionText": "Full Đen"
       },
       {
-        "Id": 7263426107104578000,
         "AttributeCode": "mau_sac",
         "OptionText": "Đen Quai Xám"
       },
       {
-        "Id": 7254135539794774000,
         "AttributeCode": "mau_sac",
         "OptionText": "Black"
       },
       {
-        "Id": 7254135539794790000,
         "AttributeCode": "mau_sac",
         "OptionText": "Gray"
       },
       {
-        "Id": 7254135539794807000,
         "AttributeCode": "mau_sac",
         "OptionText": "Blue"
       },
       {
-        "Id": 7254135539794823000,
         "AttributeCode": "mau_sac",
         "OptionText": "Darkblue"
       },
       {
-        "Id": 7254135539794840000,
         "AttributeCode": "mau_sac",
         "OptionText": "Pink"
       },
       {
-        "Id": 7254135539794856000,
         "AttributeCode": "mau_sac",
         "OptionText": "Cream"
       },
       {
-        "Id": 7254135539794872000,
         "AttributeCode": "mau_sac",
         "OptionText": "Brown"
       },
       {
-        "Id": 7254135539794889000,
         "AttributeCode": "mau_sac",
         "OptionText": "Red"
       },
       {
-        "Id": 7254135539794905000,
         "AttributeCode": "mau_sac",
         "OptionText": "Green"
       },
       {
-        "Id": 7320889142659860000,
         "AttributeCode": "mau_sac",
         "OptionText": "BLACK"
       },
       {
-        "Id": 7320889142659877000,
         "AttributeCode": "mau_sac",
         "OptionText": "WHITE"
       },
       {
-        "Id": 7320889142659893000,
         "AttributeCode": "mau_sac",
         "OptionText": "GREY"
       },
       {
-        "Id": 7207864600069474000,
         "AttributeCode": "mau_sac",
         "OptionText": "BLACK"
       },
       {
-        "Id": 7207864600069491000,
         "AttributeCode": "mau_sac",
         "OptionText": "WHITE"
       },
       {
-        "Id": 7309811116748851000,
         "AttributeCode": "mau_sac",
         "OptionText": "BLACK"
       },
       {
-        "Id": 7309811116748868000,
         "AttributeCode": "mau_sac",
         "OptionText": "NAVY"
       },
       {
-        "Id": 7309811116748884000,
         "AttributeCode": "mau_sac",
         "OptionText": "RED"
       },
       {
-        "Id": 7264896143367621000,
         "AttributeCode": "mau_sac",
         "OptionText": "BLACK"
       },
       {
-        "Id": 7264896143367637000,
         "AttributeCode": "mau_sac",
         "OptionText": "LIGHT GREY"
       },
       {
-        "Id": 7264896143367653000,
         "AttributeCode": "mau_sac",
         "OptionText": "LIGHT BLUE"
       },
       {
-        "Id": 7264896143367670000,
         "AttributeCode": "mau_sac",
         "OptionText": "PINK"
       },
       {
-        "Id": 7111653867883989000,
         "AttributeCode": "mau_sac",
         "OptionText": "Black"
       },
       {
-        "Id": 7111653867884005000,
         "AttributeCode": "mau_sac",
         "OptionText": "Green"
       },
       {
-        "Id": 7111653867884022000,
         "AttributeCode": "mau_sac",
         "OptionText": "Blue"
       },
       {
-        "Id": 7111653867884038000,
         "AttributeCode": "mau_sac",
         "OptionText": "Lightgrey"
       },
       {
-        "Id": 7268965025246022000,
         "AttributeCode": "mau_sac",
         "OptionText": "Black"
       },
       {
-        "Id": 7268965025246038000,
         "AttributeCode": "mau_sac",
         "OptionText": "Blue"
       },
       {
-        "Id": 7268965026999159000,
         "AttributeCode": "mau_sac",
         "OptionText": "White"
       },
       {
-        "Id": 7277556875149724000,
         "AttributeCode": "mau_sac",
         "OptionText": "Random"
       },
       {
-        "Id": 7212298421548599000,
         "AttributeCode": "mau_sac",
         "OptionText": "BLACK"
       },
       {
-        "Id": 7212298421548616000,
         "AttributeCode": "mau_sac",
         "OptionText": "WHITE"
       },
       {
-        "Id": 6925701334104705000,
         "AttributeCode": "mau_sac",
         "OptionText": "RED"
       },
       {
-        "Id": 6931921274629360000,
         "AttributeCode": "mau_sac",
         "OptionText": "ORANGE"
       },
       {
-        "Id": 7312376229259545000,
         "AttributeCode": "mau_sac",
         "OptionText": "BLACK "
       },
       {
-        "Id": 7312376229259561000,
         "AttributeCode": "mau_sac",
         "OptionText": "WHITE"
       },
       {
-        "Id": 7172209006864730000,
         "AttributeCode": "mau_sac",
         "OptionText": "Black"
       },
       {
-        "Id": 7172209006864746000,
         "AttributeCode": "mau_sac",
         "OptionText": "White"
       },
       {
-        "Id": 7320930608208169000,
         "AttributeCode": "mau_sac",
         "OptionText": "RED"
       },
       {
-        "Id": 7320930618332891000,
         "AttributeCode": "mau_sac",
         "OptionText": "BLUE"
       },
       {
-        "Id": 7321372352317639000,
         "AttributeCode": "mau_sac",
         "OptionText": "BLACK"
       },
       {
-        "Id": 7336433254364744000,
         "AttributeCode": "mau_sac",
         "OptionText": "BLACK"
       },
       {
-        "Id": 7336433254364760000,
         "AttributeCode": "mau_sac",
         "OptionText": "BLUE"
       },
       {
-        "Id": 7336433254364776000,
         "AttributeCode": "mau_sac",
         "OptionText": "RED"
       },
       {
-        "Id": 7349442452035635000,
         "AttributeCode": "mau_sac",
         "OptionText": "NAVY"
       },
       {
-        "Id": 6971682336400493000,
         "AttributeCode": "mau_sac",
         "OptionText": "LIGHT GREY"
       },
       {
-        "Id": 7209944709790452000,
         "AttributeCode": "mau_sac",
         "OptionText": "BLACK ( Đen )"
       },
       {
-        "Id": 7209944709790468000,
         "AttributeCode": "mau_sac",
         "OptionText": "GREY ( Xám )"
       },
       {
-        "Id": 6936065148515994000,
         "AttributeCode": "mau_sac",
         "OptionText": "GREY"
       },
       {
-        "Id": 7352378132709624000,
         "AttributeCode": "mau_sac",
         "OptionText": "BLACK"
       },
       {
-        "Id": 7352378132709640000,
         "AttributeCode": "mau_sac",
         "OptionText": "WHITE"
       },
       {
-        "Id": 7276136864611486000,
         "AttributeCode": "mau_sac",
         "OptionText": "BLACK"
       },
       {
-        "Id": 7276136864611502000,
         "AttributeCode": "mau_sac",
         "OptionText": "NAVY"
       },
       {
-        "Id": 6997639125356579000,
         "AttributeCode": "mau_sac",
         "OptionText": "BABY RED"
       },
       {
-        "Id": 6936065148516043000,
         "AttributeCode": "mau_sac",
         "OptionText": "NAVY"
       },
       {
-        "Id": 6935318488814995000,
         "AttributeCode": "mau_sac",
         "OptionText": "CREAM"
       },
       {
-        "Id": 6936383343361559000,
         "AttributeCode": "mau_sac",
         "OptionText": "BROWN"
       },
       {
-        "Id": 7228155646804478000,
         "AttributeCode": "mau_sac",
         "OptionText": "BLACK"
       },
       {
-        "Id": 7228155646804494000,
         "AttributeCode": "mau_sac",
         "OptionText": "WHITE"
       },
       {
-        "Id": 7296144207771666000,
         "AttributeCode": "mau_sac",
         "OptionText": "BLACK"
       },
       {
-        "Id": 7296144207771683000,
         "AttributeCode": "mau_sac",
         "OptionText": "OLIU"
       },
       {
-        "Id": 7296144207771699000,
         "AttributeCode": "mau_sac",
         "OptionText": "GREY"
       },
       {
-        "Id": 7290870883261549000,
         "AttributeCode": "mau_sac",
         "OptionText": "Đen "
       },
       {
-        "Id": 7290870883261565000,
         "AttributeCode": "mau_sac",
         "OptionText": "Kem"
       },
       {
-        "Id": 7290870883261581000,
         "AttributeCode": "mau_sac",
         "OptionText": "Xanh "
       },
       {
-        "Id": 7290870883261598000,
         "AttributeCode": "mau_sac",
         "OptionText": "Xám "
       },
       {
-        "Id": 7124607126944631000,
         "AttributeCode": "mau_sac",
         "OptionText": "Black"
       },
       {
-        "Id": 7124607126944647000,
         "AttributeCode": "mau_sac",
         "OptionText": "Beige"
       },
       {
-        "Id": 7124607126944664000,
         "AttributeCode": "mau_sac",
         "OptionText": "Coffee"
       },
       {
-        "Id": 7177320577018022000,
         "AttributeCode": "mau_sac",
         "OptionText": "Đen"
       },
       {
-        "Id": 7177320577018038000,
         "AttributeCode": "mau_sac",
         "OptionText": "Trắng"
       },
       {
-        "Id": 7093445745579346000,
         "AttributeCode": "mau_sac",
         "OptionText": "BLACK"
       },
       {
-        "Id": 7093445745579362000,
         "AttributeCode": "mau_sac",
         "OptionText": "GREY"
       },
       {
-        "Id": 7093445745579379000,
         "AttributeCode": "mau_sac",
         "OptionText": "BLUE"
       },
       {
-        "Id": 7093445745579395000,
         "AttributeCode": "mau_sac",
         "OptionText": "PINK"
       },
       {
-        "Id": 7093445745579411000,
         "AttributeCode": "mau_sac",
         "OptionText": "RED"
       },
       {
-        "Id": 7121716069265328000,
         "AttributeCode": "mau_sac",
         "OptionText": "GREY"
       },
       {
-        "Id": 7121716069265345000,
         "AttributeCode": "mau_sac",
         "OptionText": "NAVY"
       },
       {
-        "Id": 7121716069265361000,
         "AttributeCode": "mau_sac",
         "OptionText": "CREAM"
       },
       {
-        "Id": 7094620367196555000,
         "AttributeCode": "mau_sac",
         "OptionText": "BLUE"
       },
       {
-        "Id": 7094620367196572000,
         "AttributeCode": "mau_sac",
         "OptionText": "BLACK"
       },
       {
-        "Id": 7324682684037728000,
         "AttributeCode": "mau_sac",
         "OptionText": "GREEN"
       }
     ]
   },
   {
-    "Id": 7070532066001455000,
     "AttributeCode": "kich_co",
     "AttributeName": "Kích cỡ",
     "Type": "Select",
@@ -672,74 +540,60 @@
     "IsFilterable": true,
     "AttributeOptions": [
       {
-        "Id": 6931945920397543000,
         "AttributeCode": "kich_co",
         "OptionText": "M"
       },
       {
-        "Id": 6931945920397560000,
         "AttributeCode": "kich_co",
         "OptionText": "L"
       },
       {
-        "Id": 7376204895914985000,
         "AttributeCode": "kich_co",
         "OptionText": "M"
       },
       {
-        "Id": 7376204895915002000,
         "AttributeCode": "kich_co",
         "OptionText": "L"
       },
       {
-        "Id": 6931945920397527000,
         "AttributeCode": "kich_co",
         "OptionText": "S"
       },
       {
-        "Id": 7352463470631176000,
         "AttributeCode": "kich_co",
         "OptionText": "M"
       },
       {
-        "Id": 7352235454609230000,
         "AttributeCode": "kich_co",
         "OptionText": "L"
       },
       {
-        "Id": 7355359783031196000,
         "AttributeCode": "kich_co",
         "OptionText": "S"
       },
       {
-        "Id": 7355348590627244000,
         "AttributeCode": "kich_co",
         "OptionText": "M"
       },
       {
-        "Id": 7355326740887587000,
         "AttributeCode": "kich_co",
         "OptionText": "L"
       },
       {
-        "Id": 7358708036120250000,
         "AttributeCode": "kich_co",
         "OptionText": "S"
       },
       {
-        "Id": 7358708036120267000,
         "AttributeCode": "kich_co",
         "OptionText": "M"
       },
       {
-        "Id": 7358708000560810000,
         "AttributeCode": "kich_co",
         "OptionText": "L"
       }
     ]
   },
   {
-    "Id": 100007,
     "AttributeCode": "kichco",
     "AttributeName": "Kíchcỡ",
     "Type": "Select",
@@ -749,264 +603,212 @@
     "IsFilterable": true,
     "AttributeOptions": [
       {
-        "Id": 6931945920397543000,
         "AttributeCode": "kichco",
         "OptionText": "M"
       },
       {
-        "Id": 6931945920397560000,
         "AttributeCode": "kichco",
         "OptionText": "L"
       },
       {
-        "Id": 7284262990587840000,
         "AttributeCode": "kichco",
         "OptionText": "S"
       },
       {
-        "Id": 7284262990587857000,
         "AttributeCode": "kichco",
         "OptionText": "M"
       },
       {
-        "Id": 7284262990587873000,
         "AttributeCode": "kichco",
         "OptionText": "L"
       },
       {
-        "Id": 7214921343068998000,
         "AttributeCode": "kichco",
         "OptionText": "M"
       },
       {
-        "Id": 7214921343069014000,
         "AttributeCode": "kichco",
         "OptionText": "L"
       },
       {
-        "Id": 7153160558789872000,
         "AttributeCode": "kichco",
         "OptionText": "S"
       },
       {
-        "Id": 7153160558789888000,
         "AttributeCode": "kichco",
         "OptionText": "M"
       },
       {
-        "Id": 7153161293547997000,
         "AttributeCode": "kichco",
         "OptionText": "L"
       },
       {
-        "Id": 7124628461666355000,
         "AttributeCode": "kichco",
         "OptionText": "M"
       },
       {
-        "Id": 7124628461666372000,
         "AttributeCode": "kichco",
         "OptionText": "L"
       },
       {
-        "Id": 7294543538094852000,
         "AttributeCode": "kichco",
         "OptionText": "S"
       },
       {
-        "Id": 7294543538094868000,
         "AttributeCode": "kichco",
         "OptionText": "M"
       },
       {
-        "Id": 7294543538094885000,
         "AttributeCode": "kichco",
         "OptionText": "L"
       },
       {
-        "Id": 7126469622152530000,
         "AttributeCode": "kichco",
         "OptionText": "M"
       },
       {
-        "Id": 7126469622152546000,
         "AttributeCode": "kichco",
         "OptionText": "L"
       },
       {
-        "Id": 7124626813980117000,
         "AttributeCode": "kichco",
         "OptionText": "M"
       },
       {
-        "Id": 7124626813980133000,
         "AttributeCode": "kichco",
         "OptionText": "L"
       },
       {
-        "Id": 7268002372054534000,
         "AttributeCode": "kichco",
         "OptionText": "M"
       },
       {
-        "Id": 7268002372054551000,
         "AttributeCode": "kichco",
         "OptionText": "L"
       },
       {
-        "Id": 7156980538098764000,
         "AttributeCode": "kichco",
         "OptionText": "M"
       },
       {
-        "Id": 7156980538098780000,
         "AttributeCode": "kichco",
         "OptionText": "L"
       },
       {
-        "Id": 7254135539794921000,
         "AttributeCode": "kichco",
         "OptionText": "M"
       },
       {
-        "Id": 7254135539794938000,
         "AttributeCode": "kichco",
         "OptionText": "L"
       },
       {
-        "Id": 7207864600069507000,
         "AttributeCode": "kichco",
         "OptionText": "M"
       },
       {
-        "Id": 7207864600069523000,
         "AttributeCode": "kichco",
         "OptionText": "L"
       },
       {
-        "Id": 7309811116748900000,
         "AttributeCode": "kichco",
         "OptionText": "S"
       },
       {
-        "Id": 7309811116748917000,
         "AttributeCode": "kichco",
         "OptionText": "M"
       },
       {
-        "Id": 7309811116748933000,
         "AttributeCode": "kichco",
         "OptionText": "L"
       },
       {
-        "Id": 7111653867884055000,
         "AttributeCode": "kichco",
         "OptionText": "M"
       },
       {
-        "Id": 7111653867884071000,
         "AttributeCode": "kichco",
         "OptionText": "L"
       },
       {
-        "Id": 7124612868284353000,
         "AttributeCode": "kichco",
         "OptionText": "M"
       },
       {
-        "Id": 7124612868284369000,
         "AttributeCode": "kichco",
         "OptionText": "L"
       },
       {
-        "Id": 7172209037176506000,
         "AttributeCode": "kichco",
         "OptionText": "M"
       },
       {
-        "Id": 7172209037176523000,
         "AttributeCode": "kichco",
         "OptionText": "L"
       },
       {
-        "Id": 7209944709790484000,
         "AttributeCode": "kichco",
         "OptionText": "M"
       },
       {
-        "Id": 7209944833316620000,
         "AttributeCode": "kichco",
         "OptionText": "L"
       },
       {
-        "Id": 7276136864611518000,
         "AttributeCode": "kichco",
         "OptionText": "M"
       },
       {
-        "Id": 7276136864611535000,
         "AttributeCode": "kichco",
         "OptionText": "L"
       },
       {
-        "Id": 7296144207771716000,
         "AttributeCode": "kichco",
         "OptionText": "S"
       },
       {
-        "Id": 7296144207771732000,
         "AttributeCode": "kichco",
         "OptionText": "M"
       },
       {
-        "Id": 7296144207771748000,
         "AttributeCode": "kichco",
         "OptionText": "L"
       },
       {
-        "Id": 7124607126944680000,
         "AttributeCode": "kichco",
         "OptionText": "M"
       },
       {
-        "Id": 7124607126944696000,
         "AttributeCode": "kichco",
         "OptionText": "L"
       },
       {
-        "Id": 7093445745579428000,
         "AttributeCode": "kichco",
         "OptionText": "M"
       },
       {
-        "Id": 7093445745579444000,
         "AttributeCode": "kichco",
         "OptionText": "L"
       },
       {
-        "Id": 7121716069265377000,
         "AttributeCode": "kichco",
         "OptionText": "M"
       },
       {
-        "Id": 7121716069265394000,
         "AttributeCode": "kichco",
         "OptionText": "L"
       },
       {
-        "Id": 7094620367196588000,
         "AttributeCode": "kichco",
         "OptionText": "M"
       },
       {
-        "Id": 7094620367196604000,
         "AttributeCode": "kichco",
         "OptionText": "L"
       }
     ]
   },
   {
-    "Id": 7247783771653818000,
     "AttributeCode": "kich_co",
     "AttributeName": "Kích cỡ",
     "Type": "Select",
@@ -1016,19 +818,16 @@
     "IsFilterable": true,
     "AttributeOptions": [
       {
-        "Id": 7247783771653868000,
         "AttributeCode": "kich_co",
         "OptionText": "M"
       },
       {
-        "Id": 7247784129863895000,
         "AttributeCode": "kich_co",
         "OptionText": "L"
       }
     ]
   },
   {
-    "Id": 7246685609111505000,
     "AttributeCode": "kich_co",
     "AttributeName": "Kích cỡ",
     "Type": "Select",
@@ -1038,24 +837,20 @@
     "IsFilterable": true,
     "AttributeOptions": [
       {
-        "Id": 7260033985258801000,
         "AttributeCode": "kich_co",
         "OptionText": "S"
       },
       {
-        "Id": 7260033985258818000,
         "AttributeCode": "kich_co",
         "OptionText": "M"
       },
       {
-        "Id": 7260033985258834000,
         "AttributeCode": "kich_co",
         "OptionText": "L"
       }
     ]
   },
   {
-    "Id": 7275589103486339000,
     "AttributeCode": "kich_co",
     "AttributeName": "Kích cỡ",
     "Type": "Select",
@@ -1065,19 +860,16 @@
     "IsFilterable": true,
     "AttributeOptions": [
       {
-        "Id": 7275589103486405000,
         "AttributeCode": "kich_co",
         "OptionText": "M"
       },
       {
-        "Id": 7275589103486421000,
         "AttributeCode": "kich_co",
         "OptionText": "L"
       }
     ]
   },
   {
-    "Id": 7320889142659844000,
     "AttributeCode": "kich_co",
     "AttributeName": "Kích cỡ",
     "Type": "Select",
@@ -1087,24 +879,20 @@
     "IsFilterable": true,
     "AttributeOptions": [
       {
-        "Id": 7320889142659910000,
         "AttributeCode": "kich_co",
         "OptionText": "S"
       },
       {
-        "Id": 7320889142659926000,
         "AttributeCode": "kich_co",
         "OptionText": "M"
       },
       {
-        "Id": 7320889142659942000,
         "AttributeCode": "kich_co",
         "OptionText": "L"
       }
     ]
   },
   {
-    "Id": 7264896143367604000,
     "AttributeCode": "kich_co",
     "AttributeName": "Kích cỡ",
     "Type": "Select",
@@ -1114,19 +902,16 @@
     "IsFilterable": true,
     "AttributeOptions": [
       {
-        "Id": 7264896143367686000,
         "AttributeCode": "kich_co",
         "OptionText": "M"
       },
       {
-        "Id": 7264896143367703000,
         "AttributeCode": "kich_co",
         "OptionText": "L"
       }
     ]
   },
   {
-    "Id": 7312376229259528000,
     "AttributeCode": "kich_co",
     "AttributeName": "Kích cỡ",
     "Type": "Select",
@@ -1136,19 +921,16 @@
     "IsFilterable": true,
     "AttributeOptions": [
       {
-        "Id": 7312376229259577000,
         "AttributeCode": "kich_co",
         "OptionText": "M"
       },
       {
-        "Id": 7312376229259594000,
         "AttributeCode": "kich_co",
         "OptionText": "L"
       }
     ]
   },
   {
-    "Id": 7320930608208153000,
     "AttributeCode": "kich_co",
     "AttributeName": "Kích cỡ",
     "Type": "Select",
@@ -1158,19 +940,16 @@
     "IsFilterable": true,
     "AttributeOptions": [
       {
-        "Id": 7320930618332908000,
         "AttributeCode": "kich_co",
         "OptionText": "M"
       },
       {
-        "Id": 7320930618332924000,
         "AttributeCode": "kich_co",
         "OptionText": "L"
       }
     ]
   },
   {
-    "Id": 7336433254364727000,
     "AttributeCode": "kich_co",
     "AttributeName": "Kích cỡ",
     "Type": "Select",
@@ -1180,24 +959,20 @@
     "IsFilterable": true,
     "AttributeOptions": [
       {
-        "Id": 7336433254364793000,
         "AttributeCode": "kich_co",
         "OptionText": "S "
       },
       {
-        "Id": 7336433254364809000,
         "AttributeCode": "kich_co",
         "OptionText": "M"
       },
       {
-        "Id": 7336433254364826000,
         "AttributeCode": "kich_co",
         "OptionText": "L"
       }
     ]
   },
   {
-    "Id": 7069693877879523000,
     "AttributeCode": "kich_thuoc",
     "AttributeName": "Kích thước",
     "Type": "Select",
@@ -1207,19 +982,16 @@
     "IsFilterable": true,
     "AttributeOptions": [
       {
-        "Id": 7349449050665552000,
         "AttributeCode": "kich_thuoc",
         "OptionText": "M"
       },
       {
-        "Id": 7349456884624919000,
         "AttributeCode": "kich_thuoc",
         "OptionText": "L"
       }
     ]
   },
   {
-    "Id": 7228155646804462000,
     "AttributeCode": "kich_co",
     "AttributeName": "Kích cỡ",
     "Type": "Select",
@@ -1229,19 +1001,16 @@
     "IsFilterable": true,
     "AttributeOptions": [
       {
-        "Id": 7228155646804511000,
         "AttributeCode": "kich_co",
         "OptionText": "M"
       },
       {
-        "Id": 7228155646804527000,
         "AttributeCode": "kich_co",
         "OptionText": "L"
       }
     ]
   },
   {
-    "Id": 7315348643828156000,
     "AttributeCode": "specification",
     "AttributeName": "Specification",
     "Type": "Select",
@@ -1251,7 +1020,6 @@
     "IsFilterable": true,
     "AttributeOptions": [
       {
-        "Id": 7315348643828173000,
         "AttributeCode": "specification",
         "OptionText": "Default"
       }
