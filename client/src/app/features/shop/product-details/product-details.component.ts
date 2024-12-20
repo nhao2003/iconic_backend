@@ -10,6 +10,7 @@ import { MatInput } from '@angular/material/input';
 import { MatDivider } from '@angular/material/divider';
 import { CartService } from '../../../core/services/cart.service';
 import { FormsModule } from '@angular/forms';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-product-details',
@@ -34,6 +35,7 @@ export class ProductDetailsComponent implements OnInit {
   product?: Product;
   quantityInCart = 0;
   quantity = 1;
+  baseUrl = environment.baseUrl;
 
   ngOnInit(): void {
     this.loadProduct();

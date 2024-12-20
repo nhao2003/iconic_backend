@@ -1,11 +1,16 @@
 import { Component, inject, Input } from '@angular/core';
 import { Product } from '../../../shared/models/product';
-import { MatCard, MatCardActions, MatCardContent } from '@angular/material/card';
+import {
+  MatCard,
+  MatCardActions,
+  MatCardContent,
+} from '@angular/material/card';
 import { MatIcon } from '@angular/material/icon';
 import { CurrencyPipe } from '@angular/common';
 import { MatButton } from '@angular/material/button';
 import { RouterLink } from '@angular/router';
 import { CartService } from '../../../core/services/cart.service';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-product-item',
@@ -17,12 +22,13 @@ import { CartService } from '../../../core/services/cart.service';
     MatIcon,
     CurrencyPipe,
     MatButton,
-    RouterLink
+    RouterLink,
   ],
   templateUrl: './product-item.component.html',
-  styleUrl: './product-item.component.scss'
+  styleUrl: './product-item.component.scss',
 })
 export class ProductItemComponent {
   @Input() product?: Product;
+  @Input() baseUrl = environment.baseUrl;
   cartService = inject(CartService);
 }

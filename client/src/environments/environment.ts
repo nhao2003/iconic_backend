@@ -1,5 +1,6 @@
 export const environment = {
   production: true,
+  baseUrl: '/',
   apiUrl: 'api/',
   hubUrl: 'hub/notifications',
   stripePublicKey:
