@@ -5,6 +5,8 @@ using Core.Interfaces;
 using Core.Specifications.Params;
 using Core.Specifications;
 using API.RequestHelpers;
+using Infrastructure.Data;
+using System.Text.Json;
 
 namespace API.Resolvers;
 
@@ -193,5 +195,47 @@ public class ProductResolver : BaseResolver
         var spec = new TypeListSpecification();
 
         return await _unitOfWork.Repository<Product>().ListAsync(spec);
+    }
+
+    public static async Task AddProductsFromJsonAsync(StoreContext context, ProductResolver productResolver, string filePath)
+    {
+        if (!context.Products.Any())
+        {
+            try
+            {
+                // Đọc dữ liệu từ file JSON
+                var productsData = await File.ReadAllTextAsync(filePath);
+                var createProductDtos = JsonSerializer.Deserialize<List<CreateProductDto>>(productsData);
+
+                if (createProductDtos == null || !createProductDtos.Any())
+                {
+                    Console.WriteLine("No products to add from the file.");
+                    return;
+                }
+
+                // Thêm từng sản phẩm vào cơ sở dữ liệu
+                foreach (var createProductDto in createProductDtos)
+                {
+                    var result = await productResolver.CreateProduct(createProductDto);
+
+                    if (result == null)
+                    {
+                        Console.WriteLine($"Failed to add product: {createProductDto.Name}");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Successfully added product: {result.Name}");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred while adding products: {ex.Message}");
+            }
+        }
+        else
+        {
+            Console.WriteLine("Products already exist in the database. Skipping seeding.");
+        }
     }
 }

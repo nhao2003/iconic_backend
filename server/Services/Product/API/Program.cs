@@ -11,6 +11,7 @@ using Infrastructure.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using StackExchange.Redis;
+using System.Reflection;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -91,6 +92,9 @@ try
     var userManager = services.GetRequiredService<UserManager<AppUser>>();
     await context.Database.MigrateAsync();
     await StoreContextSeed.SeedAsync(context, userManager);
+    var path = System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+    var productResolver = services.GetRequiredService<ProductResolver>();
+    await ProductResolver.AddProductsFromJsonAsync(context, productResolver, path + @"/Data/SeedData/products_crawl.json");
 }
 catch (Exception ex)
 {
