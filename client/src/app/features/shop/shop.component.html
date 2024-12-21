@@ -19,19 +19,8 @@
 
   <div class="h-8"></div>
 
+  <!-- Search, Filter, and Sort Section -->
   <div class="flex justify-between">
-    <mat-paginator
-      class="bg-white"
-      (page)="handlePageEvent($event)"
-      [length]="products.count"
-      [pageSize]="shopParams.pageSize"
-      [showFirstLastButtons]="true"
-      [pageSizeOptions]="pageSizeOptions"
-      [pageIndex]="shopParams.pageNumber - 1"
-      aria-label="Select page"
-    >
-    </mat-paginator>
-
     <form
       #searchForm="ngForm"
       (ngSubmit)="onSearchChange()"
@@ -73,6 +62,7 @@
     </div>
   </div>
 
+  <!-- Product Grid Section -->
   <div
     class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
   >
@@ -81,13 +71,27 @@
     }
   </div>
 
+  <!-- Paginator Section (moved to the bottom) -->
+  <div class="flex justify-center">
+    <mat-paginator
+      class="bg-white"
+      (page)="handlePageEvent($event)"
+      [length]="products.count"
+      [pageSize]="shopParams.pageSize"
+      [showFirstLastButtons]="true"
+      [pageSizeOptions]="pageSizeOptions"
+      [pageIndex]="shopParams.pageNumber - 1"
+      aria-label="Select page"
+    >
+    </mat-paginator>
+  </div>
+
   <div class="h-8"></div>
   <!-- Separator Line -->
   <hr class="border-slate-200 dark:border-slate-700" />
 
   <div class="h-8"></div>
 </div>
-
 <mat-menu #sortMenu="matMenu">
   <mat-selection-list
     [multiple]="false"

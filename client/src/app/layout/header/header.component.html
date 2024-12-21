@@ -1,52 +1,105 @@
 <header class="border-b p-3 w-full max-h-20 fixed top-0 z-50 bg-white">
-    <div class="flex align-middle items-center justify-between max-w-screen-2xl mx-auto">
-        <img routerLink="/" src="/images/logo.png" alt="app logo" class="max-h-16">
-        <nav class="flex gap-3 my-2 uppercase text-2xl">
-            <a routerLink="/"
-                routerLinkActive="active"
-                [routerLinkActiveOptions]="{exact: true}"
-            >Home</a>
-            <a routerLink="/shop" routerLinkActive="active">Shop</a>
-            <a routerLink="/test-error" routerLinkActive="active">Errors</a>
-            <a *appIsAdmin routerLink="/admin" routerLinkActive="active">Admin</a>
-        </nav>
-        <div class="flex gap-3 align-middle">
-            <a routerLink="/cart" routerLinkActive="active"
-                matBadge="{{cartService.itemCount()}}"
-                matBadgeSize="large"
-                class="custom-badge mt-2 mr-2">
-                <mat-icon>shopping_cart</mat-icon>
-            </a>
-            @if (accountService.currentUser()) {
-                <button mat-button [matMenuTriggerFor]="menu">
-                    <mat-icon>arrow_drop_down</mat-icon>
-                    <span>{{accountService.currentUser()?.email}}</span>
-                </button>
-            } @else {
-                <button routerLink="/account/login" mat-stroked-button>Login</button>
-                <button routerLink="/account/register" mat-stroked-button>Register</button>
-            }
+  <div class="flex items-center justify-between max-w-screen-2xl mx-auto">
+    <!-- Logo -->
+    <img
+      routerLink="/"
+      src="/images/logo.svg"
+      alt="app logo"
+      class="max-h-16"
+    />
 
+    <!-- Navigation ở giữa -->
+    <nav class="flex flex-grow justify-center gap-3 my-2 uppercase text-2xl">
+      <div class="w-10"></div>
+      <a
+        routerLink="/"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="inline-flex items-center text-sm lg:text-[15px] font-medium text-slate-700 dark:text-slate-300 py-2.5 px-4 xl:px-5 rounded-full hover:text-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 dark:hover:text-slate-200"
+        >Home</a
+      >
+      <a
+        routerLink="/shop"
+        routerLinkActive="active"
+        class="inline-flex items-center text-sm lg:text-[15px] font-medium text-slate-700 dark:text-slate-300 py-2.5 px-4 xl:px-5 rounded-full hover:text-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 dark:hover:text-slate-200"
+        >Shop</a
+      >
+      <a
+        *appIsAdmin
+        routerLink="/admin"
+        routerLinkActive="active"
+        class="inline-flex items-center text-sm lg:text-[15px] font-medium text-slate-700 dark:text-slate-300 py-2.5 px-4 xl:px-5 rounded-full hover:text-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 dark:hover:text-slate-200"
+        >Admin</a
+      >
+    </nav>
+
+    <!-- Nút Cart và Login -->
+    <div class="flex gap-3 items-center">
+      <a
+        routerLink="/cart"
+        routerLinkActive="active"
+        class="group w-10 h-10 sm:w-12 sm:h-12 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full inline-flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 relative"
+      >
+        <!-- Badge -->
+        <div
+          class="w-4 h-4 flex items-center justify-center bg-primary-500 absolute top-1 right-0 rounded-full text-[10px] leading-none text-white font-medium shadow-md"
+          style="background-color: rgb(14, 165, 233)"
+        >
+          <span class="mt-[1px]">{{ cartService.itemCount() }}</span>
         </div>
+
+        <!-- Cart Icon -->
+        <img class="h-6 w-6" src="./images/shopping-cart.png" alt="Cart Icon" />
+      </a>
+
+      @if (accountService.currentUser()) {
+      <button
+        mat-button
+        [matMenuTriggerFor]="menu"
+        class="inline-flex items-center text-sm lg:text-[15px] font-medium text-slate-700 dark:text-slate-300 py-2.5 px-4 xl:px-5 rounded-full hover:text-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 dark:hover:text-slate-200"
+      >
+        <mat-icon>arrow_drop_down</mat-icon>
+        <span>{{ accountService.currentUser()?.email }}</span>
+      </button>
+      } @else {
+      <button
+        routerLink="/account/login"
+        mat-stroked-button
+        class="inline-flex items-center text-sm lg:text-[15px] font-medium text-slate-700 dark:text-slate-300 py-2.5 px-4 xl:px-5 rounded-full hover:text-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 dark:hover:text-slate-200"
+      >
+        Login
+      </button>
+      <button
+        routerLink="/account/register"
+        mat-stroked-button
+        class="inline-flex items-center text-sm lg:text-[15px] font-medium text-slate-700 dark:text-slate-300 py-2.5 px-4 xl:px-5 rounded-full hover:text-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 dark:hover:text-slate-200"
+      >
+        Register
+      </button>
+      }
     </div>
+  </div>
 </header>
 
 @if (busyService.loading) {
-    <mat-progress-bar mode="indeterminate" class="fixed top-20 z-50"></mat-progress-bar>
+<mat-progress-bar
+  mode="indeterminate"
+  class="fixed top-20 z-50"
+></mat-progress-bar>
 }
 
 <mat-menu #menu="matMenu" class="px-5">
-    <button mat-menu-item class="px-3" routerLink="/cart">
-        <mat-icon>shopping_cart</mat-icon>
-        My cart
-    </button>
-    <button mat-menu-item class="px-3" routerLink="/orders">
-        <mat-icon>history</mat-icon>
-        My orders
-    </button>
-    <mat-divider></mat-divider>
-    <button mat-menu-item class="px-3" (click)="logout()">
-        <mat-icon>logout</mat-icon>
-        Logout
-    </button>
+  <button mat-menu-item class="px-3" routerLink="/cart">
+    <img src="http://www.w3.org/2000/svg" />
+    My cart
+  </button>
+  <button mat-menu-item class="px-3" routerLink="/orders">
+    <mat-icon>history</mat-icon>
+    My orders
+  </button>
+  <mat-divider></mat-divider>
+  <button mat-menu-item class="px-3" (click)="logout()">
+    <mat-icon>logout</mat-icon>
+    Logout
+  </button>
 </mat-menu>
