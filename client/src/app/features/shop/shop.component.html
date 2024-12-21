@@ -1,5 +1,24 @@
 @if (products && products.count > 0) {
-<div class="flex flex-col gap-3">
+<div class="flex flex-col gap-3 mx-auto max-w-7xl">
+  <!-- Heading Section -->
+  <div class="h-10"></div>
+  <div class="max-w-screen-sm">
+    <h2 class="block text-2xl sm:text-3xl lg:text-4xl font-bold">
+      Man collection
+    </h2>
+    <span
+      class="block mt-4 text-neutral-500 dark:text-neutral-400 text-sm sm:text-base"
+    >
+      We not only help you design exceptional products, but also make it easy
+      for you to share your designs with more like-minded people.
+    </span>
+  </div>
+  <div class="h-8"></div>
+  <!-- Separator Line -->
+  <hr class="border-slate-200 dark:border-slate-700" />
+
+  <div class="h-8"></div>
+
   <div class="flex justify-between">
     <mat-paginator
       class="bg-white"
@@ -54,11 +73,19 @@
     </div>
   </div>
 
-  <div class="grid grid-cols-5 gap-4">
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+  >
     @for (product of products.data; track product.id) {
-    <app-product-item [product]="product"></app-product-item>
+    <app-product-item [product]="product" class="p-2.5"></app-product-item>
     }
   </div>
+
+  <div class="h-8"></div>
+  <!-- Separator Line -->
+  <hr class="border-slate-200 dark:border-slate-700" />
+
+  <div class="h-8"></div>
 </div>
 
 <mat-menu #sortMenu="matMenu">

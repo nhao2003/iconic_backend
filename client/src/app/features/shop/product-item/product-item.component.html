@@ -1,32 +1,6 @@
 @if (product) {
-<!-- <mat-card
-  appearance="raised"
-  routerLink="/shop/{{ product.id }}"
-  class="product-card"
->
-  <img
-    mat-card-image
-    src="{{ baseUrl }}images/products_real/images/{{ product.imageUrl }}"
-    alt="Product image"
-  />
-  <mat-card-content class="mt-2">
-    <h2 class="text-sm font-semibold uppercase">{{ product.name }}</h2>
-    <p class="font-light">{{ product.price | currency }}</p>
-  </mat-card-content>
-  <mat-card-actions (click)="$event.stopPropagation()">
-    <button
-      mat-stroked-button
-      class="w-full"
-      (click)="cartService.addItemToCart(product)"
-    >
-      <mat-icon>add_shopping_cart</mat-icon>
-      Add to cart
-    </button>
-  </mat-card-actions>
-</mat-card> -->
 <div
   class="relative flex flex-col bg-transparent nc-ProductCard no-border no-shadow product-card rounded-3xl"
-  [routerLink]="'/shop/' + product.id"
 >
   <div
     class="relative flex-shrink-0 bg-slate-50 dark:bg-slate-300 rounded-3xl overflow-hidden z-1 group"
@@ -38,6 +12,19 @@
         alt="Product image"
       />
     </a>
+
+    <div
+      class="absolute bottom-0 left-1/2 transform -translate-x-1/2 mb-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all"
+    >
+      <button
+        class="bg-slate-900 dark:bg-slate-100 hover:bg-slate-800 text-slate-50 dark:text-slate-800 py-2 px-4 text-xs shadow-lg flex items-center justify-center rounded-full"
+        (click)="cartService.addItemToCart(product)"
+      >
+        <mat-icon class="w-5 h-5 mr-2">add_shopping_cart</mat-icon>
+        <!-- Đổi kích thước icon -->
+        <span>Add to bag</span>
+      </button>
+    </div>
   </div>
 
   <div class="space-y-4 px-2.5 pt-5 pb-2.5">
@@ -56,7 +43,7 @@
         class="flex items-center border-2 border-green-500 rounded-lg py-1 px-2 md:py-1.5 md:px-2.5 text-sm font-medium"
       >
         <span class="text-green-500 !leading-none">
-          {{ product.price | currency }}
+          {{ product.price }} VND
         </span>
       </div>
       <div class="flex items-center mb-0.5">
@@ -68,12 +55,7 @@
     </div>
   </div>
 
-  <div class="mt-2">
-    <button class="w-full" (click)="cartService.addItemToCart(product)">
-      <mat-icon>add_shopping_cart</mat-icon>
-      Add to cart
-    </button>
-  </div>
+  <div class="h-10"></div>
 </div>
 
 }
