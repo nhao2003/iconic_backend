@@ -35,4 +35,11 @@
 		<Folder Include="Schemas\Mutations\" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Content Update="wwwroot\images\products_real\images\product_2\bdc554f3-52c4-491a-9cb9-30d4222f3110.webp">
+	    <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+	    <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+	  </Content>
+	</ItemGroup>
+
 </Project>

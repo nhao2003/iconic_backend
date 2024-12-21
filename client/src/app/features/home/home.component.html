@@ -1,21 +1,41 @@
-<div class="max-w-screen-2xl mx-auto px-4 mt-32">
-    <div class="flex flex-col items-center py-16 justify-center mt-20 rounded-2xl
-        shadow-xl relative">
-        <img
-            class="absolute inset-0 w-full h-full object-cover rounded-2xl"
-            src="../images/hero1.jpg"
-            alt="ski resort image">
-        <div class="flex flex-col p-8 rounded-2xl items-center relative">
-            <h1 class="my-6 font-extrabold text-white text-6xl">
-                Welcome to Iconic!
-            </h1>
-            <button
-                class="bg-gradient-to-r from-blue-600 to-cyan-500 font-semibold text-2xl
-                text-white rounded-2xl px-8 py-4 border-2 border-transparent mt-8"
-                routerLink="/shop"
-            >
-                Go to shop
-            </button>
-        </div>
+<div class="max-w-screen-2xl mx-auto px-4 mt-10">
+  <div
+    class="flex flex-col items-start py-16 justify-center mt-20 rounded-2xl relative bg-cover bg-center bg-[#F7F0EA] h-[80vh]"
+    style="background-image: url('../images/Moon.svg')"
+  >
+    <!-- Góc dưới bên phải có ảnh -->
+    <div class="absolute right-0 bottom-0 w-[80vh] h-[80vh]">
+      <img
+        class="w-full h-full object-contain object-right-bottom"
+        src="../images/hero-2-right-1.png"
+        alt="Sports Equipment"
+      />
     </div>
+
+    <div class="relative z-10 pt-8 lg:pt-0 inset-y-0 left-[8%] text-left">
+      <div
+        class="flex flex-col items-start max-w-lg xl:max-w-2xl space-y-5 xl:space-y-8"
+      >
+        <!-- Dòng tiêu đề phụ -->
+        <span class="sm:text-xl md:text-2xl font-bold text-neutral-800">
+          In this season, find the best 🔥
+        </span>
+        <!-- Tiêu đề chính -->
+        <h2
+          class="font-extrabold text-black text-4xl sm:text-5xl md:text-6xl xl:text-7xl 2xl:text-7xl !leading-[120%]"
+        >
+          Sports equipment collection.
+        </h2>
+        <!-- Nút bấm -->
+        <div class="sm:pt-4">
+          <button
+            class="px-8 py-4 lg:px-10 lg:py-5 bg-slate-900 hover:bg-slate-800 text-slate-50 shadow-xl font-semibold text-base sm:text-lg lg:text-xl rounded-full"
+            routerLink="/shop"
+          >
+            Start your search
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
