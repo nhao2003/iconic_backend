@@ -9,6 +9,7 @@
     "QuantityInStock": 184,
     "ImageUrl": "product_0/bdc554f3-52c4-491a-9cb9-30d4222f3110.webp",
     "Price": 550000,
+    "AttributeIds": [ 1, 2 ],
     "ImageCoverUrls": [
       "product_0/cover_0_a967d361-f874-4a06-a07a-6e5189950edd.webp",
       "product_0/cover_1_c3b3dabf-2939-4f33-9b09-7bbe0d608d2b.webp",
@@ -303,7 +304,11 @@
         ]
       }
     ],
-    "Barcode": "3848382976061"
+    "Barcode": "3848382976061",
+    "AttributeIds": [
+      1,
+      3
+    ]
   },
   {
     "Name": "[Limited] Symbolic School Fullzip Varsity Jacket",
@@ -393,8 +398,12 @@
         "ImageUrl": "product_2/variant_3_91723507-4788-4cbb-8d8f-c4d832f58ea9.webp"
       }
     ],
-    "ImageUrl": "product_2/description_0_0_9deda0f7-407c-42fe-8300-c65c5df2aa87.webp",
-    "Barcode": "4865969915649"
+    "ImageUrl": "product_2/dd8e8792-eddd-485a-9e96-aacf4ced36c4.webp",
+    "Barcode": "4865969915649",
+    "AttributeIds": [
+      1,
+      3
+    ]
   },
   {
     "Name": "Áo khoác SYMBOLIC Bomber Jacket Pilot Oversized Tay nhún",
@@ -690,7 +699,11 @@
         ]
       }
     ],
-    "Barcode": "5238233176031"
+    "Barcode": "5238233176031",
+    "AttributeIds": [
+      1,
+      3
+    ]
   },
   {
     "Name": "Symbolic Sporty Jacket áo khoác dù lót lưới",
@@ -824,7 +837,11 @@
         ]
       }
     ],
-    "Barcode": "1906753916710"
+    "Barcode": "1906753916710",
+    "AttributeIds": [
+      1,
+      3
+    ]
   },
   {
     "Name": "Quần dây rút Corduroy Sweatpants Symbolic",
@@ -1005,7 +1022,11 @@
       }
     ],
     "ImageUrl": "product_5/aa0c4063-7320-4a3a-adb6-b9568eef9529.webp",
-    "Barcode": "5033852751685"
+    "Barcode": "5033852751685",
+    "AttributeIds": [
+      1,
+      3
+    ]
   },
   {
     "Name": "Symbolic áo Oversized Polo",
@@ -1133,7 +1154,11 @@
         ]
       }
     ],
-    "Barcode": "6185965771242"
+    "Barcode": "6185965771242",
+    "AttributeIds": [
+      1,
+      3
+    ]
   },
   {
     "Name": "Hoodie Line Symbolic áo Hoodie Oversize form cánh dơi Menswear",
@@ -1261,7 +1286,11 @@
         ]
       }
     ],
-    "Barcode": "7647744325721"
+    "Barcode": "7647744325721",
+    "AttributeIds": [
+      1,
+      3
+    ]
   },
   {
     "Name": "Symbolic Nón Lưới Script Cap",
@@ -1332,7 +1361,10 @@
         ]
       }
     ],
-    "Barcode": "8959233394041"
+    "Barcode": "8959233394041",
+    "AttributeIds": [
+      1
+    ]
   },
   {
     "Name": "Symbolic Basic Short/ Quần short basic chất Dù premium",
@@ -1423,7 +1455,11 @@
       }
     ],
     "ImageUrl": "product_9/722873ae-d41f-4c7e-b80f-a8d0670e697d.webp",
-    "Barcode": "8730188448382"
+    "Barcode": "8730188448382",
+    "AttributeIds": [
+      1,
+      4
+    ]
   },
   {
     "Name": "Áo Polo Arch Logo Symbolic",
@@ -1434,7 +1470,7 @@
     "Weight": 534,
     "QuantityInStock": 832,
     "ImageUrl": "product_10/5da10fa5-8171-406a-884d-cb59f48e880d.webp",
-    "Price": 2000000,
+    "Price": 200000,
     "ImageCoverUrls": [
       "product_10/cover_0_e5760c20-e132-4588-be2f-6b9df54b130e.webp",
       "product_10/cover_1_f07e4485-80aa-4be5-8dc5-4dbbc1cd4682.webp",
@@ -1551,7 +1587,11 @@
         ]
       }
     ],
-    "Barcode": "1283114557517"
+    "Barcode": "1283114557517",
+    "AttributeIds": [
+      1,
+      3
+    ]
   },
   {
     "Name": "Symbolic áo thun Baseball Thông thường",
@@ -1717,7 +1757,11 @@
         ]
       }
     ],
-    "Barcode": "9766630568602"
+    "Barcode": "9766630568602",
+    "AttributeIds": [
+      1,
+      3
+    ]
   },
   {
     "Name": "Symbolic Arch OG Short quần đùi Menswear",
@@ -1808,7 +1852,11 @@
         ]
       }
     ],
-    "Barcode": "3330189379795"
+    "Barcode": "3330189379795",
+    "AttributeIds": [
+      1,
+      3
+    ]
   },
   {
     "Name": "Symbolic Retro Boxy Tee Áo thun Retro Boxy",
@@ -1937,7 +1985,11 @@
         ]
       }
     ],
-    "Barcode": "4701386146301"
+    "Barcode": "4701386146301",
+    "AttributeIds": [
+      1,
+      5
+    ]
   },
   {
     "Name": "Symbolic Raglan Urban Sport Tee",
@@ -2032,7 +2084,11 @@
         ]
       }
     ],
-    "Barcode": "5435584664528"
+    "Barcode": "5435584664528",
+    "AttributeIds": [
+      1,
+      2
+    ]
   },
   {
     "Name": "Áo khoác dù Symbolic Line Track Jacket",
@@ -2201,7 +2257,11 @@
         ]
       }
     ],
-    "Barcode": "2018914072311"
+    "Barcode": "2018914072311",
+    "AttributeIds": [
+      1,
+      3
+    ]
   },
   {
     "Name": "Sơmi Washes Flannel Shirt Áo Sơmi Symbolic tay ngắn",
@@ -2298,7 +2358,11 @@
         ]
       }
     ],
-    "Barcode": "1671355645776"
+    "Barcode": "1671355645776",
+    "AttributeIds": [
+      1,
+      2
+    ]
   },
   {
     "Name": "Symbolic Hood Jacket áo khoác dù",
@@ -2430,7 +2494,11 @@
         ]
       }
     ],
-    "Barcode": "8443602277147"
+    "Barcode": "8443602277147",
+    "AttributeIds": [
+      1,
+      6
+    ]
   },
   {
     "Name": "Symbolic Balo Leather SS2 Da Chống nước",
@@ -2479,7 +2547,10 @@
         ]
       }
     ],
-    "Barcode": "5199815751922"
+    "Barcode": "5199815751922",
+    "AttributeIds": [
+      1
+    ]
   },
   {
     "Name": "Áo khoác dù Symbolic Mini Logo nhiều màu",
@@ -2829,7 +2900,11 @@
         ]
       }
     ],
-    "Barcode": "8166344529293"
+    "Barcode": "8166344529293",
+    "AttributeIds": [
+      1,
+      3
+    ]
   },
   {
     "Name": "Áo Big Quote Hoodie Symbolic Oversized",
@@ -3018,7 +3093,11 @@
         ]
       }
     ],
-    "Barcode": "1202220899630"
+    "Barcode": "1202220899630",
+    "AttributeIds": [
+      1,
+      7
+    ]
   },
   {
     "Name": "Symbolic Nylon Muscle Jacket áo khoác dù nhăn",
@@ -3111,7 +3190,11 @@
         ]
       }
     ],
-    "Barcode": "9085891127851"
+    "Barcode": "9085891127851",
+    "AttributeIds": [
+      1,
+      3
+    ]
   },
   {
     "Name": "Áo khoác Star Sukajan Jacket SYMBOLIC",
@@ -3297,7 +3380,11 @@
         ]
       }
     ],
-    "Barcode": "8770463729433"
+    "Barcode": "8770463729433",
+    "AttributeIds": [
+      1,
+      3
+    ]
   },
   {
     "Name": "Áo khoác Symbolic Raglan Jacket áo khoác dù",
@@ -3467,7 +3554,11 @@
         ]
       }
     ],
-    "Barcode": "7226992300767"
+    "Barcode": "7226992300767",
+    "AttributeIds": [
+      1,
+      8
+    ]
   },
   {
     "Name": "Áo khoác Symbolic Mis Floss Jacket",
@@ -3636,7 +3727,11 @@
         ]
       }
     ],
-    "Barcode": "8418925421136"
+    "Barcode": "8418925421136",
+    "AttributeIds": [
+      1,
+      3
+    ]
   },
   {
     "Name": "Symbolic Logo Socks tất cao cổ cotton",
@@ -3703,7 +3798,10 @@
       }
     ],
     "ImageUrl": "product_25/ab33d5b2-6596-4473-a51c-0bd6ae576ebf.webp",
-    "Barcode": "3716971903430"
+    "Barcode": "3716971903430",
+    "AttributeIds": [
+      1
+    ]
   },
   {
     "Name": "Symbolic áo khoác dù Track Jacket Plus",
@@ -3798,7 +3896,11 @@
         ]
       }
     ],
-    "Barcode": "4444415292765"
+    "Barcode": "4444415292765",
+    "AttributeIds": [
+      1,
+      3
+    ]
   },
   {
     "Name": "Sơmi Flannel Shirt Symbolic Áo sơmi mỏng nhẹ khoác ngoài",
@@ -4041,7 +4143,11 @@
         ]
       }
     ],
-    "Barcode": "5683843316109"
+    "Barcode": "5683843316109",
+    "AttributeIds": [
+      1,
+      2
+    ]
   },
   {
     "Name": "Football Jersey Symbolic Áo Sweater Oversized nỉ hai da",
@@ -4138,7 +4244,11 @@
         ]
       }
     ],
-    "Barcode": "9241084487614"
+    "Barcode": "9241084487614",
+    "AttributeIds": [
+      1,
+      9
+    ]
   },
   {
     "Name": "Symbolic Windbreaker Jacket",
@@ -4235,7 +4345,11 @@
         ]
       }
     ],
-    "Barcode": "1641184283803"
+    "Barcode": "1641184283803",
+    "AttributeIds": [
+      1,
+      3
+    ]
   },
   {
     "Name": "Áo thun Major Jersey Symbolic",
@@ -4368,7 +4482,11 @@
         ]
       }
     ],
-    "Barcode": "6196769630237"
+    "Barcode": "6196769630237",
+    "AttributeIds": [
+      1,
+      10
+    ]
   },
   {
     "Name": "Flannel Jacket Symbolic Áo khoác dạ kim",
@@ -4557,7 +4675,11 @@
         ]
       }
     ],
-    "Barcode": "2631045235529"
+    "Barcode": "2631045235529",
+    "AttributeIds": [
+      1,
+      11
+    ]
   },
   {
     "Name": "Áo khoác Camping Symbolic Jacket dù nhẹ lót lưới",
@@ -4692,7 +4814,11 @@
         ]
       }
     ],
-    "Barcode": "4776174399574"
+    "Barcode": "4776174399574",
+    "AttributeIds": [
+      1,
+      12
+    ]
   },
   {
     "Name": "Symbolic Halfzip Jacket áo khoác dù nhăn có mũ",
@@ -4787,7 +4913,11 @@
         ]
       }
     ],
-    "Barcode": "9112945167486"
+    "Barcode": "9112945167486",
+    "AttributeIds": [
+      1,
+      3
+    ]
   },
   {
     "Name": "Symbolic Seasonal Hoodie Áo Hoodie vải nỉ chân cua oversized",
@@ -4975,7 +5105,11 @@
         ]
       }
     ],
-    "Barcode": "4844293951038"
+    "Barcode": "4844293951038",
+    "AttributeIds": [
+      1,
+      2
+    ]
   },
   {
     "Name": "Embro Sweater Symbolic nỉ chân cua",
@@ -5106,7 +5240,11 @@
         ]
       }
     ],
-    "Barcode": "9543238743941"
+    "Barcode": "9543238743941",
+    "AttributeIds": [
+      1,
+      2
+    ]
   },
   {
     "Name": "Long Sleeve Polo Symbolic Áo polo dài tay vải nỉ hai da",
@@ -5202,7 +5340,11 @@
         ]
       }
     ],
-    "Barcode": "8052337821630"
+    "Barcode": "8052337821630",
+    "AttributeIds": [
+      1,
+      2
+    ]
   },
   {
     "Name": "Áo Khoác Denim Wash Jacket Symbolic",
@@ -5298,7 +5440,11 @@
         ]
       }
     ],
-    "Barcode": "2743994811412"
+    "Barcode": "2743994811412",
+    "AttributeIds": [
+      1,
+      3
+    ]
   },
   {
     "Name": "Symbolic Áo sơmi Oxfort Shirt tay dài",
@@ -5483,7 +5629,11 @@
         ]
       }
     ],
-    "Barcode": "1961946176666"
+    "Barcode": "1961946176666",
+    "AttributeIds": [
+      1,
+      2
+    ]
   },
   {
     "Name": "Symbolic Boxer Short Quần short basic vải dù",
@@ -5777,7 +5927,11 @@
         ]
       }
     ],
-    "Barcode": "3144727808067"
+    "Barcode": "3144727808067",
+    "AttributeIds": [
+      1,
+      2
+    ]
   },
   {
     "Name": "Symbolic Áo Merchan Hoodie Zip vải nỉ chân cua",
@@ -5965,7 +6119,11 @@
         ]
       }
     ],
-    "Barcode": "6560489762644"
+    "Barcode": "6560489762644",
+    "AttributeIds": [
+      1,
+      2
+    ]
   },
   {
     "Name": "Symbolic Boxy Bloke Jacket/ áo khoác form Boxy Nam Menswear",
@@ -6063,7 +6221,11 @@
         ]
       }
     ],
-    "Barcode": "2421108944665"
+    "Barcode": "2421108944665",
+    "AttributeIds": [
+      1,
+      13
+    ]
   },
   {
     "Name": "Áo Khoác Bomber TED jacket Symbolic Chần phao",
@@ -6247,7 +6409,11 @@
         ]
       }
     ],
-    "Barcode": "7051700078919"
+    "Barcode": "7051700078919",
+    "AttributeIds": [
+      1,
+      3
+    ]
   },
   {
     "Name": "Minibag túi đeo chéo Symbolic",
@@ -6313,7 +6479,10 @@
         ]
       }
     ],
-    "Barcode": "3607581437743"
+    "Barcode": "3607581437743",
+    "AttributeIds": [
+      1
+    ]
   },
   {
     "Name": "Symbolic áo Varsity Jacket",
@@ -6441,7 +6610,11 @@
         ]
       }
     ],
-    "Barcode": "5413033525284"
+    "Barcode": "5413033525284",
+    "AttributeIds": [
+      1,
+      3
+    ]
   },
   {
     "Name": "Ví Da Side Leather Wallet Symbolic",
@@ -6471,8 +6644,11 @@
         "ImageUrl": "product_45/variant_0_0ae8b639-a406-4d36-849b-9e5d60a39743.webp"
       }
     ],
-    "ImageUrl": "product_45/cover_0_4ea1e62f-aa85-4d2c-baf6-f0239804df59",
-    "Barcode": "2825315925522"
+    "ImageUrl": "product_45/f0f53f97-7f56-483a-a6de-ed27ce87e70a.webp",
+    "Barcode": "2825315925522",
+    "AttributeIds": [
+      14
+    ]
   },
   {
     "Name": "Symbolic Messenger bag ss3",
@@ -6516,7 +6692,10 @@
         ]
       }
     ],
-    "Barcode": "7308964517454"
+    "Barcode": "7308964517454",
+    "AttributeIds": [
+      1
+    ]
   },
   {
     "Name": "Áo khoác Symbolic Fullzip Varsity Jacket",
@@ -6722,7 +6901,11 @@
         ]
       }
     ],
-    "Barcode": "4559569290766"
+    "Barcode": "4559569290766",
+    "AttributeIds": [
+      1,
+      3
+    ]
   },
   {
     "Name": "Symbolic Schoolknit áo len Cardigan",
@@ -6856,7 +7039,11 @@
         ]
       }
     ],
-    "Barcode": "8589053639309"
+    "Barcode": "8589053639309",
+    "AttributeIds": [
+      1,
+      3
+    ]
   },
   {
     "Name": "Symbolic áo khoác Dù TED Varsity Jacket",
@@ -6984,6 +7171,10 @@
         ]
       }
     ],
-    "Barcode": "3265859618957"
+    "Barcode": "3265859618957",
+    "AttributeIds": [
+      1,
+      3
+    ]
   }
 ]

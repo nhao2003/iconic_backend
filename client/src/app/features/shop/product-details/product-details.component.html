@@ -1,48 +1,145 @@
 @if (product) {
 <section class="py-8">
   <div class="max-w-screen-2xl px-4 mx-auto">
-    <div class="grid grid-cols-2 gap-8">
-      <div class="max-w-xl mx-auto">
+    <div class="grid grid-cols-10 gap-8">
+      <!-- Image Section -->
+      <div class="col-span-6 mx-auto">
+        <!-- Main Image -->
         <img
-          class="w-full"
-          src="{{ baseUrl }}images/products_real/images/{{ product.imageUrl }}"
-          alt="product image"
+          class="img-responsive object-cover rounded-lg mb-4 cursor-pointer"
+          [src]="baseUrl + 'images/products_real/images/' + selectedImage"
+          alt="main product image"
+          width="800"
+          height="800"
+          (click)="openImageModal()"
+        />
+
+        <!-- Additional Images -->
+        <div class="image-gallery">
+          <img
+            *ngFor="let image of product.imageCoverUrls"
+            class="object-cover rounded-lg"
+            style="max-height: 200px"
+            [src]="baseUrl + 'images/products_real/images/' + image"
+            alt="additional product image"
+            (click)="changeMainImage(image)"
+          />
+        </div>
+      </div>
+
+      <!-- Image Modal -->
+      <div
+        class="modal-image"
+        *ngIf="isImageModalOpen"
+        (click)="closeImageModal()"
+      >
+        <img
+          [src]="baseUrl + 'images/products_real/images/' + selectedImage"
+          alt="zoomed product image"
         />
       </div>
 
-      <div>
-        <h1 class="text-2xl font-semibold text-gray-900">{{ product.name }}</h1>
+      <!-- Product Details Section -->
+      <div class="col-span-4">
+        <!-- Heading and Price -->
+        <h1 class="text-3xl font-bold text-gray-900">{{ product.name }}</h1>
 
-        <p>You have {{ quantityInCart }} of this item in your cart</p>
-
-        <div class="mt-4 items-center gap-4 flex">
-          <p class="text-3xl font-extrabold text-gray-900">
-            {{ product.price | currency }}
-          </p>
-        </div>
-
-        <div class="flex gap-4 mt-6">
-          <button
-            [disabled]="quantity === quantityInCart"
-            (click)="updateCart()"
-            mat-flat-button
-            class="match-input-height"
+        <div class="mt-5 flex items-center space-x-4 sm:space-x-5">
+          <!-- Price -->
+          <div
+            class="flex items-center border-2 border-green-500 rounded-lg py-1.5 px-2 md:py-1.5 md:px-2.5 text-lg font-bold"
           >
-            <mat-icon>shopping_cart</mat-icon>
-            {{ getButtonText() }}
-          </button>
+            <span class="text-green-500 !leading-none"
+              >{{ product.price }} VND</span
+            >
+          </div>
 
-          <mat-form-field appearance="outline" class="flex">
-            <mat-label>Quantity</mat-label>
-            <input matInput min="0" [(ngModel)]="quantity" type="number" />
-          </mat-form-field>
+          <!-- Divider -->
+          <div
+            class="h-7 border-l border-slate-300 dark:border-slate-700"
+          ></div>
+
+          <!-- Reviews -->
+          <div class="flex items-center">
+            <a href="#reviews" class="flex items-center text-sm font-medium">
+              <mat-icon class="text-yellow-400">star</mat-icon>
+              <div class="ml-1.5 flex">
+                <span>{{ "4.9" }}</span>
+                <span class="block mx-2">·</span>
+                <span class="text-slate-600 dark:text-slate-400 underline">
+                  {{ 10 }} reviews
+                </span>
+              </div>
+            </a>
+            <span class="hidden sm:block mx-2.5">·</span>
+            <div class="hidden sm:flex items-center text-sm">
+              <mat-icon class="w-3.5 h-3.5">sparkles</mat-icon>
+              <span class="ml-1 leading-none">{{ "New in" }}</span>
+            </div>
+          </div>
         </div>
 
-        <mat-divider></mat-divider>
+        <div class="product-attributes">
+          <app-product-attribute
+            *ngFor="let attribute of product?.productAttributes"
+            [attribute]="attribute"
+            (optionSelected)="
+              onAttributeOptionSelected(
+                attribute.productAttribute.attributeCode,
+                $event
+              )
+            "
+          ></app-product-attribute>
+        </div>
 
-        <p class="mt-6 text-gray-500">
-          {{ product.description }}
-        </p>
+        <!-- Quantity Selector and Add to Cart -->
+        <div class="flex space-x-3.5 mt-10 mb-10">
+          <div
+            class="flex items-center justify-center bg-slate-100/70 dark:bg-slate-800/70 px-2 py-3 sm:p-3.5 rounded-full"
+          >
+            <app-nc-input-number
+              [(ngModel)]="quantity"
+              [min]="1"
+              [max]="99"
+              (onChange)="onQuantityChange($event)"
+            ></app-nc-input-number>
+          </div>
+          <app-app-button-primary
+            class="nc-Button relative h-auto inline-flex items-center justify-center rounded-full transition-colors text-sm sm:text-base font-medium py-3 px-4 sm:py-3.5 sm:px-6 ttnc-ButtonPrimary disabled:bg-opacity-90 bg-slate-900 dark:bg-slate-100 hover:bg-slate-800 text-slate-50 dark:text-slate-800 shadow-xl flex-1 flex-shrink-0 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-6000 dark:focus:ring-offset-0"
+            (click)="updateCart()"
+          >
+            <app-app-bag-icon
+              class="hidden sm:inline-block w-5 h-5 mt-2"
+            ></app-app-bag-icon>
+            <span class="ml-3 mb-2">{{ getButtonText() }}</span>
+          </app-app-button-primary>
+        </div>
+
+        <hr class="border-slate-200 dark:border-slate-700" />
+      </div>
+    </div>
+
+    <!-- Product Description -->
+    <div class="mt-6">
+      <h2 class="text-2xl font-bold mt-20 mb-10 text-spacing">
+        Product Details
+      </h2>
+      <div class="prose prose-sm sm:prose dark:prose-invert mt-7 text-spacing">
+        <ng-container *ngFor="let item of formattedDescription">
+          <ng-container *ngIf="item.type === 'text'">
+            <p [innerHTML]="formatTextWithNewLine(item.text)"></p>
+          </ng-container>
+          <ng-container *ngIf="item.type === 'image'">
+            <div class="mw-300 mx-auto mt-1rem h-auto mb-1rem">
+              <img
+                *ngFor="let url of item.image?.url_list || []"
+                [src]="baseUrl + 'images/products_real/images/' + url"
+                [alt]="url"
+                class="description-image"
+              />
+            </div>
+          </ng-container>
+        </ng-container>
       </div>
     </div>
   </div>

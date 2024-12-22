@@ -2,7 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { ShopService } from '../../../core/services/shop.service';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from '../../../shared/models/product';
-import { CurrencyPipe } from '@angular/common';
+import { CommonModule, CurrencyPipe } from '@angular/common';
 import { MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
@@ -11,6 +11,12 @@ import { MatDivider } from '@angular/material/divider';
 import { CartService } from '../../../core/services/cart.service';
 import { FormsModule } from '@angular/forms';
 import { environment } from '../../../../environments/environment';
+import { AppBagIconComponent } from './components/app-bag-icon/app-bag-icon.component';
+import { AppButtonPrimaryComponent } from './components/app-button-primary/app-button-primary.component';
+import { AppNcInputNumberComponent } from './components/app-nc-input-number/app-nc-input-number.component';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { DescriptionItem } from '../../../shared/models/descriptionItem';
+import { ProductAttributeComponent } from './components/product-attribute/product-attribute.component';
 
 @Component({
   selector: 'app-product-details',
@@ -24,6 +30,11 @@ import { environment } from '../../../../environments/environment';
     MatLabel,
     MatDivider,
     FormsModule,
+    CommonModule,
+    AppBagIconComponent,
+    AppButtonPrimaryComponent,
+    AppNcInputNumberComponent,
+    ProductAttributeComponent,
   ],
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.scss',
@@ -36,6 +47,12 @@ export class ProductDetailsComponent implements OnInit {
   quantityInCart = 0;
   quantity = 1;
   baseUrl = environment.baseUrl;
+  selectedImage: string = '';
+  isImageModalOpen = false;
+  formattedDescription: DescriptionItem[] = [];
+  selectedAttributes: { [key: string]: number } = {};
+
+  constructor(private sanitizer: DomSanitizer) {}
 
   ngOnInit(): void {
     this.loadProduct();
@@ -47,10 +64,49 @@ export class ProductDetailsComponent implements OnInit {
     this.shopService.getProduct(+id).subscribe({
       next: (product) => {
         this.product = product.data;
+
+        if (this.product) {
+          // Đặt ảnh chính ban đầu
+          this.selectedImage = this.product.imageUrl;
+
+          // Thêm ảnh chính vào danh sách `imageCoverUrls`
+          this.product.imageCoverUrls = [
+            this.product.imageUrl,
+            ...this.product.imageCoverUrls,
+          ];
+
+          try {
+            const parsedDescription = JSON.parse(this.product.description);
+            if (Array.isArray(parsedDescription)) {
+              this.formattedDescription =
+                parsedDescription as DescriptionItem[];
+            }
+          } catch {
+            console.error('Lỗi khi parse description JSON');
+          }
+        }
+
         this.updateQuantityInCart();
       },
       error: (error) => console.log(error),
     });
+  }
+
+  formatTextWithNewLine(text: string | undefined): string {
+    if (!text) return '';
+    return text.replace(/\n/g, '<br>');
+  }
+
+  changeMainImage(image: string) {
+    this.selectedImage = image;
+  }
+
+  openImageModal() {
+    this.isImageModalOpen = true;
+  }
+
+  closeImageModal() {
+    this.isImageModalOpen = false;
   }
 
   updateCart() {
@@ -76,5 +132,18 @@ export class ProductDetailsComponent implements OnInit {
 
   getButtonText() {
     return this.quantityInCart > 0 ? 'Update cart' : 'Add to cart';
+  }
+
+  onQuantityChange(newQuantity: number) {
+    this.quantity = newQuantity;
+  }
+
+  sanitizeUrl(url: string): SafeUrl {
+    return this.sanitizer.bypassSecurityTrustUrl(url);
+  }
+
+  onAttributeOptionSelected(attributeCode: string, optionId: number) {
+    this.selectedAttributes[attributeCode] = optionId;
+    console.log('Selected Attributes:', this.selectedAttributes);
   }
 }

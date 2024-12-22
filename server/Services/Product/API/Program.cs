@@ -94,7 +94,7 @@ try
     await StoreContextSeed.SeedAsync(context, userManager);
     var path = System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
     var productResolver = services.GetRequiredService<ProductResolver>();
-    await ProductResolver.AddProductsFromJsonAsync(context, productResolver, path + @"/Data/SeedData/products_crawl.json");
+    await ProductResolver.AddProductsFromJsonAsync(context, productResolver, path + @"/Data/SeedData/products_new.json");
 }
 catch (Exception ex)
 {

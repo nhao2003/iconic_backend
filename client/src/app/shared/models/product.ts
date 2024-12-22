@@ -5,6 +5,7 @@ export type Product = {
   price: number;
   discountedPrice?: number;
   imageUrl: string;
+  imageCoverUrls: string[];
   type: string;
   brand: string;
   quantityInStock: number;
@@ -37,7 +38,12 @@ export type Product = {
       displayOnFrontend: boolean;
       sortOrder: number;
       isFilterable: boolean;
-      attributeOptions: any[];
+      attributeOptions: {
+        id: number;
+        attributeCode: string;
+        optionText: string;
+        description: null;
+      }[];
     };
   }[];
   variants: {

@@ -1,0 +1,39 @@
+.product-attribute {
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Số cột giống như trong ví dụ */
+    gap: 0.5rem; /* Khoảng cách giữa các phần tử */
+    margin-top: 1rem; /* Khoảng cách trên */
+
+    .relative {
+      display: flex; /* Đảm bảo nội dung căn giữa */
+      align-items: center; /* Căn giữa theo chiều dọc */
+      justify-content: center; /* Căn giữa theo chiều ngang */
+      height: 2.5rem; /* Chiều cao cố định */
+      border-radius: 1rem; /* Bo góc */
+      border: 1px solid #d1d5db; /* Viền màu xám nhạt */
+      font-size: 0.875rem; /* Cỡ chữ nhỏ */
+      font-weight: 600; /* Đậm */
+      text-transform: uppercase; /* Chữ in hoa */
+      cursor: pointer; /* Khi hover chuột */
+      background-color: transparent; /* Màu nền trong suốt mặc định */
+      color: #4b5563; /* Màu chữ xám nhạt */
+      transition: background-color 0.3s ease; /* Hiệu ứng khi hover */
+
+      &:hover {
+        background-color: #e5e7eb; /* Màu nền khi hover */
+      }
+
+      &.active {
+        background-color: #3b82f6; /* Màu nền xanh khi được chọn */
+        color: white; /* Màu chữ trắng khi chọn */
+        border-color: #2563eb; /* Đổi màu viền khi được chọn */
+      }
+
+      &.disabled {
+        color: rgba(255, 255, 255, 0.5); /* Màu chữ mờ khi vô hiệu */
+        cursor: not-allowed; /* Không cho click */
+      }
+    }
+  }
+}
