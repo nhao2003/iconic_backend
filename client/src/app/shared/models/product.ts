@@ -56,7 +56,12 @@ export type Product = {
       optionText: string;
       variantId: number;
       attributeId: number;
-      option: any;
+      option: {
+        id: number;
+        attributeCode: string;
+        optionText: string;
+        description: null;
+      };
     }[];
   }[];
   productCustomOptions: {

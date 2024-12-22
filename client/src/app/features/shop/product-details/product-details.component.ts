@@ -84,11 +84,42 @@ export class ProductDetailsComponent implements OnInit {
           } catch {
             console.error('Lỗi khi parse description JSON');
           }
+
+          this.filterAttributeOptions();
         }
 
         this.updateQuantityInCart();
       },
       error: (error) => console.log(error),
+    });
+  }
+
+  filterAttributeOptions() {
+    if (!this.product) return;
+
+    // Tạo một danh sách các attributeOptionId có trong các variant
+    const variantOptionIds = this.product.variants.flatMap((variant) =>
+      variant.attributeValues.map((attributeValue) => attributeValue.option.id)
+    );
+
+    console.log('Variant Option IDs:', variantOptionIds); // Log các ID của các option có trong các variant
+
+    // Lọc các attributeOptions của mỗi productAttribute
+    this.product.productAttributes.forEach((attribute) => {
+      console.log(
+        'Before Filtering Attribute Options:',
+        attribute.productAttribute.attributeOptions
+      ); // Log trước khi lọc
+
+      attribute.productAttribute.attributeOptions =
+        attribute.productAttribute.attributeOptions.filter((option) =>
+          variantOptionIds.includes(option.id)
+        );
+
+      console.log(
+        'After Filtering Attribute Options:',
+        attribute.productAttribute.attributeOptions
+      ); // Log sau khi lọc
     });
   }
 
@@ -146,4 +177,41 @@ export class ProductDetailsComponent implements OnInit {
     this.selectedAttributes[attributeCode] = optionId;
     console.log('Selected Attributes:', this.selectedAttributes);
   }
+
+  // filterAttributeOptions(attributeId: number) {
+  //   // Kiểm tra xem sản phẩm có các variants hay không
+  //   console.log('Product Variants:', this.product?.variants);
+  //   if (!this.product?.variants) return [];
+
+  //   // Tạo danh sách các attributeValues thuộc Variant
+  //   const variantAttributeValues = this.product.variants.flatMap((variant) => {
+  //     const filteredValues = variant.attributeValues.filter(
+  //       (value) => value.attributeId === attributeId
+  //     );
+  //     console.log(
+  //       'Filtered attributeValues for variant',
+  //       variant.id,
+  //       ':',
+  //       filteredValues
+  //     );
+  //     return filteredValues;
+  //   });
+
+  //   console.log(
+  //     'All filtered variant attributeValues:',
+  //     variantAttributeValues
+  //   );
+
+  //   // Trả về các attributeOptions có trong attributeValues của variants
+  //   const attributeOptions =
+  //     this.product?.productAttributes
+  //       .find((attr) => attr.productAttribute.id === attributeId)
+  //       ?.productAttribute.attributeOptions.filter((option) =>
+  //         variantAttributeValues.some((value) => value.option.id === option.id)
+  //       ) || [];
+
+  //   console.log('Filtered attributeOptions:', attributeOptions);
+
+  //   return attributeOptions;
+  // }
 }
