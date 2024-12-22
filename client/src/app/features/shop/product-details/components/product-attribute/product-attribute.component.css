@@ -9,7 +9,7 @@
       display: flex; /* Đảm bảo nội dung căn giữa */
       align-items: center; /* Căn giữa theo chiều dọc */
       justify-content: center; /* Căn giữa theo chiều ngang */
-      height: 2.5rem; /* Chiều cao cố định */
+      height: 3rem; /* Chiều cao cố định */
       border-radius: 1rem; /* Bo góc */
       border: 1px solid #d1d5db; /* Viền màu xám nhạt */
       font-size: 0.875rem; /* Cỡ chữ nhỏ */
@@ -17,7 +17,6 @@
       text-transform: uppercase; /* Chữ in hoa */
       cursor: pointer; /* Khi hover chuột */
       background-color: transparent; /* Màu nền trong suốt mặc định */
-      color: #4b5563; /* Màu chữ xám nhạt */
       transition: background-color 0.3s ease; /* Hiệu ứng khi hover */
 
       &:hover {

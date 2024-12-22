@@ -6,7 +6,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./product-attribute.component.scss'],
   template: `
     <div class="product-attribute mt-10">
-      <label class="font-medium text-lg ">
+      <label class="font-medium font-size-0.875rem ">
         <span>
           {{ attribute.productAttribute.attributeName }}:
           <span class="ml-1 font-semibold">{{ selectedOption }}</span>

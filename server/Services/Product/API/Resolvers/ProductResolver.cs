@@ -63,12 +63,17 @@ public class ProductResolver : BaseResolver
         }).ToList();
 
         // get AttributeOptions by Ids
-        var attributeOptionMap = new Dictionary<long, AttributeOption>();
+        // Map lớn hơn để lưu kết quả
+        var variantAttributeOptionMap = new Dictionary<string, Dictionary<long, AttributeOption>>();
+
         foreach (var variant in createProduct.Variants)
         {
+            // Tạo mới một attributeOptionMap cho mỗi variant
+            var attributeOptionMap = new Dictionary<long, AttributeOption>();
+
             foreach (var attribute in variant.AttributeValues)
             {
-                if (!attributeOptionMap.ContainsKey(attribute.OptionId))
+                if (!attributeOptionMap.ContainsKey(attribute.AttributeId))
                 {
                     var option = await _unitOfWork.Repository<AttributeOption>().GetByIdAsync(attribute.OptionId);
                     if (option != null)
@@ -77,15 +82,21 @@ public class ProductResolver : BaseResolver
                     }
                 }
             }
+
+            // Lưu attributeOptionMap vào variantAttributeOptionMap với key là variant sku
+            variantAttributeOptionMap[variant.Sku] = attributeOptionMap;
         }
 
         foreach (var productVariant in product.Variants)
         {
-            foreach (var productAttributeValue in productVariant.AttributeValues)
+            if (variantAttributeOptionMap.TryGetValue(productVariant.Sku, out var attributeOptionMap))
             {
-                if (attributeOptionMap.TryGetValue(productAttributeValue.AttributeId, out var option))
+                foreach (var productAttributeValue in productVariant.AttributeValues)
                 {
-                    productAttributeValue.Option = option;
+                    if (attributeOptionMap.TryGetValue(productAttributeValue.AttributeId, out var option))
+                    {
+                        productAttributeValue.Option = option;
+                    }
                 }
             }
         }
