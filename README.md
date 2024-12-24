@@ -1,8 +1,34 @@
 # Iconic Project Repository
+This project is an E-Commerce Platform developed using .NET and integrated with Gemini AI to provide a smart chatbot feature. The chatbot enhances the user experience by assisting with product searches, order tracking, and customer inquiries in real-time.
+# Features
+
+* Product Catalog: Display and manage product listings with categories and filters.
+
+* Shopping Cart: Add, update, and remove items from the cart.
+
+* Order Management: Track orders and manage shipping details.
+
+* AI Chatbot: Gemini-powered chatbot for instant support and product recommendations.
+
+* User Authentication: Secure login and registration with JWT.
+
+* Payment Integration: Support for multiple payment gateways.
+
+# Tech Stack
+
+* Backend Framework: .NET Core (C#)
+
+* AI Service: Gemini API
+
+* Database: SQL Server
+
+* Authentication: JWT (JSON Web Token)
+
+* Environment Management: dotenv / appsettings.json
 
 # Running the project
 
-You can see a live demo of this project [here](https://iconic-course.azurewebsites.net/).
+![Hero](./images/hero.png)
 
 You can also run this app locally. To run this project locally you will need to have installed:
 
@@ -13,14 +39,13 @@ You can also run this app locally. To run this project locally you will need to 
 
 ```bash
 # you will of course need git installed to run this
-git clone https://github.com/TryCatchLearn/iconic-2024.git
-cd iconic-2024
+git clone https://github.com/nhao2003/iconic-backend.git
+cd iconic-backend
 ```
 
 5. Restore the packages by running:
 
 ```bash
-# From the solution folder (iconic-2024)
 dotnet restore
 
 # Change directory to client to run the npm install.  Only necessary if you want to run
