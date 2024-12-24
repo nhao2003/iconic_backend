@@ -26,7 +26,7 @@ builder.Services.AddDbContext<StoreContext>(opt =>
 //builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-builder.Services.AddCors();
+//builder.Services.AddCors();
 builder.Services.AddSingleton<IConnectionMultiplexer>(config =>
 {
     var connString = builder.Configuration.GetConnectionString("Redis")
@@ -62,6 +62,14 @@ builder.Services.AddGraphQLServer()
     .AddType<ProductQuery>()
     .AddType<CategoryQuery>()
     .AddType<AttributeQuery>();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll",
+        policy => policy.AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader());
+});
 
 var app = builder.Build();
 

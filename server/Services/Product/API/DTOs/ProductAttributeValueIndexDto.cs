@@ -12,7 +12,6 @@
     public class CreateProductAttributeValueIndexDto
     {
         public string? OptionText { get; set; }
-        public long VariantId { get; set; }
         public long AttributeId { get; set; }
         public long OptionId { get; set; }
     }

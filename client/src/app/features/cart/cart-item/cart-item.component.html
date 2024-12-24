@@ -2,7 +2,7 @@
   <div class="flex items-center justify-between gap-6">
     <a routerLink="/shop/{{ item().productId }}" class="shrink order-1">
       <img
-        [src]="baseUrl + 'images/products_real/images/' + item().pictureUrl"
+        [src]="item().pictureUrl"
         alt="product image"
         class="h-20 w-20"
       />
