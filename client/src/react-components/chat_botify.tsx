@@ -1,23 +1,34 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import ChatBot, { Flow, Params } from "react-chatbotify";
 import { marked } from "marked";
+import FaqAccordion from "./Accordion";
+import ProductList from "./ProductList";
 
 const ChatBotify = () => {
-
   async function callApi(params: Params) {
-    const response = await fetch("http://localhost:8683/generate", {
+    const response = await fetch("http://localhost:3000/chat", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        "query": params.userInput,
+        "text": params.userInput,
       })
     });
     const data = await response.json();
-    //  Thay nhiều dấu\n bằng 1 \n
-    const responseMessage = data.response.replace(/\n{2,}/g, '\n');
+    const responseMessage = data.answer.replace(/\n{2,}/g, '\n');
     params.injectMessage(marked(responseMessage));
+
+    if (data.intent.intent === 'policy_faq') {
+      params.injectMessage((
+        <FaqAccordion faqs={data.faqs} />
+      ));
+    } else if (data.intent.intent === 'product_consultation') {
+      params.injectMessage((
+        <ProductList products={data.products} />
+      ));
+    }
+
   }
 
   const flow: Flow = {
@@ -27,8 +38,8 @@ const ChatBotify = () => {
     },
     "loop": {
       message: callApi,
-      path: "loop"
-    }
+      path: "loop",
+    },
   };
 
   return (
