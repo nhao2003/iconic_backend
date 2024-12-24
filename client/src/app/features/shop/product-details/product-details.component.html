@@ -7,7 +7,7 @@
         <!-- Main Image -->
         <img
           class="img-responsive object-cover rounded-lg mb-4 cursor-pointer"
-          [src]="baseUrl + 'images/products_real/images/' + selectedImage"
+          [src]="selectedImage"
           alt="main product image"
           width="800"
           height="800"
@@ -20,7 +20,7 @@
             *ngFor="let image of product.imageCoverUrls"
             class="object-cover rounded-lg"
             style="max-height: 200px"
-            [src]="baseUrl + 'images/products_real/images/' + image"
+            [src]="image"
             alt="additional product image"
             (click)="changeMainImage(image)"
           />
@@ -33,10 +33,7 @@
         *ngIf="isImageModalOpen"
         (click)="closeImageModal()"
       >
-        <img
-          [src]="baseUrl + 'images/products_real/images/' + selectedImage"
-          alt="zoomed product image"
-        />
+        <img [src]="selectedImage" alt="zoomed product image" />
       </div>
 
       <!-- Product Details Section -->
@@ -133,7 +130,7 @@
             <div class="mw-300 mx-auto mt-1rem h-auto mb-1rem">
               <img
                 *ngFor="let url of item.image?.url_list || []"
-                [src]="baseUrl + 'images/products_real/images/' + url"
+                [src]="url"
                 [alt]="url"
                 class="description-image"
               />
