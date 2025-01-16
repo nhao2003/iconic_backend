@@ -1,5 +1,14 @@
 # Iconic Project Repository
 This project is an E-Commerce Platform developed using .NET and integrated with Gemini AI to provide a smart chatbot feature. The chatbot enhances the user experience by assisting with product searches, order tracking, and customer inquiries in real-time.
+# DEMO
+
+| Hình 1      | Hình 2      |
+|-------------|-------------|
+| ![Demo 1](./images/demo1.png) | ![Demo 2](./images/demo2.png) |
+| Hình 3      | Hình 4      |
+| ![Demo 3](./images/demo3.png) | ![Demo 4](./images/demo4.png) |
+
+
 # Features
 
 * Product Catalog: Display and manage product listings with categories and filters.
